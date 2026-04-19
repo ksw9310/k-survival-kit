@@ -7,6 +7,7 @@ import SectionGrid from '@/components/SectionGrid';
 import { getDictionary } from '@/data';
 import FirstWeekChecklist from '@/components/FirstWeekChecklist';
 import NearbyStrip from '@/components/NearbyStrip';
+import AffiliateBanner from '@/components/AffiliateBanner';
 
 /**
  * Design reminder for this file:
@@ -77,6 +78,17 @@ export default async function GettingStartedPage({ params }: Props) {
         ]}
       />
       <FirstWeekChecklist />
+
+      <div className="bg-slate-50 px-4 py-8 max-w-4xl mx-auto">
+        <AffiliateBanner
+          icon="🗣️"
+          title="Learn Korean with italki"
+          description="Connect with native Korean tutors for 1-on-1 lessons. Start with basics before or after arriving in Korea — at your own pace."
+          href="https://www.italki.com/affshare?ref=af31844697"
+          ctaText="Find a Korean Tutor"
+          accentColor="blue"
+        />
+      </div>
 
       <RelatedPosts lang={lang as string} current="getting-started" />
     </main>
