@@ -60,6 +60,31 @@ export default async function GettingStartedPage({ params }: Props) {
 
   const content = getDictionary(lang).gettingStartedContent;
 
+  const italki: Record<string, { title: string; description: string; ctaText: string }> = {
+    en: {
+      title: 'Learn Korean with italki',
+      description: 'Connect with native Korean tutors for 1-on-1 lessons. Start with basics before or after arriving in Korea — at your own pace.',
+      ctaText: 'Find a Korean Tutor',
+    },
+    zh: {
+      title: '用italki学习韩语',
+      description: '与母语为韩语的教师进行1对1课程。在来韩国之前或之后，按自己的节奏开始学习基础知识。',
+      ctaText: '寻找韩语老师',
+    },
+    ru: {
+      title: 'Учите корейский с italki',
+      description: 'Занимайтесь 1 на 1 с носителями корейского языка. Начните с основ до или после приезда в Корею — в удобном темпе.',
+      ctaText: 'Найти репетитора',
+    },
+    ja: {
+      title: 'italki で韓国語を学ぼう',
+      description: 'ネイティブの韓国語チューターと1対1レッスン。来韓前でも来韓後でも、自分のペースで基礎から始められます。',
+      ctaText: '韓国語チューターを探す',
+    },
+  };
+
+  const italkiT = italki[lang] ?? italki.en;
+
   return (
     <main>
       <PageHero
@@ -82,10 +107,10 @@ export default async function GettingStartedPage({ params }: Props) {
       <div className="bg-slate-50 px-4 py-8 max-w-4xl mx-auto">
         <AffiliateBanner
           icon="🗣️"
-          title="Learn Korean with italki"
-          description="Connect with native Korean tutors for 1-on-1 lessons. Start with basics before or after arriving in Korea — at your own pace."
+          title={italkiT.title}
+          description={italkiT.description}
           href="https://www.italki.com/affshare?ref=af31844697"
-          ctaText="Find a Korean Tutor"
+          ctaText={italkiT.ctaText}
           accentColor="blue"
         />
       </div>

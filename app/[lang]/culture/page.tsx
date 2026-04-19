@@ -51,6 +51,31 @@ export default async function CulturePage({ params }: Props) {
 
   const content = getDictionary(lang).cultureContent;
 
+  const klook: Record<string, { title: string; description: string; ctaText: string }> = {
+    en: {
+      title: 'Explore Korea with Klook',
+      description: 'Book tours, activities, and experiences in Korea — from temple stays to K-pop classes. Easy booking, instant confirmation.',
+      ctaText: 'Browse Korea Activities',
+    },
+    zh: {
+      title: '用Klook探索韩国',
+      description: '预订韩国的旅游、活动和体验——从寺庙住宿到K-pop课程。轻松预订，即时确认。',
+      ctaText: '浏览韩国活动',
+    },
+    ru: {
+      title: 'Исследуйте Корею с Klook',
+      description: 'Бронируйте туры, мероприятия и впечатления в Корее — от ночёвок в храмах до K-pop занятий. Удобное бронирование, мгновенное подтверждение.',
+      ctaText: 'Смотреть активности',
+    },
+    ja: {
+      title: 'Klookで韓国を探索しよう',
+      description: '寺院ステイからK-popクラスまで、韓国のツアーやアクティビティを簡単予約。予約後すぐに確認できます。',
+      ctaText: '韓国のアクティビティを見る',
+    },
+  };
+
+  const klookT = klook[lang] ?? klook.en;
+
   return (
     <main>
       <PageHero
@@ -63,10 +88,10 @@ export default async function CulturePage({ params }: Props) {
       <div className="bg-slate-50 px-4 py-8 max-w-4xl mx-auto">
         <AffiliateBanner
           icon="🎟️"
-          title="Explore Korea with Klook"
-          description="Book tours, activities, and experiences in Korea — from temple stays to K-pop classes. Easy booking, instant confirmation."
+          title={klookT.title}
+          description={klookT.description}
           href="https://affiliate.klook.com/redirect?aid=118997&aff_adid=1259369&k_site=https%3A%2F%2Fwww.klook.com%2F"
-          ctaText="Browse Korea Activities"
+          ctaText={klookT.ctaText}
           accentColor="rose"
         />
       </div>
