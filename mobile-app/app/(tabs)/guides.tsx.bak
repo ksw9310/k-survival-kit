@@ -1,0 +1,110 @@
+import { ScrollView, View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { useRouter } from 'expo-router';
+
+const CATEGORIES = [
+  {
+    title: 'Getting Started',
+    emoji: '🚀',
+    color: '#3b82f6',
+    items: [
+      { emoji: '🪪', label: 'ARC Card Guide', sub: 'Registration & requirements', route: '/guide/arc-card' },
+      { emoji: '🏦', label: 'Bank Account', sub: 'Best banks for foreigners', route: '/guide/bank' },
+      { emoji: '📱', label: 'SIM Card', sub: 'Airport SIM & eSIM options', route: '/guide/sim' },
+    ],
+  },
+  {
+    title: 'Daily Life',
+    emoji: '🌆',
+    color: '#f59e0b',
+    items: [
+      { emoji: '🛵', label: 'Delivery Apps', sub: 'Baemin, Coupang Eats & more', route: '/guide/delivery' },
+      { emoji: '🚇', label: 'Transport', sub: 'Subway, bus & T-money card', route: '/guide/transport' },
+    ],
+  },
+  {
+    title: 'Housing',
+    emoji: '🏠',
+    color: '#10b981',
+    items: [
+      { emoji: '🏘️', label: 'Rent & Deposit', sub: 'Jeonse vs Wolse explained', route: '/guide/rent' },
+    ],
+  },
+];
+
+export default function GuidesScreen() {
+  const router = useRouter();
+
+  return (
+    <ScrollView style={styles.container} contentContainerStyle={styles.content}>
+      <Text style={styles.pageTitle}>Guides</Text>
+      {CATEGORIES.map((cat) => (
+        <View key={cat.title} style={styles.category}>
+          <View style={styles.catHeader}>
+            <Text style={styles.catEmoji}>{cat.emoji}</Text>
+            <Text style={styles.catTitle}>{cat.title}</Text>
+          </View>
+          {cat.items.map((item) => (
+            <TouchableOpacity
+              key={item.route}
+              style={styles.guideRow}
+              onPress={() => router.push(item.route as any)}
+              activeOpacity={0.7}
+            >
+              <View style={[styles.guideIconBox, { backgroundColor: cat.color + '15' }]}>
+                <Text style={styles.guideEmoji}>{item.emoji}</Text>
+              </View>
+              <View style={styles.guideText}>
+                <Text style={styles.guideLabel}>{item.label}</Text>
+                <Text style={styles.guideSub}>{item.sub}</Text>
+              </View>
+              <Text style={styles.chevron}>›</Text>
+            </TouchableOpacity>
+          ))}
+        </View>
+      ))}
+    </ScrollView>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: { flex: 1, backgroundColor: '#f8fafc' },
+  content: { padding: 20, paddingBottom: 40 },
+  pageTitle: {
+    fontSize: 28,
+    fontWeight: '800',
+    color: '#0f172a',
+    marginBottom: 20,
+  },
+  category: { marginBottom: 24 },
+  catHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+    marginBottom: 10,
+  },
+  catEmoji: { fontSize: 20 },
+  catTitle: { fontSize: 16, fontWeight: '700', color: '#475569' },
+  guideRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#fff',
+    borderRadius: 14,
+    padding: 14,
+    marginBottom: 8,
+    borderWidth: 1,
+    borderColor: '#e2e8f0',
+    gap: 12,
+  },
+  guideIconBox: {
+    width: 44,
+    height: 44,
+    borderRadius: 12,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  guideEmoji: { fontSize: 22 },
+  guideText: { flex: 1 },
+  guideLabel: { fontSize: 15, fontWeight: '600', color: '#0f172a' },
+  guideSub: { fontSize: 12, color: '#64748b', marginTop: 2 },
+  chevron: { fontSize: 20, color: '#cbd5e1', fontWeight: '300' },
+});

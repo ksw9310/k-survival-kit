@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <!-- Background circle -->
+  <rect width="32" height="32" rx="8" fill="#0f172a"/>
+  <!-- Backpack body -->
+  <rect x="8" y="12" width="16" height="14" rx="3" fill="#f43f5e"/>
+  <!-- Backpack top strap -->
+  <rect x="12" y="8" width="8" height="5" rx="2" fill="#f43f5e"/>
+  <!-- Backpack handle -->
+  <rect x="14" y="7" width="4" height="3" rx="1.5" fill="#fb7185"/>
+  <!-- Front pocket -->
+  <rect x="11" y="18" width="10" height="6" rx="2" fill="#e11d48"/>
+  <!-- Pocket zipper line -->
+  <line x1="11" y1="21" x2="21" y2="21" stroke="#fb7185" stroke-width="1" stroke-linecap="round"/>
+  <!-- Shoulder straps -->
+  <path d="M10 12 Q8 16 9 24" stroke="#be123c" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+  <path d="M22 12 Q24 16 23 24" stroke="#be123c" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+</svg>
