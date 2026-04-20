@@ -4,6 +4,13 @@ import type { Lang } from '@/lib/i18n';
 
 type L = 'en' | 'zh' | 'ru' | 'ja';
 
+const AFFILIATE_DISCLOSURE: Record<L, string> = {
+  en: 'This site contains affiliate links. We may earn a small commission at no extra cost to you when you make a purchase through our links.',
+  zh: '本站包含联盟推广链接。您通过链接购买时，我们可能会获得少量佣金，对您不产生任何额外费用。',
+  ru: 'Этот сайт содержит партнёрские ссылки. При покупке через наши ссылки мы можем получить небольшую комиссию — без дополнительных затрат для вас.',
+  ja: '当サイトにはアフィリエイトリンクが含まれています。リンクを通じてご購入いただいた場合、追加費用なしで少額の手数料が発生することがあります。',
+};
+
 const EXTRA_LABELS: Record<
   L,
   {
@@ -52,6 +59,7 @@ const EXTRA_LABELS: Record<
 export default function Footer({ lang }: { lang: Lang }) {
   const t = getDictionary(lang).common;
   const ex = EXTRA_LABELS[(lang as L) in EXTRA_LABELS ? (lang as L) : 'en'];
+  const disclosure = AFFILIATE_DISCLOSURE[(lang as L) in AFFILIATE_DISCLOSURE ? (lang as L) : 'en'];
 
   const links = [
     { href: `/${lang}/getting-started`, label: t.nav.gettingStarted },
@@ -115,6 +123,9 @@ export default function Footer({ lang }: { lang: Lang }) {
 
         {/* Divider */}
         <div className="mb-8 border-t border-slate-800" />
+
+        {/* Affiliate disclosure */}
+        <p className="mb-6 text-xs leading-5 text-slate-600">{disclosure}</p>
 
         {/* Bottom row */}
         <div className="flex flex-col items-center gap-2 text-center text-xs text-slate-500 md:flex-row md:justify-between md:text-left">
