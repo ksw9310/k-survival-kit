@@ -5,6 +5,7 @@ import ArticleHero from '@/components/ArticleHero';
 import PageDisclaimer from '@/components/PageDisclaimer';
 import RelatedPosts from '@/components/RelatedPosts';
 import JsonLd from '@/components/JsonLd';
+import AffiliateBanner from '@/components/AffiliateBanner';
 
 type L = 'en' | 'zh' | 'ru' | 'ja';
 
