@@ -382,6 +382,25 @@ export default async function KoreaDeliveryAppsGuidePage({ params }: Props) {
           </section>
 
         </article>
+        <div className="mt-10 max-w-4xl mx-auto">
+          <AffiliateBanner
+            icon="🛍️"
+            title={
+              ({ en: 'Shop on Coupang', zh: '在Coupang购物', ru: 'Покупки на Coupang', ja: 'Coupangでショッピング' } as Record<string, string>)[lang] ?? 'Shop on Coupang'
+            }
+            description={
+              ({
+                en: "Can't find something in a Korean store? Order it on Coupang — Korea's largest online marketplace with rocket-fast delivery.",
+                zh: '在韩国找不到某样东西？在韩国最大的网上商城Coupang下单，享受超快火箭配送。',
+                ru: 'Не можете найти нужный товар в корейском магазине? Заказывайте на Coupang — крупнейшем онлайн-маркетплейсе Кореи с молниеносной доставкой.',
+                ja: '韓国のお店で見つからないものは、Coupangで注文！韓国最大のオンラインマーケットプレイスで超速ロケット配送。',
+              } as Record<string, string>)[lang] ?? "Can't find something in a Korean store? Order it on Coupang — Korea's largest online marketplace with rocket-fast delivery."
+            }
+            href="https://link.coupang.com/a/esx4lG"
+            ctaText={({ en: 'Shop on Coupang', zh: '前往Coupang', ru: 'Перейти на Coupang', ja: 'Coupangで購入' } as Record<string, string>)[lang] ?? 'Shop on Coupang'}
+            accentColor="rose"
+          />
+        </div>
         <RelatedPosts lang={lang as string} current="korea-delivery-apps-guide" />
       </main>
     </>

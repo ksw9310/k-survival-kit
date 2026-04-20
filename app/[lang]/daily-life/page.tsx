@@ -6,6 +6,7 @@ import { getDictionary } from '@/data';
 import { isValidLocale } from '@/lib/i18n';
 import RelatedPosts from '@/components/RelatedPosts';
 import NearbyStrip from '@/components/NearbyStrip';
+import AffiliateBanner from '@/components/AffiliateBanner';
 
 type Props = {
   params: Promise<{ lang: string }>;
@@ -51,6 +52,15 @@ export default async function DailyLifePage({ params }: Props) {
 
   const content = getDictionary(lang).dailyLifeContent;
 
+  const coupang: Record<string, { title: string; description: string; ctaText: string }> = {
+    en: { title: 'Shop on Coupang', description: 'Korea\'s largest online store — groceries, daily essentials, electronics, and more. Rocket delivery gets it to your door fast.', ctaText: 'Shop on Coupang' },
+    zh: { title: '在Coupang购物', description: '韩国最大的网上商店——食品杂货、日用品、电子产品等。火箭配送，快速送达。', ctaText: '前往Coupang' },
+    ru: { title: 'Покупки на Coupang', description: 'Крупнейший интернет-магазин Кореи — продукты, товары первой необходимости, электроника и многое другое. Быстрая доставка Rocket.', ctaText: 'Перейти на Coupang' },
+    ja: { title: 'Coupangでショッピング', description: '韓国最大のオンラインショップ——食料品、日用品、電化製品など。ロケット配送で素早くお届け。', ctaText: 'Coupangで購入' },
+  };
+
+  const coupangT = coupang[lang] ?? coupang.en;
+
   return (
     <main>
       <PageHero
@@ -67,6 +77,16 @@ export default async function DailyLifePage({ params }: Props) {
           { icon: '🏪', label: 'Convenience Store', category: 'convenience' },
         ]}
       />
+      <div className="bg-slate-50 px-4 py-8 max-w-4xl mx-auto">
+        <AffiliateBanner
+          icon="🛍️"
+          title={coupangT.title}
+          description={coupangT.description}
+          href="https://link.coupang.com/a/esx4lG"
+          ctaText={coupangT.ctaText}
+          accentColor="rose"
+        />
+      </div>
       <RelatedPosts lang={lang as string} current="daily-life" />
     </main>
   );
