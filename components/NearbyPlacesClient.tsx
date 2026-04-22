@@ -3,11 +3,12 @@
 import { useEffect, useRef, useState, useCallback } from 'react';
 
 declare global {
-  interface Window { L: any; }
+  interface Window { kakao: any; }
 }
 
 const DEFAULT_POS = { lat: 37.5665, lng: 126.978 };
 const CACHE_KEY = 'ksk_last_position';
+const KAKAO_APP_KEY = '085f096caf889be28ed7560edf5a00a9';
 
 type L = 'en' | 'zh' | 'ru' | 'ja';
 
@@ -52,7 +53,7 @@ const STRINGS: Record<L, Strings> = {
     searching: '搜索中…',
     checkingLocation: '正在获取您的位置…',
     resultsCount: (count, label) => `周边1km内 ${label} ${count}个`,
-    noResults: '周边1km内无结果。',
+    noResults: '周边1km以内无结果。',
     myLocation: '📍 我的位置',
   },
   ru: {
@@ -85,27 +86,27 @@ const STRINGS: Record<L, Strings> = {
   },
 };
 
-type Category = { key: string; label: string; icon: string; tag: string; value: string; tip?: string };
+// KakaoMap category codes
+const KAKAO_CATEGORY: Record<string, string> = {
+  bank: 'BK9',
+  pharmacy: 'PM9',
+  supermarket: 'MT1',
+  convenience: 'CS2',
+};
+
+type Category = { key: string; label: string; icon: string; tip?: string };
 
 function getCategories(s: Strings): Category[] {
   return [
-    { key: 'bank', label: s.categories.bank, icon: '🏦', tag: 'amenity', value: 'bank' },
-    { key: 'pharmacy', label: s.categories.pharmacy, icon: '💊', tag: 'amenity', value: 'pharmacy' },
-    { key: 'supermarket', label: s.categories.supermarket, icon: '🛒', tag: 'shop', value: 'supermarket' },
-    { key: 'convenience', label: s.categories.convenience, icon: '🏪', tag: 'shop', value: 'convenience', tip: s.convenienceTip },
+    { key: 'bank', label: s.categories.bank, icon: '🏦' },
+    { key: 'pharmacy', label: s.categories.pharmacy, icon: '💊' },
+    { key: 'supermarket', label: s.categories.supermarket, icon: '🛒' },
+    { key: 'convenience', label: s.categories.convenience, icon: '🏪', tip: s.convenienceTip },
   ];
 }
 
-type Place = { id: number; name: string; address: string; lat: number; lng: number; distance: number };
+type Place = { id: string; name: string; address: string; lat: number; lng: number; distance: number };
 type LocationState = 'idle' | 'locating' | 'cached' | 'live' | 'denied';
-
-function haversine(lat1: number, lng1: number, lat2: number, lng2: number): number {
-  const R = 6371000;
-  const dLat = ((lat2 - lat1) * Math.PI) / 180;
-  const dLng = ((lng2 - lng1) * Math.PI) / 180;
-  const a = Math.sin(dLat / 2) ** 2 + Math.cos((lat1 * Math.PI) / 180) * Math.cos((lat2 * Math.PI) / 180) * Math.sin(dLng / 2) ** 2;
-  return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-}
 
 function loadCachedPosition(): { lat: number; lng: number } | null {
   try {
@@ -143,65 +144,74 @@ export default function NearbyPlacesClient({
   const [loading, setLoading] = useState(false);
   const [mapReady, setMapReady] = useState(false);
 
+  // Load KakaoMap SDK
   useEffect(() => {
-    if (window.L) { setMapReady(true); return; }
-    const link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.href = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';
-    document.head.appendChild(link);
+    if (window.kakao?.maps) { setMapReady(true); return; }
     const script = document.createElement('script');
-    script.src = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
-    script.onload = () => setMapReady(true);
+    script.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${KAKAO_APP_KEY}&libraries=services&autoload=false`;
+    script.onload = () => {
+      window.kakao.maps.load(() => setMapReady(true));
+    };
     document.head.appendChild(script);
   }, []);
 
   const searchPlaces = useCallback(
-    async (categoryKey: string, pos: { lat: number; lng: number }) => {
-      const cat = CATEGORIES.find((c) => c.key === categoryKey);
-      if (!cat) return;
+    (categoryKey: string, pos: { lat: number; lng: number }) => {
+      if (!window.kakao?.maps) return;
       setLoading(true);
       setPlaces([]);
-      markersRef.current.forEach((m) => m.remove());
+      markersRef.current.forEach((m) => m.setMap(null));
       markersRef.current = [];
-      try {
-        const query = `[out:json][timeout:15];(node["${cat.tag}"="${cat.value}"](around:1000,${pos.lat},${pos.lng});way["${cat.tag}"="${cat.value}"](around:1000,${pos.lat},${pos.lng}););out center 20;`;
-        const res = await fetch(`https://overpass-api.de/api/interpreter?data=${encodeURIComponent(query)}`);
-        const data = await res.json();
-        const results: Place[] = (data.elements ?? [])
-          .map((el: any) => {
-            const lat = el.type === 'way' ? el.center?.lat : el.lat;
-            const lng = el.type === 'way' ? el.center?.lon : el.lon;
-            if (!lat || !lng) return null;
-            return {
-              id: el.id,
-              name: el.tags?.['name:ko'] || el.tags?.name || cat.label,
-              address: [el.tags?.['addr:full'], el.tags?.['addr:street']].filter(Boolean).join(' '),
-              lat, lng,
-              distance: haversine(pos.lat, pos.lng, lat, lng),
-            };
-          })
-          .filter(Boolean)
-          .sort((a: Place, b: Place) => a.distance - b.distance);
-        setPlaces(results);
-        if (mapRef.current && window.L) {
-          results.forEach((place: Place) => {
-            const marker = window.L.marker([place.lat, place.lng]).addTo(mapRef.current).bindPopup(`<strong>${place.name}</strong>`);
-            markersRef.current.push(marker);
-          });
-          if (results.length > 0) mapRef.current.fitBounds(window.L.featureGroup(markersRef.current).getBounds().pad(0.25));
-        }
-      } catch { setPlaces([]); }
-      finally { setLoading(false); }
+
+      const ps = new window.kakao.maps.services.Places();
+      const categoryCode = KAKAO_CATEGORY[categoryKey] ?? 'BK9';
+      const location = new window.kakao.maps.LatLng(pos.lat, pos.lng);
+
+      ps.categorySearch(
+        categoryCode,
+        (data: any[], status: string) => {
+          if (status !== window.kakao.maps.services.Status.OK) {
+            setPlaces([]);
+            setLoading(false);
+            return;
+          }
+          const results: Place[] = data.map((item: any) => ({
+            id: item.id,
+            name: item.place_name,
+            address: item.road_address_name || item.address_name,
+            lat: parseFloat(item.y),
+            lng: parseFloat(item.x),
+            distance: parseInt(item.distance, 10),
+          }));
+          setPlaces(results);
+          if (mapRef.current) {
+            results.forEach((place) => {
+              const markerPos = new window.kakao.maps.LatLng(place.lat, place.lng);
+              const marker = new window.kakao.maps.Marker({ position: markerPos, map: mapRef.current });
+              const infowindow = new window.kakao.maps.InfoWindow({ content: `<div style="padding:5px;font-size:12px">${place.name}</div>` });
+              window.kakao.maps.event.addListener(marker, 'click', () => infowindow.open(mapRef.current, marker));
+              markersRef.current.push(marker);
+            });
+          }
+          setLoading(false);
+        },
+        { location, radius: 1000, sort: window.kakao.maps.services.SortBy.DISTANCE }
+      );
     },
     [lang] // eslint-disable-line react-hooks/exhaustive-deps
   );
 
   function addUserMarker(pos: { lat: number; lng: number }) {
-    if (!mapRef.current || !window.L) return;
-    if (userMarkerRef.current) userMarkerRef.current.remove();
-    userMarkerRef.current = window.L.circleMarker([pos.lat, pos.lng], {
-      radius: 9, fillColor: '#3b82f6', color: '#fff', weight: 3, fillOpacity: 1,
-    }).addTo(mapRef.current).bindPopup(s.myLocation);
+    if (!mapRef.current || !window.kakao?.maps) return;
+    if (userMarkerRef.current) userMarkerRef.current.setMap(null);
+    const markerPos = new window.kakao.maps.LatLng(pos.lat, pos.lng);
+    const customOverlay = new window.kakao.maps.CustomOverlay({
+      position: markerPos,
+      content: '<div style="width:16px;height:16px;background:#3b82f6;border:3px solid white;border-radius:50%;box-shadow:0 2px 6px rgba(0,0,0,0.3)"></div>',
+      zIndex: 10,
+    });
+    customOverlay.setMap(mapRef.current);
+    userMarkerRef.current = customOverlay;
   }
 
   function requestLiveLocation() {
@@ -214,7 +224,7 @@ export default function NearbyPlacesClient({
         setPosition(newPos);
         setLocationState('live');
         addUserMarker(newPos);
-        mapRef.current?.setView([newPos.lat, newPos.lng], 15);
+        mapRef.current?.setCenter(new window.kakao.maps.LatLng(newPos.lat, newPos.lng));
         searchPlaces(selectedCategory, newPos);
       },
       () => { setLocationState((prev) => (prev === 'cached' ? 'cached' : 'denied')); },
@@ -226,11 +236,17 @@ export default function NearbyPlacesClient({
     if (!mapReady || !mapContainerRef.current || mapRef.current) return;
     const cached = loadCachedPosition();
     const initialPos = cached ?? DEFAULT_POS;
-    mapRef.current = window.L.map(mapContainerRef.current).setView([initialPos.lat, initialPos.lng], cached ? 15 : 12);
-    window.L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>', maxZoom: 19,
-    }).addTo(mapRef.current);
-    if (cached) { setPosition(cached); setLocationState('cached'); addUserMarker(cached); searchPlaces(selectedCategory, cached); }
+    const center = new window.kakao.maps.LatLng(initialPos.lat, initialPos.lng);
+    mapRef.current = new window.kakao.maps.Map(mapContainerRef.current, {
+      center,
+      level: cached ? 4 : 6,
+    });
+    if (cached) {
+      setPosition(cached);
+      setLocationState('cached');
+      addUserMarker(cached);
+      searchPlaces(selectedCategory, cached);
+    }
     requestLiveLocation();
   }, [mapReady]); // eslint-disable-line react-hooks/exhaustive-deps
 
