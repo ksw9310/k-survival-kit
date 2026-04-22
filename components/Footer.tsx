@@ -20,6 +20,7 @@ const EXTRA_LABELS: Record<
     emergencyContacts: string;
     about: string;
     terms: string;
+    makingFriends: string;
   }
 > = {
   en: {
@@ -29,6 +30,7 @@ const EXTRA_LABELS: Record<
     emergencyContacts: 'Emergency Contacts',
     about: 'About',
     terms: 'Terms of Use',
+    makingFriends: 'Making Friends',
   },
   zh: {
     nearby: '查找周边',
@@ -37,6 +39,7 @@ const EXTRA_LABELS: Record<
     emergencyContacts: '紧急联系电话',
     about: '关于',
     terms: '使用条款',
+    makingFriends: '交朋友',
   },
   ru: {
     nearby: 'Рядом со мной',
@@ -45,6 +48,7 @@ const EXTRA_LABELS: Record<
     emergencyContacts: 'Экстренные контакты',
     about: 'О нас',
     terms: 'Условия',
+    makingFriends: 'Знакомства',
   },
   ja: {
     nearby: '近くを探す',
@@ -53,6 +57,7 @@ const EXTRA_LABELS: Record<
     emergencyContacts: '緊急連絡先',
     about: 'About',
     terms: '利用規約',
+    makingFriends: '友達を作ろう',
   },
 };
 
@@ -72,6 +77,7 @@ export default function Footer({ lang }: { lang: Lang }) {
     { href: `/${lang}/transport`, label: ex.transport },
     { href: `/${lang}/emergency-korean`, label: ex.emergencyKorean },
     { href: `/${lang}/emergency-contacts`, label: ex.emergencyContacts },
+    { href: `/${lang}/making-friends`, label: ex.makingFriends },
   ];
 
   return (
