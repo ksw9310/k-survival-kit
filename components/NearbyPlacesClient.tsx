@@ -13,7 +13,7 @@ const KAKAO_APP_KEY = '085f096caf889be28ed7560edf5a00a9';
 type L = 'en' | 'zh' | 'ru' | 'ja';
 
 type Strings = {
-  categories: { bank: string; pharmacy: string; supermarket: string; convenience: string };
+  categories: { bank: string; pharmacy: string; supermarket: string; convenience: string; hospital: string; police: string };
   convenienceTip: string;
   locating: string;
   live: string;
@@ -30,7 +30,7 @@ type Strings = {
 
 const STRINGS: Record<L, Strings> = {
   en: {
-    categories: { bank: 'Bank', pharmacy: 'Pharmacy', supermarket: 'Supermarket', convenience: 'Convenience Store' },
+    categories: { bank: 'Bank', pharmacy: 'Pharmacy', supermarket: 'Supermarket', convenience: 'Convenience Store', hospital: 'Hospital', police: 'Police' },
     convenienceTip: 'Convenience stores (GS25, CU, 7-Eleven, etc.) sell designated trash bags (종량제) and T-money cards.',
     locating: 'Getting location…',
     live: 'Live location',
@@ -45,7 +45,7 @@ const STRINGS: Record<L, Strings> = {
     directions: 'Directions',
   },
   zh: {
-    categories: { bank: '银行', pharmacy: '药店', supermarket: '大型超市', convenience: '便利店' },
+    categories: { bank: '银行', pharmacy: '药店', supermarket: '大型超市', convenience: '便利店', hospital: '医院', police: '警察局' },
     convenienceTip: '便利店（GS25、CU、7-Eleven等）可购买指定垃圾袋（종량제）和T-money交通卡。',
     locating: '定位中…',
     live: '当前位置',
@@ -60,7 +60,7 @@ const STRINGS: Record<L, Strings> = {
     directions: '导航',
   },
   ru: {
-    categories: { bank: 'Банк', pharmacy: 'Аптека', supermarket: 'Супермаркет', convenience: 'Магазин' },
+    categories: { bank: 'Банк', pharmacy: 'Аптека', supermarket: 'Супермаркет', convenience: 'Магазин', hospital: 'Больница', police: 'Полиция' },
     convenienceTip: 'В магазинах (GS25, CU, 7-Eleven и др.) продаются мусорные пакеты (종량제) и карты T-money.',
     locating: 'Определение…',
     live: 'Текущее место',
@@ -75,7 +75,7 @@ const STRINGS: Record<L, Strings> = {
     directions: 'Маршрут',
   },
   ja: {
-    categories: { bank: '銀行', pharmacy: '薬局', supermarket: 'スーパー', convenience: 'コンビニ' },
+    categories: { bank: '銀行', pharmacy: '薬局', supermarket: 'スーパー', convenience: 'コンビニ', hospital: '病院', police: '警察署' },
     convenienceTip: 'コンビニ（GS25・CU・7-Eleven等）では指定ゴミ袋（종량제）とT-moneyカードを購入できます。',
     locating: '位置確認中…',
     live: '現在地',
@@ -97,6 +97,8 @@ const KAKAO_CATEGORY: Record<string, string> = {
   pharmacy: 'PM9',
   supermarket: 'MT1',
   convenience: 'CS2',
+  hospital: 'HP8',
+  police: 'PO3',
 };
 
 type Category = { key: string; label: string; icon: string; tip?: string };
@@ -105,6 +107,8 @@ function getCategories(s: Strings): Category[] {
   return [
     { key: 'bank', label: s.categories.bank, icon: '🏦' },
     { key: 'pharmacy', label: s.categories.pharmacy, icon: '💊' },
+    { key: 'hospital', label: s.categories.hospital, icon: '🏥' },
+    { key: 'police', label: s.categories.police, icon: '🚔' },
     { key: 'supermarket', label: s.categories.supermarket, icon: '🛒' },
     { key: 'convenience', label: s.categories.convenience, icon: '🏪', tip: s.convenienceTip },
   ];
