@@ -26,10 +26,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     alternates: {
       canonical: `https://k-survival-kit.vercel.app/${lang}/housing`,
       languages: {
-        en: '/en/housing',
-        zh: '/zh/housing',
-        ru: '/ru/housing',
-        ja: '/ja/housing',
+        en: 'https://k-survival-kit.vercel.app/en/housing',
+        zh: 'https://k-survival-kit.vercel.app/zh/housing',
+        ru: 'https://k-survival-kit.vercel.app/ru/housing',
+        ja: 'https://k-survival-kit.vercel.app/ja/housing',
       },
     },
     openGraph: {

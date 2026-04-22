@@ -281,10 +281,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     alternates: {
       canonical: url,
       languages: {
-        en: '/en/arc-card-korea-guide',
-        zh: '/zh/arc-card-korea-guide',
-        ru: '/ru/arc-card-korea-guide',
-        ja: '/ja/arc-card-korea-guide',
+        en: 'https://k-survival-kit.vercel.app/en/arc-card-korea-guide',
+        zh: 'https://k-survival-kit.vercel.app/zh/arc-card-korea-guide',
+        ru: 'https://k-survival-kit.vercel.app/ru/arc-card-korea-guide',
+        ja: 'https://k-survival-kit.vercel.app/ja/arc-card-korea-guide',
       },
     },
     openGraph: {

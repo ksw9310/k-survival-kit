@@ -315,10 +315,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     alternates: {
       canonical: url,
       languages: {
-        en: '/en/how-to-get-sim-card-in-korea',
-        zh: '/zh/how-to-get-sim-card-in-korea',
-        ru: '/ru/how-to-get-sim-card-in-korea',
-        ja: '/ja/how-to-get-sim-card-in-korea',
+        en: 'https://k-survival-kit.vercel.app/en/how-to-get-sim-card-in-korea',
+        zh: 'https://k-survival-kit.vercel.app/zh/how-to-get-sim-card-in-korea',
+        ru: 'https://k-survival-kit.vercel.app/ru/how-to-get-sim-card-in-korea',
+        ja: 'https://k-survival-kit.vercel.app/ja/how-to-get-sim-card-in-korea',
       },
     },
     openGraph: {

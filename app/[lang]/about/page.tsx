@@ -15,10 +15,10 @@ export async function generateMetadata(): Promise<Metadata> {
     alternates: {
       canonical: 'https://k-survival-kit.vercel.app/en/about',
       languages: {
-        en: '/en/about',
-        zh: '/zh/about',
-        ru: '/ru/about',
-        ja: '/ja/about',
+        en: 'https://k-survival-kit.vercel.app/en/about',
+        zh: 'https://k-survival-kit.vercel.app/zh/about',
+        ru: 'https://k-survival-kit.vercel.app/ru/about',
+        ja: 'https://k-survival-kit.vercel.app/ja/about',
       },
     },
   };

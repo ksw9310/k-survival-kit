@@ -461,10 +461,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     alternates: {
       canonical: url,
       languages: {
-        en: '/en/best-bank-account-for-foreigners-korea',
-        zh: '/zh/best-bank-account-for-foreigners-korea',
-        ru: '/ru/best-bank-account-for-foreigners-korea',
-        ja: '/ja/best-bank-account-for-foreigners-korea',
+        en: 'https://k-survival-kit.vercel.app/en/best-bank-account-for-foreigners-korea',
+        zh: 'https://k-survival-kit.vercel.app/zh/best-bank-account-for-foreigners-korea',
+        ru: 'https://k-survival-kit.vercel.app/ru/best-bank-account-for-foreigners-korea',
+        ja: 'https://k-survival-kit.vercel.app/ja/best-bank-account-for-foreigners-korea',
       },
     },
     openGraph: {

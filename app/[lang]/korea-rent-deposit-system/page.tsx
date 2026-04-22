@@ -372,10 +372,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     alternates: {
       canonical: url,
       languages: {
-        en: '/en/korea-rent-deposit-system',
-        zh: '/zh/korea-rent-deposit-system',
-        ru: '/ru/korea-rent-deposit-system',
-        ja: '/ja/korea-rent-deposit-system',
+        en: 'https://k-survival-kit.vercel.app/en/korea-rent-deposit-system',
+        zh: 'https://k-survival-kit.vercel.app/zh/korea-rent-deposit-system',
+        ru: 'https://k-survival-kit.vercel.app/ru/korea-rent-deposit-system',
+        ja: 'https://k-survival-kit.vercel.app/ja/korea-rent-deposit-system',
       },
     },
     openGraph: {

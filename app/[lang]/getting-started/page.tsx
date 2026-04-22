@@ -35,10 +35,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     alternates: {
       canonical: `https://k-survival-kit.vercel.app/${lang}/getting-started`,
       languages: {
-        en: '/en/getting-started',
-        zh: '/zh/getting-started',
-        ru: '/ru/getting-started',
-        ja: '/ja/getting-started',
+        en: 'https://k-survival-kit.vercel.app/en/getting-started',
+        zh: 'https://k-survival-kit.vercel.app/zh/getting-started',
+        ru: 'https://k-survival-kit.vercel.app/ru/getting-started',
+        ja: 'https://k-survival-kit.vercel.app/ja/getting-started',
       },
     },
     openGraph: {

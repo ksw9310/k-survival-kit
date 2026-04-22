@@ -237,10 +237,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     alternates: {
       canonical: url,
       languages: {
-        en: '/en/korea-delivery-apps-guide',
-        zh: '/zh/korea-delivery-apps-guide',
-        ru: '/ru/korea-delivery-apps-guide',
-        ja: '/ja/korea-delivery-apps-guide',
+        en: 'https://k-survival-kit.vercel.app/en/korea-delivery-apps-guide',
+        zh: 'https://k-survival-kit.vercel.app/zh/korea-delivery-apps-guide',
+        ru: 'https://k-survival-kit.vercel.app/ru/korea-delivery-apps-guide',
+        ja: 'https://k-survival-kit.vercel.app/ja/korea-delivery-apps-guide',
       },
     },
     openGraph: {
