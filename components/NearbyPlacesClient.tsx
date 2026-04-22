@@ -25,6 +25,7 @@ type Strings = {
   resultsCount: (count: number, label: string) => string;
   noResults: string;
   myLocation: string;
+  directions: string;
 };
 
 const STRINGS: Record<L, Strings> = {
@@ -41,6 +42,7 @@ const STRINGS: Record<L, Strings> = {
     resultsCount: (count, label) => `${count} ${label} within 1km`,
     noResults: 'No results within 1km.',
     myLocation: '📍 My location',
+    directions: 'Directions',
   },
   zh: {
     categories: { bank: '银行', pharmacy: '药店', supermarket: '大型超市', convenience: '便利店' },
@@ -55,6 +57,7 @@ const STRINGS: Record<L, Strings> = {
     resultsCount: (count, label) => `周边1km内 ${label} ${count}个`,
     noResults: '周边1km以内无结果。',
     myLocation: '📍 我的位置',
+    directions: '导航',
   },
   ru: {
     categories: { bank: 'Банк', pharmacy: 'Аптека', supermarket: 'Супермаркет', convenience: 'Магазин' },
@@ -69,6 +72,7 @@ const STRINGS: Record<L, Strings> = {
     resultsCount: (count, label) => `${label} в радиусе 1 км: ${count}`,
     noResults: 'Нет результатов в радиусе 1 км.',
     myLocation: '📍 Я здесь',
+    directions: 'Маршрут',
   },
   ja: {
     categories: { bank: '銀行', pharmacy: '薬局', supermarket: 'スーパー', convenience: 'コンビニ' },
@@ -83,6 +87,7 @@ const STRINGS: Record<L, Strings> = {
     resultsCount: (count, label) => `半径1km以内の${label}: ${count}件`,
     noResults: '1km以内に結果がありません。',
     myLocation: '📍 現在地',
+    directions: 'ルート',
   },
 };
 
@@ -320,7 +325,18 @@ export default function NearbyPlacesClient({
                   <p className="truncate font-semibold text-slate-900">{place.name}</p>
                   {place.address && <p className="mt-0.5 truncate text-xs text-slate-500">{place.address}</p>}
                 </div>
-                <span className="shrink-0 text-sm font-bold text-blue-600">{fmt(place.distance)}</span>
+                <div className="shrink-0 flex flex-col items-end gap-1">
+                  <span className="text-sm font-bold text-blue-600">{fmt(place.distance)}</span>
+                  <a
+                    href={`https://maps.google.com/?q=${place.lat},${place.lng}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-0.5 text-xs font-medium text-slate-400 hover:text-blue-500 transition-colors"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+                    {s.directions}
+                  </a>
+                </div>
               </div>
             ))}
           </div>
