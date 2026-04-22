@@ -1,6 +1,25 @@
-import { ScrollView, View, Text, StyleSheet } from 'react-native';
+import { ScrollView, View, Text, StyleSheet, TouchableOpacity, Linking } from 'react-native';
 import { useLocalSearchParams, Stack } from 'expo-router';
 import { useLang, Lang } from '../../context/LanguageContext';
+
+const WISE_URL = 'https://wise.prf.hn/click/camref:1101l5IGWo';
+const COUPANG_URL = 'https://link.coupang.com/a/esx4lG';
+
+const WISE_BANNER: Record<string, { title: string; desc: string; cta: string; badge: string }> = {
+  en: { title: 'Send money with Wise', desc: 'Real exchange rates, low fees. No hidden markups.', cta: 'Open Wise', badge: 'Affiliate' },
+  ko: { title: 'Wise로 해외 송금', desc: '실제 환율, 낮은 수수료. 숨겨진 수수료 없음.', cta: 'Wise 열기', badge: '제휴' },
+  zh: { title: '使用Wise汇款', desc: '真实汇率，低手续费，无隐藏费用。', cta: '打开Wise', badge: '推广' },
+  ja: { title: 'Wiseで海外送金', desc: '実際の為替レート・低手数料・隠れた手数料なし。', cta: 'Wiseを開く', badge: 'PR' },
+  ru: { title: 'Переводы через Wise', desc: 'Реальный курс, низкие комиссии. Без скрытых наценок.', cta: 'Открыть Wise', badge: 'Партнёр' },
+};
+
+const COUPANG_BANNER: Record<string, { title: string; desc: string; cta: string; badge: string }> = {
+  en: { title: 'Shop on Coupang', desc: 'Korea\'s #1 shopping app. Fast delivery, great prices.', cta: 'Open Coupang', badge: 'Affiliate' },
+  ko: { title: '쿠팡에서 쇼핑하기', desc: '한국 1위 쇼핑 앱. 빠른 배송, 합리적인 가격.', cta: '쿠팡 열기', badge: '제휴' },
+  zh: { title: '在Coupang购物', desc: '韩国第一购物应用，快速配送，价格实惠。', cta: '打开Coupang', badge: '推广' },
+  ja: { title: 'Coupangで買い物', desc: '韓国No.1ショッピングアプリ。即日配送・お得な価格。', cta: 'Coupangを開く', badge: 'PR' },
+  ru: { title: 'Покупки на Coupang', desc: 'Лучший шопинг-приложение Кореи. Быстрая доставка.', cta: 'Открыть Coupang', badge: 'Партнёр' },
+};
 
 type Section = { heading: string; body: string };
 type GuideData = { title: string; emoji: string; sections: Section[] };
@@ -619,6 +638,52 @@ const GUIDES: Record<Lang, GuideMap> = {
   },
 };
 
+function AffiliateBannerBlock({
+  url,
+  emoji,
+  data,
+  bgColor,
+  borderColor,
+  textColor,
+  descColor,
+  ctaColor,
+  badgeBg,
+  badgeText,
+}: {
+  url: string;
+  emoji: string;
+  data: { title: string; desc: string; cta: string; badge: string };
+  bgColor: string;
+  borderColor: string;
+  textColor: string;
+  descColor: string;
+  ctaColor: string;
+  badgeBg: string;
+  badgeText: string;
+}) {
+  return (
+    <TouchableOpacity
+      style={[styles.banner, { backgroundColor: bgColor, borderColor }]}
+      onPress={() => Linking.openURL(url)}
+      activeOpacity={0.85}
+    >
+      <View style={styles.bannerLeft}>
+        <Text style={styles.bannerEmoji}>{emoji}</Text>
+        <View style={styles.bannerTextWrap}>
+          <View style={styles.bannerTitleRow}>
+            <Text style={[styles.bannerTitle, { color: textColor }]}>{data.title}</Text>
+            <View style={[styles.bannerBadge, { backgroundColor: badgeBg }]}>
+              <Text style={[styles.bannerBadgeText, { color: badgeText }]}>{data.badge}</Text>
+            </View>
+          </View>
+          <Text style={[styles.bannerDesc, { color: descColor }]}>{data.desc}</Text>
+        </View>
+      </View>
+      <Text style={[styles.bannerCta, { color: ctaColor }]}>{data.cta} →</Text>
+    </TouchableOpacity>
+  );
+}
+
 export default function GuideScreen() {
   const { slug } = useLocalSearchParams<{ slug: string }>();
   const { lang } = useLang();
@@ -647,6 +712,34 @@ export default function GuideScreen() {
                 <Text style={styles.body}>{section.body}</Text>
               </View>
             ))}
+            {slug === 'bank' && (
+              <AffiliateBannerBlock
+                url={WISE_URL}
+                emoji="💸"
+                data={WISE_BANNER[lang] ?? WISE_BANNER.en}
+                bgColor="#f0fdf4"
+                borderColor="#86efac"
+                textColor="#14532d"
+                descColor="#166534"
+                ctaColor="#16a34a"
+                badgeBg="#bbf7d0"
+                badgeText="#166534"
+              />
+            )}
+            {slug === 'delivery' && (
+              <AffiliateBannerBlock
+                url={COUPANG_URL}
+                emoji="🛍️"
+                data={COUPANG_BANNER[lang] ?? COUPANG_BANNER.en}
+                bgColor="#fff1f2"
+                borderColor="#fecdd3"
+                textColor="#881337"
+                descColor="#9f1239"
+                ctaColor="#e11d48"
+                badgeBg="#ffe4e6"
+                badgeText="#be123c"
+              />
+            )}
           </>
         )}
       </ScrollView>
@@ -693,4 +786,26 @@ const styles = StyleSheet.create({
     color: '#475569',
     lineHeight: 22,
   },
+  banner: {
+    borderRadius: 16,
+    padding: 16,
+    marginTop: 8,
+    marginBottom: 4,
+    borderWidth: 1,
+    gap: 12,
+  },
+  bannerLeft: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    gap: 12,
+    marginBottom: 10,
+  },
+  bannerEmoji: { fontSize: 28, marginTop: 2 },
+  bannerTextWrap: { flex: 1 },
+  bannerTitleRow: { flexDirection: 'row', alignItems: 'center', gap: 8, marginBottom: 3 },
+  bannerTitle: { fontSize: 14, fontWeight: '700' },
+  bannerBadge: { borderRadius: 6, paddingHorizontal: 6, paddingVertical: 1 },
+  bannerBadgeText: { fontSize: 10, fontWeight: '700' },
+  bannerDesc: { fontSize: 12, lineHeight: 18 },
+  bannerCta: { fontSize: 13, fontWeight: '800', textAlign: 'right' },
 });
