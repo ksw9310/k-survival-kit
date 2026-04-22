@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { isValidLocale } from '@/lib/i18n';
+import AffiliateBanner from '@/components/AffiliateBanner';
 
 type Props = { params: Promise<{ lang: string }> };
 type L = 'en' | 'zh' | 'ru' | 'ja';
@@ -761,6 +762,31 @@ export default async function TransportPage({ params }: Props) {
         <div className="rounded-2xl border border-blue-200 bg-blue-50 px-5 py-4 text-sm text-blue-800">
           <strong>💡 Tip:</strong> {loc(lang, UI.tip)}
         </div>
+
+        {/* Klook Affiliate Banner */}
+        <AffiliateBanner
+          icon="🎟️"
+          title={loc(lang, {
+            en: 'Book Transport Passes with Klook',
+            zh: '在Klook预订交通票券',
+            ru: 'Купите проездные через Klook',
+            ja: 'Klookで交通パスを予約しよう',
+          })}
+          description={loc(lang, {
+            en: 'Airport bus, T-money card, KTX passes and more — all bookable in advance with instant confirmation.',
+            zh: '机场大巴、T-money卡、KTX通票等——均可提前预订，即时确认。',
+            ru: 'Автобус из аэропорта, карта T-money, абонементы KTX и многое другое — бронирование заранее с мгновенным подтверждением.',
+            ja: '空港バス・T-moneyカード・KTXパスなど——事前予約で即時確認。',
+          })}
+          href="https://affiliate.klook.com/redirect?aid=118997&aff_adid=1259369&k_site=https%3A%2F%2Fwww.klook.com%2F"
+          ctaText={loc(lang, {
+            en: 'Browse Transport on Klook',
+            zh: '在Klook浏览交通选项',
+            ru: 'Смотреть транспорт на Klook',
+            ja: 'Klookで交通を探す',
+          })}
+          accentColor="rose"
+        />
       </div>
     </main>
   );

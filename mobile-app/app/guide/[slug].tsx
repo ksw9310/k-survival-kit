@@ -21,6 +21,15 @@ const COUPANG_BANNER: Record<string, { title: string; desc: string; cta: string;
   ru: { title: 'Покупки на Coupang', desc: 'Лучший шопинг-приложение Кореи. Быстрая доставка.', cta: 'Открыть Coupang', badge: 'Партнёр' },
 };
 
+const KLOOK_URL = 'https://affiliate.klook.com/redirect?aid=118997&aff_adid=1259369&k_site=https%3A%2F%2Fwww.klook.com%2F';
+const KLOOK_BANNER: Record<string, { title: string; desc: string; cta: string; badge: string }> = {
+  en: { title: 'Book Transport Passes with Klook', desc: 'Airport bus, T-money, KTX passes — book in advance with instant confirmation.', cta: 'Browse Klook', badge: 'Affiliate' },
+  ko: { title: 'Klook에서 교통권 예약', desc: '공항버스, T-머니, KTX패스 등 사전 예약 가능.', cta: 'Klook 보기', badge: '제휴' },
+  zh: { title: '在Klook预订交通票券', desc: '机场大巴、T-money卡、KTX通票——提前预订，即时确认。', cta: '浏览Klook', badge: '推广' },
+  ja: { title: 'Klookで交通パスを予約', desc: '空港バス・T-money・KTXパス——事前予約で即時確認。', cta: 'Klookを見る', badge: 'PR' },
+  ru: { title: 'Транспортные билеты на Klook', desc: 'Автобус из аэропорта, T-money, KTX — бронируйте заранее.', cta: 'Смотреть Klook', badge: 'Партнёр' },
+};
+
 type Section = { heading: string; body: string };
 type GuideData = { title: string; emoji: string; sections: Section[] };
 type GuideMap = Record<string, GuideData>;
@@ -731,6 +740,20 @@ export default function GuideScreen() {
                 url={COUPANG_URL}
                 emoji="🛍️"
                 data={COUPANG_BANNER[lang] ?? COUPANG_BANNER.en}
+                bgColor="#fff1f2"
+                borderColor="#fecdd3"
+                textColor="#881337"
+                descColor="#9f1239"
+                ctaColor="#e11d48"
+                badgeBg="#ffe4e6"
+                badgeText="#be123c"
+              />
+            )}
+            {slug === 'transport' && (
+              <AffiliateBannerBlock
+                url={KLOOK_URL}
+                emoji="🎟️"
+                data={KLOOK_BANNER[lang] ?? KLOOK_BANNER.en}
                 bgColor="#fff1f2"
                 borderColor="#fecdd3"
                 textColor="#881337"
