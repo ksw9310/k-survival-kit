@@ -6,11 +6,10 @@ import { usePathname } from 'next/navigation';
 import { locales, type Lang } from '@/lib/i18n';
 
 type Item = { href: string; label: string };
+type Group = { label: string; items: Item[] };
 
 type Props = {
-  mainLinks: Item[];
-  quickHelpLinks: Item[];
-  quickHelpLabel: string;
+  groups: Group[];
   currentLang: Lang;
 };
 
@@ -21,12 +20,11 @@ const langLabels: Record<Lang, { flag: string; name: string }> = {
   ja: { flag: '🇯🇵', name: '日本語' },
 };
 
-export default function MobileMenu({ mainLinks, quickHelpLinks, quickHelpLabel, currentLang }: Props) {
+export default function MobileMenu({ groups, currentLang }: Props) {
   const [open, setOpen] = useState(false);
   const pathname = usePathname() ?? '/';
   const pathWithoutLang = pathname.replace(/^\/(en|zh|ru|ja)(?=\/|$)/, '') || '/';
 
-  // Lock body scroll when open
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
@@ -34,7 +32,7 @@ export default function MobileMenu({ mainLinks, quickHelpLinks, quickHelpLabel, 
 
   return (
     <>
-      {/* Hamburger / X button — mobile only */}
+      {/* Hamburger / X button */}
       <button
         onClick={() => setOpen((v) => !v)}
         aria-label={open ? 'Close menu' : 'Open menu'}
@@ -51,47 +49,33 @@ export default function MobileMenu({ mainLinks, quickHelpLinks, quickHelpLabel, 
         )}
       </button>
 
-      {/* Overlay + Panel */}
       {open && (
         <div className="fixed inset-0 top-[57px] z-40 md:hidden">
           {/* Backdrop */}
-          <div
-            className="absolute inset-0 bg-slate-900/30 backdrop-blur-sm"
-            onClick={() => setOpen(false)}
-          />
+          <div className="absolute inset-0 bg-slate-900/30 backdrop-blur-sm" onClick={() => setOpen(false)} />
 
           {/* Panel */}
           <div className="relative bg-white border-b border-slate-200 shadow-xl overflow-y-auto max-h-[calc(100vh-57px)]">
             <div className="px-4 py-4 space-y-1">
 
-              {/* Main nav links */}
-              {mainLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  className="flex items-center rounded-xl px-4 py-3 text-sm font-medium text-slate-700 transition-colors hover:bg-rose-50 hover:text-rose-600"
-                >
-                  {link.label}
-                </Link>
+              {/* 3 groups */}
+              {groups.map((group, i) => (
+                <div key={group.label} className={i > 0 ? 'border-t border-slate-100 pt-4 mt-2' : ''}>
+                  <p className="px-4 pb-2 text-xs font-bold uppercase tracking-widest text-slate-400">
+                    {group.label}
+                  </p>
+                  {group.items.map((link) => (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      onClick={() => setOpen(false)}
+                      className="flex items-center rounded-xl px-4 py-3 text-sm font-medium text-slate-700 transition-colors hover:bg-rose-50 hover:text-rose-600"
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
               ))}
-
-              {/* Quick Help section */}
-              <div className="border-t border-slate-100 pt-4 mt-2">
-                <p className="px-4 pb-2 text-xs font-bold uppercase tracking-widest text-slate-400">
-                  {quickHelpLabel}
-                </p>
-                {quickHelpLinks.map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    onClick={() => setOpen(false)}
-                    className="flex items-center rounded-xl px-4 py-3 text-sm font-medium text-slate-700 transition-colors hover:bg-blue-50 hover:text-blue-600"
-                  >
-                    {link.label}
-                  </Link>
-                ))}
-              </div>
 
               {/* Language section */}
               <div className="border-t border-slate-100 pt-4 mt-2">

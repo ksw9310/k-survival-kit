@@ -5,42 +5,125 @@ import LanguageSwitcher from './LanguageSwitcher';
 import NavDropdown from './NavDropdown';
 import MobileMenu from './MobileMenu';
 
-const mainNavLinks = (lang: string, t: { nav: Record<string, string> }) => [
-  { href: `/${lang}`, label: t.nav.home },
-  { href: `/${lang}/getting-started`, label: t.nav.gettingStarted },
-  { href: `/${lang}/daily-life`, label: t.nav.dailyLife },
-  { href: `/${lang}/health`, label: t.nav.health },
-  { href: `/${lang}/housing`, label: t.nav.housing },
-  { href: `/${lang}/culture`, label: t.nav.culture },
-  { href: `/${lang}/visa`, label: t.nav.visa },
-];
+type Item = { href: string; label: string };
+type Group = { label: string; items: Item[] };
 
-const QUICK_HELP_LABELS: Record<Lang, { nearby: string; transport: string; emergencyKorean: string; emergencyContacts: string }> = {
-  en: { nearby: '📍 Find Nearby', transport: '🚇 Transport', emergencyKorean: '🆘 Emergency Korean', emergencyContacts: '📞 Emergency Contacts' },
-  zh: { nearby: '📍 查找周边', transport: '🚇 交通指南', emergencyKorean: '🆘 紧急韩语', emergencyContacts: '📞 紧急联系电话' },
-  ru: { nearby: '📍 Рядом со мной', transport: '🚇 Транспорт', emergencyKorean: '🆘 Экстренные фразы', emergencyContacts: '📞 Экстренные контакты' },
-  ja: { nearby: '📍 近くを探す', transport: '🚇 交通ガイド', emergencyKorean: '🆘 緊急韓国語', emergencyContacts: '📞 緊急連絡先' },
+const LABELS: Record<Lang, {
+  living: string;
+  explore: string;
+  connect: string;
+  gettingStarted: string;
+  dailyLife: string;
+  health: string;
+  housing: string;
+  visa: string;
+  culture: string;
+  transport: string;
+  nearby: string;
+  makingFriends: string;
+  emergencyKorean: string;
+  emergencyContacts: string;
+}> = {
+  en: {
+    living: 'Living',
+    explore: 'Explore',
+    connect: 'Connect',
+    gettingStarted: 'Getting Started',
+    dailyLife: 'Daily Life',
+    health: 'Health',
+    housing: 'Housing',
+    visa: 'Visa & ARC',
+    culture: 'Culture',
+    transport: '🚇 Transport',
+    nearby: '📍 Find Nearby',
+    makingFriends: '🤝 Making Friends',
+    emergencyKorean: '🆘 Emergency Korean',
+    emergencyContacts: '📞 Emergency Contacts',
+  },
+  zh: {
+    living: '生活',
+    explore: '探索',
+    connect: '社交',
+    gettingStarted: '入门指南',
+    dailyLife: '日常生活',
+    health: '健康',
+    housing: '住房',
+    visa: '签证与登录证',
+    culture: '文化',
+    transport: '🚇 交通指南',
+    nearby: '📍 查找周边',
+    makingFriends: '🤝 交朋友',
+    emergencyKorean: '🆘 紧急韩语',
+    emergencyContacts: '📞 紧急联系电话',
+  },
+  ru: {
+    living: 'Жизнь',
+    explore: 'Город',
+    connect: 'Общение',
+    gettingStarted: 'С чего начать',
+    dailyLife: 'Быт',
+    health: 'Здоровье',
+    housing: 'Жильё',
+    visa: 'Виза и ARC',
+    culture: 'Культура',
+    transport: '🚇 Транспорт',
+    nearby: '📍 Рядом со мной',
+    makingFriends: '🤝 Знакомства',
+    emergencyKorean: '🆘 Экстренные фразы',
+    emergencyContacts: '📞 Экстренные контакты',
+  },
+  ja: {
+    living: '生活',
+    explore: '探索',
+    connect: 'つながる',
+    gettingStarted: '始め方',
+    dailyLife: '日常生活',
+    health: '健康',
+    housing: '住まい',
+    visa: 'ビザ・登録証',
+    culture: 'カルチャー',
+    transport: '🚇 交通ガイド',
+    nearby: '📍 近くを探す',
+    makingFriends: '🤝 友達を作ろう',
+    emergencyKorean: '🆘 緊急韓国語',
+    emergencyContacts: '📞 緊急連絡先',
+  },
 };
 
-const quickHelpLinks = (lang: Lang) => {
-  const t = QUICK_HELP_LABELS[lang] ?? QUICK_HELP_LABELS.en;
+function getGroups(lang: Lang): Group[] {
+  const L = LABELS[lang] ?? LABELS.en;
   return [
-    { href: `/${lang}/nearby`, label: t.nearby },
-    { href: `/${lang}/transport`, label: t.transport },
-    { href: `/${lang}/emergency-korean`, label: t.emergencyKorean },
-    { href: `/${lang}/emergency-contacts`, label: t.emergencyContacts },
+    {
+      label: L.living,
+      items: [
+        { href: `/${lang}/getting-started`, label: L.gettingStarted },
+        { href: `/${lang}/daily-life`, label: L.dailyLife },
+        { href: `/${lang}/health`, label: L.health },
+        { href: `/${lang}/housing`, label: L.housing },
+        { href: `/${lang}/visa`, label: L.visa },
+      ],
+    },
+    {
+      label: L.explore,
+      items: [
+        { href: `/${lang}/culture`, label: L.culture },
+        { href: `/${lang}/transport`, label: L.transport },
+        { href: `/${lang}/nearby`, label: L.nearby },
+      ],
+    },
+    {
+      label: L.connect,
+      items: [
+        { href: `/${lang}/making-friends`, label: L.makingFriends },
+        { href: `/${lang}/emergency-korean`, label: L.emergencyKorean },
+        { href: `/${lang}/emergency-contacts`, label: L.emergencyContacts },
+      ],
+    },
   ];
-};
-
-const dropdownLabel: Record<Lang, string> = {
-  en: 'Quick Help',
-  zh: '快速帮助',
-  ru: 'Быстрая помощь',
-  ja: 'クイックヘルプ',
-};
+}
 
 export default function Navbar({ lang }: { lang: Lang }) {
-  const t = getDictionary(lang).common;
+  const groups = getGroups(lang);
 
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/95 shadow-sm backdrop-blur-sm">
@@ -54,22 +137,11 @@ export default function Navbar({ lang }: { lang: Lang }) {
           K-<span className="text-rose-500">Survival</span> Kit
         </Link>
 
-        {/* Main nav links */}
+        {/* Desktop nav — 3 dropdowns */}
         <div className="hidden gap-0.5 md:flex">
-          {mainNavLinks(lang, t).map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="whitespace-nowrap rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition-colors hover:bg-rose-50 hover:text-rose-600"
-            >
-              {link.label}
-            </Link>
+          {groups.map((group) => (
+            <NavDropdown key={group.label} label={group.label} items={group.items} />
           ))}
-          {/* Quick Help dropdown */}
-          <NavDropdown
-            label={dropdownLabel[lang] ?? 'Quick Help'}
-            items={quickHelpLinks(lang)}
-          />
         </div>
 
         <div className="flex items-center gap-2">
@@ -78,12 +150,7 @@ export default function Navbar({ lang }: { lang: Lang }) {
             <LanguageSwitcher currentLang={lang} />
           </div>
           {/* Hamburger — mobile only */}
-          <MobileMenu
-            mainLinks={mainNavLinks(lang, t)}
-            quickHelpLinks={quickHelpLinks(lang)}
-            quickHelpLabel={dropdownLabel[lang] ?? 'Quick Help'}
-            currentLang={lang}
-          />
+          <MobileMenu groups={groups} currentLang={lang} />
         </div>
       </nav>
     </header>
