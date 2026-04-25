@@ -11,20 +11,20 @@ type L = 'en' | 'zh' | 'ru' | 'ja';
 
 const META: Record<L, { title: string; description: string }> = {
   en: {
-    title: 'Best Korea Delivery Apps for Foreigners (2026 Guide) | K-Survival Kit',
-    description: 'Not sure which Korea delivery app to use? Compare Baemin, Coupang Eats, and Yogiyo, and learn how foreigners can order food easily without getting stuck.',
+    title: 'Best Korea Food Delivery App for Foreigners 2026 — Baemin, Coupang Eats & More',
+    description: 'Which Korea food delivery app works for foreigners? Baemin, Coupang Eats, and Yogiyo compared — with step-by-step setup, English tips, and how to order without Korean.',
   },
   zh: {
-    title: '韩国外卖App使用指南 | K-Survival Kit',
-    description: '不知道用哪个韩国外卖App？比较Baemin、Coupang Eats和Yogiyo，了解外国人如何轻松点餐。',
+    title: '韩国外卖App外国人完整指南2026 — Baemin、Coupang Eats对比',
+    description: '不知道用哪个韩国外卖App？Baemin、Coupang Eats、Yogiyo详细对比，附外国人注册教程，无需韩语也能轻松点餐。',
   },
   ru: {
-    title: 'Лучшие приложения доставки еды в Корее | K-Survival Kit',
-    description: 'Не знаете, какое приложение доставки выбрать? Сравниваем Baemin, Coupang Eats и Yogiyo — как иностранцу легко заказать еду в Корее.',
+    title: 'Лучшие приложения доставки еды в Корее для иностранцев 2026 — Baemin, Coupang Eats',
+    description: 'Какое приложение доставки еды выбрать в Корее? Сравниваем Baemin, Coupang Eats и Yogiyo — пошаговая инструкция для иностранцев, заказ без знания корейского.',
   },
   ja: {
-    title: '韓国デリバリーアプリガイド | K-Survival Kit',
-    description: '韓国のデリバリーアプリに迷っていませんか？Baemin・Coupang Eats・Yogiyoを比較し、外国人が簡単に注文できる方法を解説します。',
+    title: '韓国フードデリバリーアプリ外国人向けガイド2026 — Baemin・Coupang Eats比較',
+    description: '韓国のデリバリーアプリはどれがいい？外国人向けにBaemin・Coupang Eats・Yogiyoを徹底比較。韓国語なしでも注文できる方法を解説。',
   },
 };
 
