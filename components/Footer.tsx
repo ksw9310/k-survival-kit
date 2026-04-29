@@ -116,14 +116,14 @@ export default function Footer({ lang }: { lang: Lang }) {
         <div className="mb-6 text-xs leading-6 text-slate-500">
           {/* Mobile: one-line */}
           <p className="md:hidden">
-            데이지 365 &nbsp;|&nbsp; 사업자등록번호: 544-12-02777
+            케이빌드랩 (KBuild Lab) &nbsp;|&nbsp; 사업자등록번호: 843-12-02937
           </p>
           {/* Desktop: full */}
           <div className="hidden md:block">
             <p className="font-semibold text-slate-400">사업자 정보</p>
-            <p>상호명: 데이지 365 &nbsp;|&nbsp; 대표자: 손정희 &nbsp;|&nbsp; 사업자등록번호: 544-12-02777</p>
-            <p>사업장 소재지: 인천광역시 미추홀구 인하로134번길 7, A동 1층(용현동, 드림빌)</p>
-            <p>업태: 음식점업 &nbsp;|&nbsp; 종목: 카페 &nbsp;|&nbsp; 과세유형: 간이과세자</p>
+            <p>상호명: 케이빌드랩 (KBuild Lab) &nbsp;|&nbsp; 대표자: 강상욱 &nbsp;|&nbsp; 사업자등록번호: 843-12-02937</p>
+            <p>사업장 소재지: 인천광역시 서구 청라한내로72번길 7-29, 1909호(청라동, 인천청라 골드클래스2차 오피스텔)</p>
+            <p>업태: 도매 및 소매업 &nbsp;|&nbsp; 종목: 전자상거래 소매업 &nbsp;|&nbsp; 과세유형: 간이과세자</p>
           </div>
         </div>
 
