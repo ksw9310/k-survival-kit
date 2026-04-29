@@ -17,6 +17,7 @@ const LABELS: Record<Lang, {
   health: string;
   housing: string;
   visa: string;
+  simCard: string;
   culture: string;
   transport: string;
   nearby: string;
@@ -33,6 +34,7 @@ const LABELS: Record<Lang, {
     health: 'Health',
     housing: 'Housing',
     visa: 'Visa & ARC',
+    simCard: '📱 SIM Card',
     culture: 'Culture',
     transport: '🚇 Transport',
     nearby: '📍 Find Nearby',
@@ -49,6 +51,7 @@ const LABELS: Record<Lang, {
     health: '健康',
     housing: '住房',
     visa: '签证与登录证',
+    simCard: '📱 SIM卡指南',
     culture: '文化',
     transport: '🚇 交通指南',
     nearby: '📍 查找周边',
@@ -65,6 +68,7 @@ const LABELS: Record<Lang, {
     health: 'Здоровье',
     housing: 'Жильё',
     visa: 'Виза и ARC',
+    simCard: '📱 SIM-карта',
     culture: 'Культура',
     transport: '🚇 Транспорт',
     nearby: '📍 Рядом со мной',
@@ -81,6 +85,7 @@ const LABELS: Record<Lang, {
     health: '健康',
     housing: '住まい',
     visa: 'ビザ・登録証',
+    simCard: '📱 SIMカード',
     culture: 'カルチャー',
     transport: '🚇 交通ガイド',
     nearby: '📍 近くを探す',
@@ -101,6 +106,7 @@ function getGroups(lang: Lang): Group[] {
         { href: `/${lang}/health`, label: L.health },
         { href: `/${lang}/housing`, label: L.housing },
         { href: `/${lang}/visa`, label: L.visa },
+        { href: `/${lang}/how-to-get-sim-card-in-korea`, label: L.simCard },
       ],
     },
     {

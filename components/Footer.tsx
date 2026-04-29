@@ -21,6 +21,7 @@ const EXTRA_LABELS: Record<
     about: string;
     terms: string;
     makingFriends: string;
+    simCard: string;
   }
 > = {
   en: {
@@ -31,6 +32,7 @@ const EXTRA_LABELS: Record<
     about: 'About',
     terms: 'Terms of Use',
     makingFriends: 'Making Friends',
+    simCard: 'SIM Card Guide',
   },
   zh: {
     nearby: '查找周边',
@@ -40,6 +42,7 @@ const EXTRA_LABELS: Record<
     about: '关于',
     terms: '使用条款',
     makingFriends: '交朋友',
+    simCard: 'SIM卡指南',
   },
   ru: {
     nearby: 'Рядом со мной',
@@ -49,6 +52,7 @@ const EXTRA_LABELS: Record<
     about: 'О нас',
     terms: 'Условия',
     makingFriends: 'Знакомства',
+    simCard: 'Гид по SIM-карте',
   },
   ja: {
     nearby: '近くを探す',
@@ -58,6 +62,7 @@ const EXTRA_LABELS: Record<
     about: 'About',
     terms: '利用規約',
     makingFriends: '友達を作ろう',
+    simCard: 'SIMカードガイド',
   },
 };
 
@@ -78,6 +83,7 @@ export default function Footer({ lang }: { lang: Lang }) {
     { href: `/${lang}/emergency-korean`, label: ex.emergencyKorean },
     { href: `/${lang}/emergency-contacts`, label: ex.emergencyContacts },
     { href: `/${lang}/making-friends`, label: ex.makingFriends },
+    { href: `/${lang}/how-to-get-sim-card-in-korea`, label: ex.simCard },
   ];
 
   return (
