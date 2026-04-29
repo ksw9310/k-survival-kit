@@ -4,7 +4,7 @@
 // HousingAnywhere: no affiliate program found — keeping as regular link
 // uhomes:          ✅ active — kr.uhomes.com/referral/partnerShare?xcode=000a65acdd6030bd1ec5
 
-type L = 'en' | 'zh' | 'ru' | 'ja';
+type L = 'en' | 'zh' | 'ru' | 'ja' | 'vi';
 
 type Platform = {
   name: string;
@@ -37,6 +37,11 @@ const UI: Record<L, { heading: string; subheading: string; disclosure: string }>
     subheading: 'これらのプラットフォームは韓国の留学生向け住居を専門としています。到着前にリストを閲覧し、価格を比較してリモートで予約できます。',
     disclosure: '* アフィリエイトリンクです。こちらから予約いただくと、追加費用なしで少額の手数料が発生する場合があります。',
   },
+  vi: {
+    heading: 'Tìm nhà ở trực tuyến',
+    subheading: 'Các nền tảng này chuyên về nhà ở cho du học sinh quốc tế tại Hàn Quốc. Duyệt danh sách, so sánh giá và đặt chỗ từ xa trước khi đến.',
+    disclosure: '* Liên kết tiếp thị liên kết. Chúng tôi có thể nhận hoa hồng nhỏ — không mất thêm chi phí cho bạn.',
+  },
 };
 
 const platforms: Platform[] = [
@@ -44,19 +49,21 @@ const platforms: Platform[] = [
     name: 'Amber',
     icon: '🏠',
     href: 'https://amberstudent.com/l/edc0ed373',
-    badge: { en: 'Popular', zh: '热门', ru: 'Популярно', ja: '人気' },
+    badge: { en: 'Popular', zh: '热门', ru: 'Популярно', ja: '人気', vi: 'Phổ biến' },
     color: 'indigo',
     desc: {
       en: 'Purpose-built student accommodation near Korean universities. Verified listings, flexible lease terms, and English support.',
       zh: '专为韩国大学附近学生打造的学生公寓。经过验证的房源、灵活的租期和英语客服支持。',
       ru: 'Студенческое жильё рядом с корейскими университетами. Проверенные объявления, гибкие условия аренды, поддержка на английском.',
       ja: '韓国の大学近くの学生専用住居。認証済み物件、柔軟な契約期間、英語サポート付き。',
+      vi: 'Chỗ ở sinh viên chuyên dụng gần các trường đại học Hàn Quốc. Danh sách đã xác minh, điều khoản thuê linh hoạt và hỗ trợ tiếng Anh.',
     },
     cta: {
       en: 'Search on Amber',
       zh: '在Amber上搜索',
       ru: 'Найти на Amber',
       ja: 'Amberで探す',
+      vi: 'Tìm trên Amber',
     },
   },
   {
@@ -69,12 +76,14 @@ const platforms: Platform[] = [
       zh: '面向国际学生和外籍人士的中长期租赁平台。交换生房源丰富，支持远程预订。',
       ru: 'Среднесрочная и долгосрочная аренда для иностранных студентов и экспатов. Удобно для обменных студентов, бронирование онлайн.',
       ja: '留学生や駐在員向けの中〜長期賃貸。交換留学生向け物件が充実、リモート予約対応。',
+      vi: 'Cho thuê trung và dài hạn cho du học sinh và người nước ngoài. Nhiều danh sách dành cho sinh viên trao đổi với đặt phòng từ xa.',
     },
     cta: {
       en: 'Browse Listings',
       zh: '浏览房源',
       ru: 'Смотреть варианты',
       ja: '物件を見る',
+      vi: 'Xem danh sách',
     },
   },
   {
@@ -87,31 +96,35 @@ const platforms: Platform[] = [
       zh: '专为学生设计的住房平台，提供韩国主要大学附近的房源。提供合同支持和多语言协助。',
       ru: 'Платформа исключительно для студентов с жильём рядом с ведущими корейскими вузами. Помощь с договором и многоязычная поддержка.',
       ja: '韓国の主要大学近くの学生専用住居プラットフォーム。契約サポートと多言語対応あり。',
+      vi: 'Nền tảng nhà ở dành riêng cho sinh viên với danh sách gần các trường đại học lớn của Hàn Quốc. Hỗ trợ hợp đồng và trợ lý đa ngôn ngữ.',
     },
     cta: {
       en: 'Find Student Housing',
       zh: '查找学生住房',
       ru: 'Найти студенческое жильё',
       ja: '学生住居を探す',
+      vi: 'Tìm nhà ở sinh viên',
     },
   },
   {
     name: 'uhomes',
     icon: '🏘️',
     href: 'https://kr.uhomes.com/referral/partnerShare?xcode=000a65acdd6030bd1ec5',
-    badge: { en: 'Asia-friendly', zh: '亚洲友好', ru: 'Для Азии', ja: 'アジア対応' },
+    badge: { en: 'Asia-friendly', zh: '亚洲友好', ru: 'Для Азии', ja: 'アジア対応', vi: 'Thân thiện Châu Á' },
     color: 'teal',
     desc: {
       en: 'Popular among Chinese and Korean students. Listings across major Korean cities with Chinese language support.',
       zh: '在中韩学生中广受欢迎。覆盖韩国主要城市的房源，提供中文客服支持。',
       ru: 'Популярен среди китайских и корейских студентов. Варианты в крупных городах Кореи с поддержкой на китайском языке.',
       ja: '中国・韓国の学生に人気。韓国の主要都市の物件を掲載、中国語サポートあり。',
+      vi: 'Phổ biến trong sinh viên Trung Quốc và Hàn Quốc. Danh sách khắp các thành phố lớn của Hàn Quốc với hỗ trợ tiếng Trung.',
     },
     cta: {
       en: 'Search on uhomes',
       zh: '在uhomes上搜索',
       ru: 'Найти на uhomes',
       ja: 'uhomesで探す',
+      vi: 'Tìm trên uhomes',
     },
   },
 ];

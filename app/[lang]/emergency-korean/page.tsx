@@ -33,6 +33,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         zh: 'https://ksurvivalkit.com/zh/emergency-korean',
         ru: 'https://ksurvivalkit.com/ru/emergency-korean',
         ja: 'https://ksurvivalkit.com/ja/emergency-korean',
+        vi: 'https://ksurvivalkit.com/vi/emergency-korean',
       },
     },
   };

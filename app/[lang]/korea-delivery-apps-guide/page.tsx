@@ -241,6 +241,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         zh: 'https://ksurvivalkit.com/zh/korea-delivery-apps-guide',
         ru: 'https://ksurvivalkit.com/ru/korea-delivery-apps-guide',
         ja: 'https://ksurvivalkit.com/ja/korea-delivery-apps-guide',
+        vi: 'https://ksurvivalkit.com/vi/korea-delivery-apps-guide',
       },
     },
     openGraph: {

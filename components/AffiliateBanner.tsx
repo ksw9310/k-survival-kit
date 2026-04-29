@@ -1,10 +1,11 @@
-type L = 'en' | 'zh' | 'ru' | 'ja';
+type L = 'en' | 'zh' | 'ru' | 'ja' | 'vi';
 
 const BADGE: Record<L, string> = {
   en: 'Recommended',
   zh: '推荐',
   ru: 'Рекомендуем',
   ja: 'おすすめ',
+  vi: 'Được đề xuất',
 };
 
 const DISCLOSURE: Record<L, string> = {
@@ -12,6 +13,7 @@ const DISCLOSURE: Record<L, string> = {
   zh: '* 这是一个联盟推广链接。您通过此链接注册时，我们可能会获得少量佣金，对您不产生任何额外费用。',
   ru: '* Это партнёрская ссылка. При регистрации через неё мы можем получить небольшую комиссию — без дополнительных затрат для вас.',
   ja: '* これはアフィリエイトリンクです。こちらから登録いただくと、追加費用なしで少額の手数料が発生する場合があります。',
+  vi: '* Đây là liên kết tiếp thị liên kết. Chúng tôi có thể nhận hoa hồng nhỏ nếu bạn đăng ký — không mất thêm chi phí cho bạn.',
 };
 
 type AffiliateBannerProps = {

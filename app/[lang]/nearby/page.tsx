@@ -37,6 +37,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         zh: 'https://ksurvivalkit.com/zh/nearby',
         ru: 'https://ksurvivalkit.com/ru/nearby',
         ja: 'https://ksurvivalkit.com/ja/nearby',
+        vi: 'https://ksurvivalkit.com/vi/nearby',
       },
     },
   };

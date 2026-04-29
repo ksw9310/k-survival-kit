@@ -30,6 +30,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         zh: 'https://ksurvivalkit.com/zh/transport',
         ru: 'https://ksurvivalkit.com/ru/transport',
         ja: 'https://ksurvivalkit.com/ja/transport',
+        vi: 'https://ksurvivalkit.com/vi/transport',
       },
     },
   };

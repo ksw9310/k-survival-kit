@@ -2,13 +2,14 @@ import Link from 'next/link';
 import { getDictionary } from '@/data';
 import type { Lang } from '@/lib/i18n';
 
-type L = 'en' | 'zh' | 'ru' | 'ja';
+type L = 'en' | 'zh' | 'ru' | 'ja' | 'vi';
 
 const AFFILIATE_DISCLOSURE: Record<L, string> = {
   en: 'This site contains affiliate links. We may earn a small commission at no extra cost to you when you make a purchase through our links.',
   zh: '本站包含联盟推广链接。您通过链接购买时，我们可能会获得少量佣金，对您不产生任何额外费用。',
   ru: 'Этот сайт содержит партнёрские ссылки. При покупке через наши ссылки мы можем получить небольшую комиссию — без дополнительных затрат для вас.',
   ja: '当サイトにはアフィリエイトリンクが含まれています。リンクを通じてご購入いただいた場合、追加費用なしで少額の手数料が発生することがあります。',
+  vi: 'Trang web này chứa các liên kết tiếp thị liên kết. Chúng tôi có thể nhận hoa hồng nhỏ mà không tốn thêm chi phí của bạn khi mua qua liên kết của chúng tôi.',
 };
 
 const EXTRA_LABELS: Record<
@@ -63,6 +64,16 @@ const EXTRA_LABELS: Record<
     terms: '利用規約',
     makingFriends: '友達を作ろう',
     simCard: 'SIMカードガイド',
+  },
+  vi: {
+    nearby: 'Tìm gần đây',
+    transport: 'Giao thông',
+    emergencyKorean: 'Tiếng Hàn khẩn cấp',
+    emergencyContacts: 'Liên lạc khẩn cấp',
+    about: 'Giới thiệu',
+    terms: 'Điều khoản sử dụng',
+    makingFriends: 'Kết bạn',
+    simCard: 'Hướng dẫn SIM',
   },
 };
 

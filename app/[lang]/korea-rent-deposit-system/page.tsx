@@ -376,6 +376,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         zh: 'https://ksurvivalkit.com/zh/korea-rent-deposit-system',
         ru: 'https://ksurvivalkit.com/ru/korea-rent-deposit-system',
         ja: 'https://ksurvivalkit.com/ja/korea-rent-deposit-system',
+        vi: 'https://ksurvivalkit.com/vi/korea-rent-deposit-system',
       },
     },
     openGraph: {

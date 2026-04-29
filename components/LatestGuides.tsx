@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-type L = 'en' | 'zh' | 'ru' | 'ja';
+type L = 'en' | 'zh' | 'ru' | 'ja' | 'vi';
 
 type Guide = {
   href: string;
@@ -43,6 +43,12 @@ const UI_STRINGS: Record<L, UI> = {
     subheading: '韓国在住外国人に最も重要なトピックの詳細記事。',
     readGuide: 'ガイドを読む',
   },
+  vi: {
+    eyebrow: 'Hướng dẫn thực tế',
+    heading: 'Hướng dẫn mới nhất',
+    subheading: 'Bài viết chuyên sâu về các chủ đề quan trọng nhất cho người nước ngoài tại Hàn Quốc.',
+    readGuide: 'Đọc hướng dẫn',
+  },
 };
 
 const guides: Guide[] = [
@@ -54,24 +60,28 @@ const guides: Guide[] = [
       zh: '必读',
       ru: 'Обязательно',
       ja: '必読',
+      vi: 'Phải đọc',
     },
     eyebrow: {
       en: 'Identity',
       zh: '身份证明',
       ru: 'Документы',
       ja: '在留証明',
+      vi: 'Giấy tờ',
     },
     title: {
       en: 'How to Get Your ARC Card in Korea',
       zh: '在韩国如何办理外国人登录证(ARC)',
       ru: 'Как получить карту ARC в Корее',
       ja: '韓国で外国人登録証（ARC）を取得する方法',
+      vi: 'Cách làm thẻ ARC tại Hàn Quốc',
     },
     description: {
       en: 'Step-by-step walkthrough of registering your Alien Registration Card — what to bring, where to go, and what to expect.',
       zh: '外国人登录证申请全流程——需要携带的材料、前往的地点，以及整个办理过程。',
       ru: 'Пошаговое руководство по регистрации карты ARC — что взять, куда идти и чего ожидать.',
       ja: '外国人登録証の申請手順を一から解説 — 持参物・申請場所・当日の流れ。',
+      vi: 'Hướng dẫn từng bước đăng ký Thẻ Đăng ký Người nước ngoài — mang gì, đến đâu và cần chuẩn bị gì.',
     },
   },
   {
@@ -82,18 +92,21 @@ const guides: Guide[] = [
       zh: '银行开户',
       ru: 'Банки',
       ja: '銀行口座',
+      vi: 'Ngân hàng',
     },
     title: {
       en: 'Best Bank Account for Foreigners',
       zh: '外国人最易开户的韩国银行',
       ru: 'Лучший банк для иностранцев в Корее',
       ja: '外国人向けおすすめ銀行口座',
+      vi: 'Tài khoản ngân hàng tốt nhất cho người nước ngoài',
     },
     description: {
       en: 'Which Korean bank is easiest to open without full Korean language skills, and what documents you actually need.',
       zh: '不懂韩语也能开户的银行，以及实际所需的材料清单。',
       ru: 'Какой корейский банк проще всего открыть без знания корейского и какие документы реально нужны.',
       ja: '韓国語が苦手でも開設しやすい銀行と、実際に必要な書類を解説。',
+      vi: 'Ngân hàng Hàn Quốc nào dễ mở nhất khi không biết tiếng Hàn và những giấy tờ thực sự cần thiết.',
     },
   },
   {
@@ -104,18 +117,21 @@ const guides: Guide[] = [
       zh: '手机通讯',
       ru: 'Связь',
       ja: 'モバイル',
+      vi: 'Di động',
     },
     title: {
       en: 'SIM Card & eSIM Guide for Foreigners',
       zh: '外国人SIM卡与eSIM购买指南',
       ru: 'Гайд по SIM-карте и eSIM для иностранцев',
       ja: '外国人向けSIMカード・eSIMガイド',
+      vi: 'Hướng dẫn SIM & eSIM cho người nước ngoài',
     },
     description: {
       en: 'How to get connected on arrival — prepaid SIMs, long-term plans, and eSIM options that work without a Korean bank account.',
       zh: '入境即可上网——预付费SIM、长期套餐及无需韩国银行账户的eSIM方案。',
       ru: 'Как подключиться к сети сразу по прилёту — предоплаченные SIM, долгосрочные тарифы и eSIM без корейского счёта.',
       ja: '到着後すぐネットに繋がる方法 — プリペイドSIM・長期プラン・韓国口座不要のeSIMを比較。',
+      vi: 'Cách kết nối ngay khi đến — SIM trả trước, gói dài hạn và eSIM không cần tài khoản ngân hàng Hàn Quốc.',
     },
   },
   {
@@ -126,18 +142,21 @@ const guides: Guide[] = [
       zh: '外卖应用',
       ru: 'Еда и приложения',
       ja: 'フード・アプリ',
+      vi: 'Đồ ăn & App',
     },
     title: {
       en: 'Korea Delivery Apps Guide',
       zh: '韩国外卖App使用指南',
       ru: 'Гайд по приложениям доставки еды в Корее',
       ja: '韓国フードデリバリーアプリガイド',
+      vi: 'Hướng dẫn ứng dụng giao đồ ăn Hàn Quốc',
     },
     description: {
       en: 'Baemin, Coupang Eats, and Yogiyo explained — how to order food in Korea as a foreigner, even without Korean.',
       zh: 'Baemin、Coupang Eats、Yogiyo全攻略——外国人不懂韩语也能轻松点餐。',
       ru: 'Baemin, Coupang Eats и Yogiyo — как заказывать еду в Корее иностранцу, даже без знания корейского.',
       ja: 'Baemin・Coupang Eats・Yogiyoを徹底解説 — 韓国語が分からなくても注文できる方法。',
+      vi: 'Baemin, Coupang Eats và Yogiyo — cách đặt đồ ăn tại Hàn Quốc với tư cách người nước ngoài, kể cả không biết tiếng Hàn.',
     },
   },
   {
@@ -148,18 +167,21 @@ const guides: Guide[] = [
       zh: '住房租赁',
       ru: 'Жильё',
       ja: '住まい',
+      vi: 'Nhà ở',
     },
     title: {
       en: 'Korea Rent Deposit System Explained',
       zh: '韩国租房保证金制度详解',
       ru: 'Система аренды жилья в Корее: чонсэ и вольсэ',
       ja: '韓国の賃貸保証金制度（チョンセ・ウォルセ）解説',
+      vi: 'Giải thích hệ thống đặt cọc thuê nhà Hàn Quốc',
     },
     description: {
       en: "Jeonse vs Wolse — Korea's unique rental deposit system can be confusing. Here's what every foreigner needs to know before signing.",
       zh: '全税vs月租——韩国独特的租房保证金制度令人困惑，签合同前外国人必须了解的要点。',
       ru: 'Чонсэ и вольсэ — уникальная корейская система аренды жилья. Всё, что нужно знать иностранцу перед подписанием договора.',
       ja: 'チョンセとウォルセの違いとは？契約前に外国人が知っておくべき韓国独自の賃貸制度。',
+      vi: 'Jeonse vs Wolse — hệ thống đặt cọc thuê nhà độc đáo của Hàn Quốc. Những gì mọi người nước ngoài cần biết trước khi ký hợp đồng.',
     },
   },
   {
@@ -170,18 +192,21 @@ const guides: Guide[] = [
       zh: '汇款',
       ru: 'Деньги',
       ja: '送金',
+      vi: 'Chuyển tiền',
     },
     title: {
       en: 'How to Send Money from Korea',
       zh: '如何从韩国向海外汇款',
       ru: 'Как отправить деньги из Кореи',
       ja: '韓国から海外送金する方法',
+      vi: 'Cách chuyển tiền từ Hàn Quốc',
     },
     description: {
       en: 'Wise vs Korean bank — the cheapest and fastest way to send money internationally from Korea as a foreigner.',
       zh: 'Wise与韩国银行对比——外国人从韩国进行国际汇款最省钱、最快速的方式。',
       ru: 'Wise против корейских банков — самый дешёвый и быстрый способ международного перевода из Кореи.',
       ja: 'Wise vs 韓国銀行 — 外国人が韓国から海外送金するための最安・最速の方法。',
+      vi: 'Wise vs ngân hàng Hàn Quốc — cách rẻ nhất và nhanh nhất để chuyển tiền quốc tế từ Hàn Quốc.',
     },
   },
 ];

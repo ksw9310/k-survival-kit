@@ -285,6 +285,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         zh: 'https://ksurvivalkit.com/zh/arc-card-korea-guide',
         ru: 'https://ksurvivalkit.com/ru/arc-card-korea-guide',
         ja: 'https://ksurvivalkit.com/ja/arc-card-korea-guide',
+        vi: 'https://ksurvivalkit.com/vi/arc-card-korea-guide',
       },
     },
     openGraph: {

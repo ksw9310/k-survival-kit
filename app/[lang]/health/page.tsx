@@ -32,6 +32,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         zh: 'https://ksurvivalkit.com/zh/health',
         ru: 'https://ksurvivalkit.com/ru/health',
         ja: 'https://ksurvivalkit.com/ja/health',
+        vi: 'https://ksurvivalkit.com/vi/health',
       },
     },
     openGraph: {
@@ -79,12 +80,14 @@ export default async function HealthPage({ params }: Props) {
               lang === 'zh' ? '留学生旅行保险 — SafetyWing' :
               lang === 'ru' ? 'Страховка для студентов — SafetyWing' :
               lang === 'ja' ? '留学生向け旅行保険 — SafetyWing' :
+              lang === 'vi' ? 'Bảo hiểm du lịch cho du học sinh — SafetyWing' :
               'Travel Insurance for Students — SafetyWing'
             }
             description={
               lang === 'zh' ? '国家健康保险（NHIS）加入前，或学校保险保障不足时的最佳选择。月均约$45，覆盖全球医疗费用，无需长期合同。' :
               lang === 'ru' ? 'Лучший вариант до оформления NHIS или если страховки университета недостаточно. Около $45 в месяц, покрытие медрасходов по всему миру, без долгосрочного контракта.' :
               lang === 'ja' ? 'NHIS加入前や大学保険のカバーが不十分な場合の最善策。月約$45で世界中の医療費をカバー、長期契約不要。' :
+              lang === 'vi' ? 'Lựa chọn tốt nhất trước khi tham gia NHIS hoặc khi bảo hiểm trường không đủ. Khoảng $45/tháng, bao gồm chi phí y tế toàn cầu, không cần cam kết dài hạn.' :
               'Best option before joining NHIS or when your university insurance falls short. Around $45/month, covers medical costs worldwide, no long-term commitment.'
             }
             href="https://safetywing.com/?referenceID=26519381&utm_source=26519381&utm_medium=Ambassador"
@@ -92,6 +95,7 @@ export default async function HealthPage({ params }: Props) {
               lang === 'zh' ? '查看SafetyWing保险' :
               lang === 'ru' ? 'Посмотреть страховку' :
               lang === 'ja' ? 'SafetyWingを見る' :
+              lang === 'vi' ? 'Xem bảo hiểm SafetyWing' :
               'Get Covered with SafetyWing'
             }
             accentColor="blue"

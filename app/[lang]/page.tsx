@@ -26,6 +26,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     zh: 'K-Survival Kit — 在韩留学生生活指南',
     ru: 'K-Survival Kit — Путеводитель по Корее для студентов',
     ja: 'K-Survival Kit — 韓国留学生活ガイド',
+    vi: 'K-Survival Kit — Hướng dẫn Hàn Quốc cho Du học sinh',
   };
 
   return {
@@ -38,6 +39,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         zh: 'https://ksurvivalkit.com/zh',
         ru: 'https://ksurvivalkit.com/ru',
         ja: 'https://ksurvivalkit.com/ja',
+        vi: 'https://ksurvivalkit.com/vi',
       },
     },
     openGraph: {

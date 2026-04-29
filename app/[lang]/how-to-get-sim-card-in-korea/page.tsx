@@ -319,6 +319,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         zh: 'https://ksurvivalkit.com/zh/how-to-get-sim-card-in-korea',
         ru: 'https://ksurvivalkit.com/ru/how-to-get-sim-card-in-korea',
         ja: 'https://ksurvivalkit.com/ja/how-to-get-sim-card-in-korea',
+        vi: 'https://ksurvivalkit.com/vi/how-to-get-sim-card-in-korea',
       },
     },
     openGraph: {

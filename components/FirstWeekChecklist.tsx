@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 
-type L = 'en' | 'zh' | 'ru' | 'ja';
+type L = 'en' | 'zh' | 'ru' | 'ja' | 'vi';
 
 type CheckItem = {
   id: string;
@@ -59,6 +59,15 @@ const UI_STRINGS: Record<L, UI> = {
     urgent: '緊急',
     reset: 'すべてリセット',
   },
+  vi: {
+    badge: 'Danh sách tương tác',
+    heading: 'Tuần đầu tiên tại Hàn Quốc',
+    subheading: 'Đánh dấu từng mục khi hoàn thành. Bắt đầu với những việc khẩn cấp trước.',
+    completed: (done, total) => `${done} / ${total} đã hoàn thành`,
+    allDone: '🎉 Xong hết rồi! Chào mừng đến Hàn Quốc.',
+    urgent: 'Khẩn cấp',
+    reset: 'Đặt lại tất cả',
+  },
 };
 
 const checkItems: CheckItem[] = [
@@ -71,12 +80,14 @@ const checkItems: CheckItem[] = [
       zh: '购买SIM卡或eSIM',
       ru: 'Купить SIM-карту или eSIM',
       ja: 'SIMカード・eSIMを入手する',
+      vi: 'Mua SIM hoặc eSIM',
     },
     note: {
       en: 'Available at the airport (Incheon Terminal 1 & 2). You need this for almost everything.',
       zh: '仁川机场1、2号航站楼均有售。几乎所有事情都需要它。',
       ru: 'Доступно в аэропорту Инчхон (терминалы 1 и 2). Нужна почти для всего.',
       ja: '仁川空港（第1・第2ターミナル）で購入可能。ほぼすべてに必要。',
+      vi: 'Có sẵn tại sân bay (Nhà ga 1 & 2 Incheon). Bạn cần thứ này cho hầu hết mọi việc.',
     },
   },
   {
@@ -88,12 +99,14 @@ const checkItems: CheckItem[] = [
       zh: '购买T-money交通卡',
       ru: 'Купить карту T-money',
       ja: 'T-moneyカードを買う',
+      vi: 'Mua thẻ T-money',
     },
     note: {
       en: 'Tap-to-pay transit card for subway and bus. Buy at any convenience store (CU, GS25, 7-Eleven).',
       zh: '地铁和公交刷卡支付。可在任意便利店购买（CU、GS25、7-Eleven）。',
       ru: 'Карта для оплаты метро и автобуса. Купить в любом удобном магазине (CU, GS25, 7-Eleven).',
       ja: '地下鉄・バスで使えるタッチ決済カード。コンビニ（CU・GS25・7-Eleven）で購入可。',
+      vi: 'Thẻ thanh toán chạm cho tàu điện ngầm và xe buýt. Mua tại bất kỳ cửa hàng tiện lợi nào (CU, GS25, 7-Eleven).',
     },
   },
   {
@@ -105,12 +118,14 @@ const checkItems: CheckItem[] = [
       zh: '申请外国人登录证(ARC)',
       ru: 'Зарегистрировать карту ARC',
       ja: '外国人登録証（ARC）を申請する',
+      vi: 'Đăng ký thẻ ARC',
     },
     note: {
       en: 'Must apply within 90 days of arrival at the Immigration Office. Book an appointment early.',
       zh: '须在抵达后90天内前往出入境管理局申请。请提前预约。',
       ru: 'Необходимо подать заявление в течение 90 дней после прибытия. Запишитесь заранее.',
       ja: '入国から90日以内に出入国在留管理局で申請が必要。早めに予約を。',
+      vi: 'Phải nộp đơn trong vòng 90 ngày kể từ khi đến tại Văn phòng Xuất nhập cảnh. Đặt lịch hẹn sớm.',
     },
   },
   {
@@ -122,12 +137,14 @@ const checkItems: CheckItem[] = [
       zh: '开设韩国银行账户',
       ru: 'Открыть корейский банковский счёт',
       ja: '韓国の銀行口座を開設する',
+      vi: 'Mở tài khoản ngân hàng Hàn Quốc',
     },
     note: {
       en: 'Bring your passport + ARC card. Kakao Bank or IBK are easiest for foreigners.',
       zh: '携带护照和ARC卡前往。Kakao Bank或IBK银行对外国人最为友好。',
       ru: 'Возьмите паспорт и карту ARC. Kakao Bank или IBK — проще всего для иностранцев.',
       ja: 'パスポートとARCカードを持参。Kakao BankまたはIBKが外国人に最も使いやすい。',
+      vi: 'Mang hộ chiếu + thẻ ARC. Kakao Bank hoặc IBK dễ mở nhất cho người nước ngoài.',
     },
   },
   {
@@ -139,12 +156,14 @@ const checkItems: CheckItem[] = [
       zh: '加入国民健康保险(NHIS)',
       ru: 'Оформить государственную медицинскую страховку (NHIS)',
       ja: '国民健康保険（NHIS）に加入する',
+      vi: 'Đăng ký Bảo hiểm Y tế Quốc gia (NHIS)',
     },
     note: {
       en: 'Automatic after 6 months, or apply early at your local district office (구청).',
       zh: '6个月后自动加入，或提前前往区政府（구청）申请。',
       ru: 'Автоматически через 6 месяцев, или подайте заявление раньше в местном районном офисе (구청).',
       ja: '6ヶ月後に自動加入、または区役所（구청）で早めに申請可。',
+      vi: 'Tự động sau 6 tháng, hoặc nộp đơn sớm tại văn phòng quận địa phương (구청).',
     },
   },
   {
@@ -156,12 +175,14 @@ const checkItems: CheckItem[] = [
       zh: '完成大学注册',
       ru: 'Завершить регистрацию в университете',
       ja: '大学の登録を完了する',
+      vi: 'Hoàn tất đăng ký trường đại học',
     },
     note: {
       en: 'Confirm enrollment, get your student ID, and pick up your Certificate of Enrollment.',
       zh: '确认入学、领取学生证及在读证明。',
       ru: 'Подтвердить зачисление, получить студенческий билет и справку о зачислении.',
       ja: '在籍確認・学生証の受け取り・在学証明書の取得。',
+      vi: 'Xác nhận đăng ký, lấy thẻ sinh viên và Giấy xác nhận đăng ký.',
     },
   },
   {
@@ -173,12 +194,14 @@ const checkItems: CheckItem[] = [
       zh: '安装外卖App',
       ru: 'Установить приложение доставки еды',
       ja: 'デリバリーアプリを設定する',
+      vi: 'Cài ứng dụng giao đồ ăn',
     },
     note: {
       en: 'Baemin or Coupang Eats. Requires a Korean phone number and bank account.',
       zh: 'Baemin或Coupang Eats。需要韩国手机号和银行账户。',
       ru: 'Baemin или Coupang Eats. Нужен корейский номер телефона и банковский счёт.',
       ja: 'BaeminまたはCoupang Eats。韓国の電話番号と銀行口座が必要。',
+      vi: 'Baemin hoặc Coupang Eats. Cần số điện thoại và tài khoản ngân hàng Hàn Quốc.',
     },
   },
   {
@@ -190,12 +213,14 @@ const checkItems: CheckItem[] = [
       zh: '保存紧急联系电话',
       ru: 'Сохранить экстренные номера',
       ja: '緊急電話番号を保存する',
+      vi: 'Lưu số điện thoại khẩn cấp',
     },
     note: {
       en: '119 (ambulance/fire), 112 (police), 1345 (foreigner helpline in English, 24h).',
       zh: '119（急救/消防）、112（警察）、1345（外国人英语热线，24小时）。',
       ru: '119 (скорая/пожарные), 112 (полиция), 1345 (помощь иностранцам на английском, 24ч).',
       ja: '119（救急・消防）、112（警察）、1345（外国人向け英語ヘルプライン、24時間）。',
+      vi: '119 (cấp cứu/cứu hỏa), 112 (cảnh sát), 1345 (đường dây hỗ trợ người nước ngoài tiếng Anh, 24h).',
     },
   },
 ];
