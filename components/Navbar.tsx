@@ -93,6 +93,23 @@ const LABELS: Record<Lang, {
     emergencyKorean: '🆘 緊急韓国語',
     emergencyContacts: '📞 緊急連絡先',
   },
+  vi: {
+    living: 'Cuộc sống',
+    explore: 'Khám phá',
+    connect: 'Kết nối',
+    gettingStarted: 'Bắt đầu',
+    dailyLife: 'Cuộc sống hàng ngày',
+    health: 'Sức khỏe',
+    housing: 'Nhà ở',
+    visa: 'Visa & ARC',
+    simCard: '📱 SIM',
+    culture: 'Văn hóa',
+    transport: '🚇 Giao thông',
+    nearby: '📍 Tìm gần đây',
+    makingFriends: '🤝 Kết bạn',
+    emergencyKorean: '🆘 Tiếng Hàn khẩn cấp',
+    emergencyContacts: '📞 Liên lạc khẩn cấp',
+  },
 };
 
 function getGroups(lang: Lang): Group[] {

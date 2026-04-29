@@ -67,6 +67,15 @@ const T: Record<
     live: 'リアル',
     loading: '読み込み中…',
   },
+  vi: {
+    title: '💱 Máy tính tiền tệ',
+    subtitle: 'Tỷ giá KRW trực tiếp',
+    placeholder: 'Nhập số tiền',
+    note: 'Tỷ giá từ open.er-api.com',
+    direction: 'Nhấn vào hàng để đổi chiều',
+    live: 'Trực tiếp',
+    loading: 'Đang tải…',
+  },
 };
 
 function formatKRW(n: number) {

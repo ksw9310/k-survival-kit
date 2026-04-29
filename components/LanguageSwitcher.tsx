@@ -9,6 +9,7 @@ const labels: Record<Lang, string> = {
   zh: '🇨🇳',
   ru: '🇷🇺',
   ja: '🇯🇵',
+  vi: '🇻🇳',
 };
 
 export default function LanguageSwitcher({
@@ -19,7 +20,7 @@ export default function LanguageSwitcher({
   const pathname = usePathname() ?? '/';
 
   const pathWithoutLang =
-    pathname.replace(/^\/(en|zh|ru|ja)(?=\/|$)/, '') || '/';
+    pathname.replace(/^\/(en|zh|ru|ja|vi)(?=\/|$)/, '') || '/';
 
   return (
     <div className="flex gap-2">

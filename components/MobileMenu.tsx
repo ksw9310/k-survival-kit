@@ -18,12 +18,13 @@ const langLabels: Record<Lang, { flag: string; name: string }> = {
   zh: { flag: '🇨🇳', name: '中文' },
   ru: { flag: '🇷🇺', name: 'Русский' },
   ja: { flag: '🇯🇵', name: '日本語' },
+  vi: { flag: '🇻🇳', name: 'Tiếng Việt' },
 };
 
 export default function MobileMenu({ groups, currentLang }: Props) {
   const [open, setOpen] = useState(false);
   const pathname = usePathname() ?? '/';
-  const pathWithoutLang = pathname.replace(/^\/(en|zh|ru|ja)(?=\/|$)/, '') || '/';
+  const pathWithoutLang = pathname.replace(/^\/(en|zh|ru|ja|vi)(?=\/|$)/, '') || '/';
 
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : '';
