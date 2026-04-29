@@ -1,7 +1,7 @@
 // Affiliate / Referral links
 // Amber:           ✅ active — amberstudent.com/l/edc0ed373
 // University Living: ✅ active — universityliving.com/?referral=상욱강4744
-// HousingAnywhere: TODO — sign up via Impact network (impact.com)
+// HousingAnywhere: no affiliate program found — keeping as regular link
 // uhomes:          ✅ active — kr.uhomes.com/referral/partnerShare?xcode=000a65acdd6030bd1ec5
 
 type L = 'en' | 'zh' | 'ru' | 'ja';
@@ -62,7 +62,6 @@ const platforms: Platform[] = [
   {
     name: 'HousingAnywhere',
     icon: '🔑',
-    // TODO: Replace with HousingAnywhere affiliate link (Impact network)
     href: 'https://housinganywhere.com',
     color: 'blue',
     desc: {
