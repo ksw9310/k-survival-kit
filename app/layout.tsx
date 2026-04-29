@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://k-survival-kit.vercel.app'),
+  metadataBase: new URL('https://ksurvivalkit.com'),
   title: "K-Survival Kit — Korea Guide for International Students",
   description: "Practical guide for international students living in Korea. ARC card, SIM, banking, housing, daily life and more — in 4 languages.",
   icons: {

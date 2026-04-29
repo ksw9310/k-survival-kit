@@ -228,7 +228,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return {};
   }
 
-  const url = `https://k-survival-kit.vercel.app/${lang}/korea-delivery-apps-guide`;
+  const url = `https://ksurvivalkit.com/${lang}/korea-delivery-apps-guide`;
   const m = META[(lang as L) in META ? (lang as L) : 'en'];
 
   return {
@@ -237,10 +237,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     alternates: {
       canonical: url,
       languages: {
-        en: 'https://k-survival-kit.vercel.app/en/korea-delivery-apps-guide',
-        zh: 'https://k-survival-kit.vercel.app/zh/korea-delivery-apps-guide',
-        ru: 'https://k-survival-kit.vercel.app/ru/korea-delivery-apps-guide',
-        ja: 'https://k-survival-kit.vercel.app/ja/korea-delivery-apps-guide',
+        en: 'https://ksurvivalkit.com/en/korea-delivery-apps-guide',
+        zh: 'https://ksurvivalkit.com/zh/korea-delivery-apps-guide',
+        ru: 'https://ksurvivalkit.com/ru/korea-delivery-apps-guide',
+        ja: 'https://ksurvivalkit.com/ja/korea-delivery-apps-guide',
       },
     },
     openGraph: {
@@ -269,7 +269,7 @@ export default async function KoreaDeliveryAppsGuidePage({ params }: Props) {
 
   const l: L = (lang as L) in CONTENT ? (lang as L) : 'en';
   const c = CONTENT[l];
-  const pageUrl = `https://k-survival-kit.vercel.app/${lang}/korea-delivery-apps-guide`;
+  const pageUrl = `https://ksurvivalkit.com/${lang}/korea-delivery-apps-guide`;
 
   const jsonLdData = {
     '@context': 'https://schema.org',
@@ -278,7 +278,7 @@ export default async function KoreaDeliveryAppsGuidePage({ params }: Props) {
     description: META[l].description,
     url: pageUrl,
     inLanguage: lang,
-    publisher: { '@type': 'Organization', name: 'K-Survival Kit', url: 'https://k-survival-kit.vercel.app' },
+    publisher: { '@type': 'Organization', name: 'K-Survival Kit', url: 'https://ksurvivalkit.com' },
   };
 
   return (

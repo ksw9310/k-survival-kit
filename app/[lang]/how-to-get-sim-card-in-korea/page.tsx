@@ -306,7 +306,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return {};
   }
 
-  const url = `https://k-survival-kit.vercel.app/${lang}/how-to-get-sim-card-in-korea`;
+  const url = `https://ksurvivalkit.com/${lang}/how-to-get-sim-card-in-korea`;
   const m = META[(lang as L) in META ? (lang as L) : 'en'];
 
   return {
@@ -315,10 +315,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     alternates: {
       canonical: url,
       languages: {
-        en: 'https://k-survival-kit.vercel.app/en/how-to-get-sim-card-in-korea',
-        zh: 'https://k-survival-kit.vercel.app/zh/how-to-get-sim-card-in-korea',
-        ru: 'https://k-survival-kit.vercel.app/ru/how-to-get-sim-card-in-korea',
-        ja: 'https://k-survival-kit.vercel.app/ja/how-to-get-sim-card-in-korea',
+        en: 'https://ksurvivalkit.com/en/how-to-get-sim-card-in-korea',
+        zh: 'https://ksurvivalkit.com/zh/how-to-get-sim-card-in-korea',
+        ru: 'https://ksurvivalkit.com/ru/how-to-get-sim-card-in-korea',
+        ja: 'https://ksurvivalkit.com/ja/how-to-get-sim-card-in-korea',
       },
     },
     openGraph: {
@@ -347,7 +347,7 @@ export default async function SimCardGuidePage({ params }: Props) {
 
   const l: L = (lang as L) in CONTENT ? (lang as L) : 'en';
   const c = CONTENT[l];
-  const pageUrl = `https://k-survival-kit.vercel.app/${lang}/how-to-get-sim-card-in-korea`;
+  const pageUrl = `https://ksurvivalkit.com/${lang}/how-to-get-sim-card-in-korea`;
 
   const jsonLdData = [
     {
@@ -357,7 +357,7 @@ export default async function SimCardGuidePage({ params }: Props) {
       description: META[l].description,
       url: pageUrl,
       inLanguage: lang,
-      publisher: { '@type': 'Organization', name: 'K-Survival Kit', url: 'https://k-survival-kit.vercel.app' },
+      publisher: { '@type': 'Organization', name: 'K-Survival Kit', url: 'https://ksurvivalkit.com' },
     },
     {
       '@context': 'https://schema.org',

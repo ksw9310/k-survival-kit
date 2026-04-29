@@ -26,6 +26,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: title[lang as L] ?? title.en,
     description: desc[lang as L] ?? desc.en,
+    alternates: {
+      canonical: `https://ksurvivalkit.com/${lang}/emergency-korean`,
+      languages: {
+        en: 'https://ksurvivalkit.com/en/emergency-korean',
+        zh: 'https://ksurvivalkit.com/zh/emergency-korean',
+        ru: 'https://ksurvivalkit.com/ru/emergency-korean',
+        ja: 'https://ksurvivalkit.com/ja/emergency-korean',
+      },
+    },
   };
 }
 

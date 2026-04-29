@@ -25,12 +25,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: 'K-Survival Kit',
     description: dict.homeContent.introDesc,
     alternates: {
-      canonical: `https://k-survival-kit.vercel.app/${lang}`,
+      canonical: `https://ksurvivalkit.com/${lang}`,
       languages: {
-        en: 'https://k-survival-kit.vercel.app/en',
-        zh: 'https://k-survival-kit.vercel.app/zh',
-        ru: 'https://k-survival-kit.vercel.app/ru',
-        ja: 'https://k-survival-kit.vercel.app/ja',
+        en: 'https://ksurvivalkit.com/en',
+        zh: 'https://ksurvivalkit.com/zh',
+        ru: 'https://ksurvivalkit.com/ru',
+        ja: 'https://ksurvivalkit.com/ja',
       },
     },
   };

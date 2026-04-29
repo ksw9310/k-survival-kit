@@ -452,7 +452,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return {};
   }
 
-  const url = `https://k-survival-kit.vercel.app/${lang}/best-bank-account-for-foreigners-korea`;
+  const url = `https://ksurvivalkit.com/${lang}/best-bank-account-for-foreigners-korea`;
   const m = META[(lang as L) in META ? (lang as L) : 'en'];
 
   return {
@@ -461,10 +461,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     alternates: {
       canonical: url,
       languages: {
-        en: 'https://k-survival-kit.vercel.app/en/best-bank-account-for-foreigners-korea',
-        zh: 'https://k-survival-kit.vercel.app/zh/best-bank-account-for-foreigners-korea',
-        ru: 'https://k-survival-kit.vercel.app/ru/best-bank-account-for-foreigners-korea',
-        ja: 'https://k-survival-kit.vercel.app/ja/best-bank-account-for-foreigners-korea',
+        en: 'https://ksurvivalkit.com/en/best-bank-account-for-foreigners-korea',
+        zh: 'https://ksurvivalkit.com/zh/best-bank-account-for-foreigners-korea',
+        ru: 'https://ksurvivalkit.com/ru/best-bank-account-for-foreigners-korea',
+        ja: 'https://ksurvivalkit.com/ja/best-bank-account-for-foreigners-korea',
       },
     },
     openGraph: {
@@ -495,7 +495,7 @@ export default async function BestBankAccountForForeignersKoreaPage({
 
   const l: L = (lang as L) in CONTENT ? (lang as L) : 'en';
   const c = CONTENT[l];
-  const pageUrl = `https://k-survival-kit.vercel.app/${lang}/best-bank-account-for-foreigners-korea`;
+  const pageUrl = `https://ksurvivalkit.com/${lang}/best-bank-account-for-foreigners-korea`;
 
   const jsonLdData = [
     {
@@ -505,7 +505,7 @@ export default async function BestBankAccountForForeignersKoreaPage({
       description: META[l].description,
       url: pageUrl,
       inLanguage: lang,
-      publisher: { '@type': 'Organization', name: 'K-Survival Kit', url: 'https://k-survival-kit.vercel.app' },
+      publisher: { '@type': 'Organization', name: 'K-Survival Kit', url: 'https://ksurvivalkit.com' },
     },
     {
       '@context': 'https://schema.org',

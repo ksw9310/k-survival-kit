@@ -23,6 +23,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       ru: 'Как пользоваться общественным транспортом в Корее — метро, автобус, такси, карта T-money и Kakao T.',
       ja: '韓国の公共交通機関の使い方 — 地下鉄・バス・タクシー・T-moneyカード・Kakao T。外国人向け実用ガイド。',
     }),
+    alternates: {
+      canonical: `https://ksurvivalkit.com/${lang}/transport`,
+      languages: {
+        en: 'https://ksurvivalkit.com/en/transport',
+        zh: 'https://ksurvivalkit.com/zh/transport',
+        ru: 'https://ksurvivalkit.com/ru/transport',
+        ja: 'https://ksurvivalkit.com/ja/transport',
+      },
+    },
   };
 }
 

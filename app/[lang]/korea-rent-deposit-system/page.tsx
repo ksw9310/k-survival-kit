@@ -363,7 +363,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return {};
   }
 
-  const url = `https://k-survival-kit.vercel.app/${lang}/korea-rent-deposit-system`;
+  const url = `https://ksurvivalkit.com/${lang}/korea-rent-deposit-system`;
   const m = META[(lang as L) in META ? (lang as L) : 'en'];
 
   return {
@@ -372,10 +372,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     alternates: {
       canonical: url,
       languages: {
-        en: 'https://k-survival-kit.vercel.app/en/korea-rent-deposit-system',
-        zh: 'https://k-survival-kit.vercel.app/zh/korea-rent-deposit-system',
-        ru: 'https://k-survival-kit.vercel.app/ru/korea-rent-deposit-system',
-        ja: 'https://k-survival-kit.vercel.app/ja/korea-rent-deposit-system',
+        en: 'https://ksurvivalkit.com/en/korea-rent-deposit-system',
+        zh: 'https://ksurvivalkit.com/zh/korea-rent-deposit-system',
+        ru: 'https://ksurvivalkit.com/ru/korea-rent-deposit-system',
+        ja: 'https://ksurvivalkit.com/ja/korea-rent-deposit-system',
       },
     },
     openGraph: {
@@ -404,7 +404,7 @@ export default async function KoreaRentDepositSystemPage({ params }: Props) {
 
   const l: L = (lang as L) in CONTENT ? (lang as L) : 'en';
   const c = CONTENT[l];
-  const pageUrl = `https://k-survival-kit.vercel.app/${lang}/korea-rent-deposit-system`;
+  const pageUrl = `https://ksurvivalkit.com/${lang}/korea-rent-deposit-system`;
 
   const jsonLdData = {
     '@context': 'https://schema.org',
@@ -413,7 +413,7 @@ export default async function KoreaRentDepositSystemPage({ params }: Props) {
     description: META[l].description,
     url: pageUrl,
     inLanguage: lang,
-    publisher: { '@type': 'Organization', name: 'K-Survival Kit', url: 'https://k-survival-kit.vercel.app' },
+    publisher: { '@type': 'Organization', name: 'K-Survival Kit', url: 'https://ksurvivalkit.com' },
   };
 
   return (

@@ -13,12 +13,12 @@ export async function generateMetadata(): Promise<Metadata> {
     description:
       'K-Survival Kit was created by SW Kang to help international students navigate life in Korea more easily. Learn the story behind the site.',
     alternates: {
-      canonical: 'https://k-survival-kit.vercel.app/en/about',
+      canonical: 'https://ksurvivalkit.com/en/about',
       languages: {
-        en: 'https://k-survival-kit.vercel.app/en/about',
-        zh: 'https://k-survival-kit.vercel.app/zh/about',
-        ru: 'https://k-survival-kit.vercel.app/ru/about',
-        ja: 'https://k-survival-kit.vercel.app/ja/about',
+        en: 'https://ksurvivalkit.com/en/about',
+        zh: 'https://ksurvivalkit.com/zh/about',
+        ru: 'https://ksurvivalkit.com/ru/about',
+        ja: 'https://ksurvivalkit.com/ja/about',
       },
     },
   };

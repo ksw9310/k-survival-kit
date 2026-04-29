@@ -30,6 +30,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: loc(lang, META_TITLE),
     description: loc(lang, META_DESC),
+    alternates: {
+      canonical: `https://ksurvivalkit.com/${lang}/nearby`,
+      languages: {
+        en: 'https://ksurvivalkit.com/en/nearby',
+        zh: 'https://ksurvivalkit.com/zh/nearby',
+        ru: 'https://ksurvivalkit.com/ru/nearby',
+        ja: 'https://ksurvivalkit.com/ja/nearby',
+      },
+    },
   };
 }
 

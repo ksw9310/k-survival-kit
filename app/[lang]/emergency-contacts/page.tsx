@@ -22,6 +22,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       ru: 'Необходимые экстренные номера для иностранцев в Корее — горячие линии, посольства, госуслуги.',
       ja: '韓国在住外国人向け緊急連絡先 — ホットライン・大使館・政府サービス。',
     }),
+    alternates: {
+      canonical: `https://ksurvivalkit.com/${lang}/emergency-contacts`,
+      languages: {
+        en: 'https://ksurvivalkit.com/en/emergency-contacts',
+        zh: 'https://ksurvivalkit.com/zh/emergency-contacts',
+        ru: 'https://ksurvivalkit.com/ru/emergency-contacts',
+        ja: 'https://ksurvivalkit.com/ja/emergency-contacts',
+      },
+    },
   };
 }
 

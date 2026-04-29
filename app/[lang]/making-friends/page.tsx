@@ -23,12 +23,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       ja: '韓国で外国人として友達を作る方法——アプリ・イベント・言語交換・コミュニティ。',
     }),
     alternates: {
-      canonical: `https://k-survival-kit.vercel.app/${lang}/making-friends`,
+      canonical: `https://ksurvivalkit.com/${lang}/making-friends`,
       languages: {
-        en: 'https://k-survival-kit.vercel.app/en/making-friends',
-        zh: 'https://k-survival-kit.vercel.app/zh/making-friends',
-        ru: 'https://k-survival-kit.vercel.app/ru/making-friends',
-        ja: 'https://k-survival-kit.vercel.app/ja/making-friends',
+        en: 'https://ksurvivalkit.com/en/making-friends',
+        zh: 'https://ksurvivalkit.com/zh/making-friends',
+        ru: 'https://ksurvivalkit.com/ru/making-friends',
+        ja: 'https://ksurvivalkit.com/ja/making-friends',
       },
     },
   };
