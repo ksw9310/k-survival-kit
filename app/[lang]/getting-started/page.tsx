@@ -103,7 +103,7 @@ export default async function GettingStartedPage({ params }: Props) {
           { icon: '🏪', label: 'Convenience Store', category: 'convenience' },
         ]}
       />
-      <FirstWeekChecklist />
+      <FirstWeekChecklist lang={lang as string} />
 
       <div className="bg-slate-50 px-4 py-8 max-w-4xl mx-auto">
         <AffiliateBanner
