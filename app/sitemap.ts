@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next';
 import { locales } from '@/lib/i18n';
 
-const baseUrl = 'https://k-survival-kit.vercel.app';
+const baseUrl = 'https://ksurvivalkit.com';
 
 const categoryRoutes = [
   '',
@@ -13,6 +13,7 @@ const categoryRoutes = [
   '/visa',
   '/nearby',
   '/transport',
+  '/making-friends',
   '/emergency-contacts',
   '/emergency-korean',
   '/about',

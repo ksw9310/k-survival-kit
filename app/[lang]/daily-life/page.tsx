@@ -39,6 +39,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       url: `https://ksurvivalkit.com/${lang}/daily-life`,
       locale: lang,
       type: 'website',
+      images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'K-Survival Kit' }],
     },
   };
 }

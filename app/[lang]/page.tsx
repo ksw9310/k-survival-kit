@@ -21,8 +21,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const dict = getDictionary(lang);
 
+  const homeTitle: Record<string, string> = {
+    en: 'K-Survival Kit — Korea Guide for International Students',
+    zh: 'K-Survival Kit — 在韩留学生生活指南',
+    ru: 'K-Survival Kit — Путеводитель по Корее для студентов',
+    ja: 'K-Survival Kit — 韓国留学生活ガイド',
+  };
+
   return {
-    title: 'K-Survival Kit',
+    title: homeTitle[lang] ?? homeTitle.en,
     description: dict.homeContent.introDesc,
     alternates: {
       canonical: `https://ksurvivalkit.com/${lang}`,
@@ -32,6 +39,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         ru: 'https://ksurvivalkit.com/ru',
         ja: 'https://ksurvivalkit.com/ja',
       },
+    },
+    openGraph: {
+      title: homeTitle[lang] ?? homeTitle.en,
+      description: dict.homeContent.introDesc,
+      url: `https://ksurvivalkit.com/${lang}`,
+      locale: lang,
+      type: 'website',
     },
   };
 }

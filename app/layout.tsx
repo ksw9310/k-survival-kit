@@ -20,6 +20,23 @@ export const metadata: Metadata = {
   icons: {
     icon: "/icon.svg",
   },
+  openGraph: {
+    siteName: 'K-Survival Kit',
+    type: 'website',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'K-Survival Kit — Korea Guide for International Students',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    site: '@ksurvivalkit',
+    images: ['/og-image.png'],
+  },
   other: {
     'p:domain_verify': '536fb95b54c46a7e53ed9342c3b113d7',
   },
