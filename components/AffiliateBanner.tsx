@@ -1,3 +1,19 @@
+type L = 'en' | 'zh' | 'ru' | 'ja';
+
+const BADGE: Record<L, string> = {
+  en: 'Recommended',
+  zh: '推荐',
+  ru: 'Рекомендуем',
+  ja: 'おすすめ',
+};
+
+const DISCLOSURE: Record<L, string> = {
+  en: '* This is an affiliate link. We may earn a small commission if you sign up — at no extra cost to you.',
+  zh: '* 这是一个联盟推广链接。您通过此链接注册时，我们可能会获得少量佣金，对您不产生任何额外费用。',
+  ru: '* Это партнёрская ссылка. При регистрации через неё мы можем получить небольшую комиссию — без дополнительных затрат для вас.',
+  ja: '* これはアフィリエイトリンクです。こちらから登録いただくと、追加費用なしで少額の手数料が発生する場合があります。',
+};
+
 type AffiliateBannerProps = {
   icon: string;
   title: string;
@@ -5,6 +21,7 @@ type AffiliateBannerProps = {
   href: string;
   ctaText: string;
   accentColor?: 'rose' | 'blue' | 'green';
+  lang?: string;
 };
 
 export default function AffiliateBanner({
@@ -14,7 +31,10 @@ export default function AffiliateBanner({
   href,
   ctaText,
   accentColor = 'rose',
+  lang = 'en',
 }: AffiliateBannerProps) {
+  const l: L = (lang as L) in BADGE ? (lang as L) : 'en';
+
   const colors = {
     rose: {
       bg: 'bg-rose-50',
@@ -46,10 +66,8 @@ export default function AffiliateBanner({
           <div>
             <div className="flex items-center gap-2 mb-1">
               <h3 className="font-bold text-slate-900">{title}</h3>
-              <span
-                className={`text-xs font-semibold px-2 py-0.5 rounded-full ${c.badge}`}
-              >
-                Recommended
+              <span className={`text-xs font-semibold px-2 py-0.5 rounded-full ${c.badge}`}>
+                {BADGE[l]}
               </span>
             </div>
             <p className="text-sm leading-6 text-slate-600">{description}</p>
@@ -64,10 +82,7 @@ export default function AffiliateBanner({
           {ctaText} →
         </a>
       </div>
-      <p className="mt-3 text-xs text-slate-400">
-        * This is an affiliate link. We may earn a small commission if you sign
-        up — at no extra cost to you.
-      </p>
+      <p className="mt-3 text-xs text-slate-400">{DISCLOSURE[l]}</p>
     </div>
   );
 }

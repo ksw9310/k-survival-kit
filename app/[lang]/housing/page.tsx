@@ -6,6 +6,7 @@ import { getDictionary } from '@/data';
 import { isValidLocale } from '@/lib/i18n';
 import RelatedPosts from '@/components/RelatedPosts';
 import PageDisclaimer from '@/components/PageDisclaimer';
+import HousingPlatforms from '@/components/HousingPlatforms';
 
 type Props = {
   params: Promise<{ lang: string }>;
@@ -61,6 +62,7 @@ export default async function HousingPage({ params }: Props) {
       />
       <PageDisclaimer type="housing" />
       <SectionGrid items={content.cards} />
+      <HousingPlatforms lang={lang as string} />
       <RelatedPosts lang={lang as string} current="housing" />
     </main>
   );
