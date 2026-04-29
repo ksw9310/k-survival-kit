@@ -25,6 +25,7 @@ const blogRoutes = [
   '/how-to-get-sim-card-in-korea',
   '/korea-delivery-apps-guide',
   '/korea-rent-deposit-system',
+  '/how-to-send-money-from-korea',
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

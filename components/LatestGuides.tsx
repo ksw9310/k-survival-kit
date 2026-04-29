@@ -162,6 +162,28 @@ const guides: Guide[] = [
       ja: 'チョンセとウォルセの違いとは？契約前に外国人が知っておくべき韓国独自の賃貸制度。',
     },
   },
+  {
+    href: '/how-to-send-money-from-korea',
+    icon: '💸',
+    eyebrow: {
+      en: 'Money',
+      zh: '汇款',
+      ru: 'Деньги',
+      ja: '送金',
+    },
+    title: {
+      en: 'How to Send Money from Korea',
+      zh: '如何从韩国向海外汇款',
+      ru: 'Как отправить деньги из Кореи',
+      ja: '韓国から海外送金する方法',
+    },
+    description: {
+      en: 'Wise vs Korean bank — the cheapest and fastest way to send money internationally from Korea as a foreigner.',
+      zh: 'Wise与韩国银行对比——外国人从韩国进行国际汇款最省钱、最快速的方式。',
+      ru: 'Wise против корейских банков — самый дешёвый и быстрый способ международного перевода из Кореи.',
+      ja: 'Wise vs 韓国銀行 — 外国人が韓国から海外送金するための最安・最速の方法。',
+    },
+  },
 ];
 
 function t<T>(obj: Record<L, T>, lang: string): T {

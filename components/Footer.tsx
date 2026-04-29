@@ -128,7 +128,7 @@ export default function Footer({ lang }: { lang: Lang }) {
           <div className="hidden md:block">
             <p className="font-semibold text-slate-400">사업자 정보</p>
             <p>상호명: 케이빌드랩 (KBuild Lab) &nbsp;|&nbsp; 대표자: 강상욱 &nbsp;|&nbsp; 사업자등록번호: 843-12-02937</p>
-            <p>사업장 소재지: 인천광역시 서구 청라한내로72번길 7-29, 1909호</p>
+            <p>사업장 소재지: 인천광역시 서구 청라한내로72번길 7-29</p>
             <p>업태: 서비스업 &nbsp;|&nbsp; 종목: 온라인 광고업 &nbsp;|&nbsp; 과세유형: 간이과세자</p>
           </div>
         </div>

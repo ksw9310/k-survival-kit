@@ -180,6 +180,23 @@ const allRelated: Record<string, RelatedPost> = {
       ja: 'チョンセとウォルセ — 韓国独自の賃貸保証金制度を解説。',
     },
   },
+  'how-to-send-money-from-korea': {
+    href: '/how-to-send-money-from-korea',
+    icon: '💸',
+    eyebrow: { en: 'Money', zh: '汇款', ru: 'Деньги', ja: '送金' },
+    title: {
+      en: 'Send Money from Korea',
+      zh: '从韩国向海外汇款',
+      ru: 'Отправить деньги из Кореи',
+      ja: '韓国から海外送金',
+    },
+    description: {
+      en: 'Cheapest way to send money abroad from Korea — Wise vs Korean banks explained.',
+      zh: '从韩国向海外汇款最省钱的方式——Wise与韩国银行对比。',
+      ru: 'Самый дешёвый способ отправить деньги из Кореи — Wise против корейских банков.',
+      ja: '韓国から海外送金の最安値方法 — Wiseと韓国銀行の比較。',
+    },
+  },
 };
 
 const relatedMap: Record<string, string[]> = {
@@ -190,10 +207,11 @@ const relatedMap: Record<string, string[]> = {
   culture: ['daily-life', 'getting-started', 'health'],
   visa: ['arc-card-korea-guide', 'getting-started', 'best-bank-account-for-foreigners-korea'],
   'arc-card-korea-guide': ['visa', 'how-to-get-sim-card-in-korea', 'best-bank-account-for-foreigners-korea'],
-  'best-bank-account-for-foreigners-korea': ['arc-card-korea-guide', 'how-to-get-sim-card-in-korea', 'getting-started'],
+  'best-bank-account-for-foreigners-korea': ['arc-card-korea-guide', 'how-to-send-money-from-korea', 'how-to-get-sim-card-in-korea'],
   'how-to-get-sim-card-in-korea': ['arc-card-korea-guide', 'best-bank-account-for-foreigners-korea', 'korea-delivery-apps-guide'],
   'korea-delivery-apps-guide': ['daily-life', 'how-to-get-sim-card-in-korea', 'best-bank-account-for-foreigners-korea'],
   'korea-rent-deposit-system': ['housing', 'visa', 'getting-started'],
+  'how-to-send-money-from-korea': ['best-bank-account-for-foreigners-korea', 'arc-card-korea-guide', 'getting-started'],
 };
 
 function loc<T>(obj: Record<L, T>, lang: string): T {
