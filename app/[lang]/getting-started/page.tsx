@@ -92,6 +92,36 @@ export default async function GettingStartedPage({ params }: Props) {
 
   const italkiT = italki[lang] ?? italki.en;
 
+  const nordvpn: Record<string, { title: string; description: string; ctaText: string }> = {
+    en: {
+      title: 'Stay Safe Online in Korea with NordVPN',
+      description: 'Public Wi-Fi in cafes, libraries, and universities can expose your data. NordVPN encrypts your connection so you can browse, bank, and stream securely — anywhere in Korea.',
+      ctaText: 'Get NordVPN',
+    },
+    zh: {
+      title: '在韩国使用NordVPN保护上网安全',
+      description: '咖啡馆、图书馆和大学的公共Wi-Fi可能暴露你的数据。NordVPN加密你的连接，让你在韩国任何地方都能安全浏览、网银和流媒体。',
+      ctaText: '获取NordVPN',
+    },
+    ru: {
+      title: 'Безопасный интернет в Корее с NordVPN',
+      description: 'Публичный Wi-Fi в кафе, библиотеках и университетах может раскрыть ваши данные. NordVPN шифрует соединение — безопасный браузинг, банкинг и стриминг в любой точке Кореи.',
+      ctaText: 'Получить NordVPN',
+    },
+    ja: {
+      title: 'NordVPNで韓国でも安全にネットを使おう',
+      description: 'カフェ・図書館・大学の公共Wi-Fiはデータ漏洩のリスクがあります。NordVPNが通信を暗号化し、韓国中どこでも安全にブラウジング・銀行・動画視聴ができます。',
+      ctaText: 'NordVPNを入手',
+    },
+    vi: {
+      title: 'Duyệt web an toàn ở Hàn Quốc với NordVPN',
+      description: 'Wi-Fi công cộng ở quán cà phê, thư viện và trường đại học có thể lộ dữ liệu của bạn. NordVPN mã hóa kết nối để bạn duyệt web, ngân hàng và xem phim an toàn — ở bất cứ đâu tại Hàn Quốc.',
+      ctaText: 'Dùng NordVPN',
+    },
+  };
+
+  const nordvpnT = nordvpn[lang] ?? nordvpn.en;
+
   return (
     <main>
       <PageHero
@@ -111,7 +141,15 @@ export default async function GettingStartedPage({ params }: Props) {
       />
       <FirstWeekChecklist lang={lang as string} />
 
-      <div className="bg-slate-50 px-4 py-8 max-w-4xl mx-auto">
+      <div className="bg-slate-50 px-4 py-8 max-w-4xl mx-auto space-y-6">
+        <AffiliateBanner
+          icon="🔒"
+          title={nordvpnT.title}
+          description={nordvpnT.description}
+          href="https://go.nordvpn.net/aff_c?offer_id=15&aff_id=146085&url_id=23180"
+          ctaText={nordvpnT.ctaText}
+          accentColor="blue"
+        />
         <AffiliateBanner
           icon="🗣️"
           title={italkiT.title}
