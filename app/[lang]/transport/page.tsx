@@ -845,6 +845,34 @@ export default async function TransportPage({ params }: Props) {
           <strong>💡 Tip:</strong> {loc(lang, UI.tip)}
         </div>
 
+        {/* Saily eSIM Banner */}
+        <AffiliateBanner
+          icon="📱"
+          title={loc(lang, {
+            en: 'Need Data to Use These Apps? Get a Korea eSIM',
+            zh: '使用这些App需要流量？购买韩国eSIM',
+            ru: 'Нужен интернет для этих приложений? Купите корейскую eSIM',
+            ja: 'アプリを使うにはデータが必要？韓国eSIMを入手しよう',
+            vi: 'Cần data để dùng các app này? Mua eSIM Hàn Quốc',
+          })}
+          description={loc(lang, {
+            en: 'Naver Map, Kakao T and all transport apps need mobile data to work. Saily lets you buy a Korea eSIM online and activate it before landing — no airport queues.',
+            zh: 'Naver Map、Kakao T等所有交通App都需要移动数据。Saily让您在线购买韩国eSIM并在落地前激活——无需在机场排队。',
+            ru: 'Naver Map, Kakao T и другие транспортные приложения требуют мобильного интернета. Saily позволяет купить корейскую eSIM онлайн и активировать до посадки — без очередей в аэропорту.',
+            ja: 'Naver Map・Kakao Tなどの交通アプリにはモバイルデータが必要です。Sailyなら韓国eSIMをオンラインで購入し、着陸前に有効化できます——空港での行列不要。',
+            vi: 'Naver Map, Kakao T và tất cả ứng dụng giao thông cần có dữ liệu di động. Saily cho phép bạn mua eSIM Hàn Quốc trực tuyến và kích hoạt trước khi đáp — không cần xếp hàng sân bay.',
+          })}
+          href="https://go.saily.site/aff_c?offer_id=101&aff_id=13847"
+          ctaText={loc(lang, {
+            en: 'Get a Korea eSIM on Saily',
+            zh: '在Saily获取韩国eSIM',
+            ru: 'Купить eSIM для Кореи на Saily',
+            ja: 'SailyでeSIMを入手',
+            vi: 'Mua eSIM Hàn Quốc trên Saily',
+          })}
+          accentColor="blue"
+        />
+
         {/* Klook Affiliate Banner */}
         <AffiliateBanner
           icon="🎟️"

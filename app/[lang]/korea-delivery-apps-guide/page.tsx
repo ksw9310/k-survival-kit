@@ -425,7 +425,25 @@ export default async function KoreaDeliveryAppsGuidePage({ params }: Props) {
           </section>
 
         </article>
-        <div className="mt-10 max-w-4xl mx-auto">
+        <div className="mt-10 max-w-4xl mx-auto space-y-6">
+          <AffiliateBanner
+            icon="📱"
+            title={
+              ({ en: 'Need Data to Order? Get a Korea eSIM', zh: '下单需要流量？购买韩国eSIM', ru: 'Нужен интернет для заказов? Купите eSIM', ja: '注文にデータ必要？韓国eSIMを入手', vi: 'Cần data để đặt đồ ăn? Mua eSIM Hàn Quốc' } as Record<string, string>)[lang] ?? 'Need Data to Order? Get a Korea eSIM'
+            }
+            description={
+              ({
+                en: 'Baemin, Coupang Eats and Yogiyo all need mobile data. Saily lets you buy a Korea eSIM online and stay connected from day one — no SIM card swap needed.',
+                zh: 'Baemin、Coupang Eats和Yogiyo都需要移动数据。Saily让您在线购买韩国eSIM，从第一天起保持网络连接——无需更换SIM卡。',
+                ru: 'Baemin, Coupang Eats и Yogiyo требуют мобильного интернета. Saily позволяет купить корейскую eSIM онлайн и оставаться на связи с первого дня — замена SIM не нужна.',
+                ja: 'Baemin・Coupang Eats・Yogiyoはモバイルデータが必要です。SailyでeSIMをオンライン購入し、初日から繋がり続けよう——SIM交換不要。',
+                vi: 'Baemin, Coupang Eats và Yogiyo đều cần dữ liệu di động. Saily cho phép bạn mua eSIM Hàn Quốc trực tuyến và kết nối từ ngày đầu tiên — không cần đổi SIM.',
+              } as Record<string, string>)[lang] ?? 'Baemin, Coupang Eats and Yogiyo all need mobile data. Saily lets you buy a Korea eSIM online and stay connected from day one — no SIM card swap needed.'
+            }
+            href="https://go.saily.site/aff_c?offer_id=101&aff_id=13847"
+            ctaText={({ en: 'Get a Korea eSIM on Saily', zh: '在Saily获取韩国eSIM', ru: 'Купить eSIM на Saily', ja: 'SailyでeSIMを入手', vi: 'Mua eSIM Hàn Quốc trên Saily' } as Record<string, string>)[lang] ?? 'Get a Korea eSIM on Saily'}
+            accentColor="blue"
+          />
           <AffiliateBanner
             icon="🛍️"
             title={
