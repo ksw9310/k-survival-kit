@@ -619,6 +619,7 @@ const APPS = [
       zh: '最佳路线规划——支持英语。',
       ru: 'Лучший для маршрутов — поддержка английского.',
       ja: '交通ルート検索に最適。英語対応。',
+      vi: 'Tốt nhất để lên kế hoạch tuyến đường — hỗ trợ tiếng Anh.',
     },
   },
   {
@@ -628,6 +629,7 @@ const APPS = [
       zh: '打车首选——无需韩语。',
       ru: 'Вызов такси — корейский не нужен.',
       ja: 'タクシー配車——韓国語不要。',
+      vi: 'Gọi taxi — không cần tiếng Hàn.',
     },
   },
   {
@@ -637,6 +639,7 @@ const APPS = [
       zh: '地图导航——实时公交位置。',
       ru: 'Карты и маршруты — отслеживание автобусов.',
       ja: '地図・ルート案内——バスのリアルタイム追跡。',
+      vi: 'Bản đồ & chỉ đường — theo dõi xe buýt thời gian thực.',
     },
   },
   {
@@ -646,6 +649,7 @@ const APPS = [
       zh: 'KTX高铁购票。',
       ru: 'Бронирование KTX / скоростных поездов.',
       ja: 'KTX・高速鉄道の予約。',
+      vi: 'Đặt vé KTX / tàu cao tốc.',
     },
   },
 ];
@@ -656,30 +660,35 @@ const UI = {
     zh: '在韩国出行',
     ru: 'Передвижение по Корее',
     ja: '韓国での移動ガイド',
+    vi: 'Di chuyển tại Hàn Quốc',
   },
   pageSubtitle: {
     en: 'Subway · Bus · Taxi · T-money — the complete practical guide to Korean public transport.',
     zh: '地铁 · 公交 · 出租车 · T-money——韩国公共交通完全实用指南。',
     ru: 'Метро · Автобус · Такси · T-money — полное практическое руководство.',
     ja: '地下鉄 · バス · タクシー · T-money — 韓国交通機関完全実用ガイド。',
+    vi: 'Tàu điện ngầm · Xe buýt · Taxi · T-money — hướng dẫn thực tế đầy đủ về giao thông công cộng Hàn Quốc.',
   },
   phrasesTitle: {
     en: '🗣️ Korean Phrases for Transport',
     zh: '🗣️ 交通韩语短句',
     ru: '🗣️ Корейские фразы для транспорта',
     ja: '🗣️ 交通に役立つ韓国語フレーズ',
+    vi: '🗣️ Cụm từ tiếng Hàn cho giao thông',
   },
   appsTitle: {
     en: '📱 Essential Apps Summary',
     zh: '📱 必备App汇总',
     ru: '📱 Краткий обзор необходимых приложений',
     ja: '📱 必須アプリまとめ',
+    vi: '📱 Tóm tắt ứng dụng thiết yếu',
   },
   tip: {
     en: 'In a taxi, show the driver your Naver Map route screen to communicate your destination without language barriers. Subway/bus transfer discounts require a T-money tap within 30 minutes.',
     zh: '乘坐出租车时，将Naver Map路线页面展示给司机，无需语言也能传达目的地。地铁/公交换乘折扣需在30分钟内刷T-money。',
     ru: 'В такси покажите водителю экран маршрута в Naver Map — так вы передадите пункт назначения без языкового барьера. Скидка на пересадку в метро/автобусе — T-money в течение 30 минут.',
     ja: 'タクシーではNaver Mapのルート画面を運転手に見せると言語不要で目的地を伝えられます。地下鉄・バスの乗り換え割引にはT-moneyを30分以内にタッチする必要があります。',
+    vi: 'Trong taxi, hãy cho tài xế xem màn hình chỉ đường Naver Map để truyền đạt điểm đến mà không cần ngôn ngữ. Chiết khấu chuyển tuyến tàu/xe buýt yêu cầu chạm T-money trong vòng 30 phút.',
   },
 };
 
@@ -710,15 +719,16 @@ export default async function TransportPage({ params }: Props) {
                   zh: 'T-money卡',
                   ru: 'T-money',
                   ja: 'T-money',
+                  vi: 'T-money',
                 },
               },
               {
                 icon: '🚇',
-                label: { en: 'Subway', zh: '地铁', ru: 'Метро', ja: '地下鉄' },
+                label: { en: 'Subway', zh: '地铁', ru: 'Метро', ja: '地下鉄', vi: 'Tàu điện ngầm' },
               },
               {
                 icon: '🚌',
-                label: { en: 'Bus', zh: '公交', ru: 'Автобус', ja: 'バス' },
+                label: { en: 'Bus', zh: '公交', ru: 'Автобус', ja: 'バス', vi: 'Xe buýt' },
               },
               {
                 icon: '🚕',
@@ -727,11 +737,12 @@ export default async function TransportPage({ params }: Props) {
                   zh: '出租车 · Kakao T',
                   ru: 'Такси · Kakao T',
                   ja: 'タクシー · Kakao T',
+                  vi: 'Taxi · Kakao T',
                 },
               },
               {
                 icon: '🚄',
-                label: { en: 'KTX', zh: 'KTX高铁', ru: 'KTX', ja: 'KTX' },
+                label: { en: 'KTX', zh: 'KTX高铁', ru: 'KTX', ja: 'KTX', vi: 'KTX' },
               },
             ].map((b) => (
               <span
@@ -842,12 +853,14 @@ export default async function TransportPage({ params }: Props) {
             zh: '在Klook预订交通票券',
             ru: 'Купите проездные через Klook',
             ja: 'Klookで交通パスを予約しよう',
+            vi: 'Đặt vé giao thông với Klook',
           })}
           description={loc(lang, {
             en: 'Airport bus, T-money card, KTX passes and more — all bookable in advance with instant confirmation.',
             zh: '机场大巴、T-money卡、KTX通票等——均可提前预订，即时确认。',
             ru: 'Автобус из аэропорта, карта T-money, абонементы KTX и многое другое — бронирование заранее с мгновенным подтверждением.',
             ja: '空港バス・T-moneyカード・KTXパスなど——事前予約で即時確認。',
+            vi: 'Xe buýt sân bay, thẻ T-money, vé KTX và nhiều hơn — đặt trước với xác nhận tức thì.',
           })}
           href="https://affiliate.klook.com/redirect?aid=118997&aff_adid=1259369&k_site=https%3A%2F%2Fwww.klook.com%2F"
           ctaText={loc(lang, {
@@ -855,6 +868,7 @@ export default async function TransportPage({ params }: Props) {
             zh: '在Klook浏览交通选项',
             ru: 'Смотреть транспорт на Klook',
             ja: 'Klookで交通を探す',
+            vi: 'Xem giao thông trên Klook',
           })}
           accentColor="rose"
         />
