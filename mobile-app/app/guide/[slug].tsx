@@ -30,6 +30,33 @@ const KLOOK_BANNER: Record<string, { title: string; desc: string; cta: string; b
   ru: { title: 'Транспортные билеты на Klook', desc: 'Автобус из аэропорта, T-money, KTX — бронируйте заранее.', cta: 'Смотреть Klook', badge: 'Партнёр' },
 };
 
+const AMBER_URL = 'https://amberstudent.com/l/edc0ed373';
+const AMBER_BANNER: Record<string, { title: string; desc: string; cta: string; badge: string }> = {
+  en: { title: 'Find Student Housing with Amber', desc: 'Purpose-built student accommodation near Korean universities. Verified listings, flexible leases, English support.', cta: 'Search on Amber', badge: 'Popular' },
+  vi: { title: 'Tìm nhà sinh viên với Amber', desc: 'Chỗ ở sinh viên gần các trường đại học Hàn Quốc. Danh sách đã xác minh, thuê linh hoạt, hỗ trợ tiếng Anh.', cta: 'Tìm trên Amber', badge: 'Phổ biến' },
+  zh: { title: '在Amber找学生公寓', desc: '韩国大学附近的学生公寓，经过验证的房源、灵活租期、英语客服支持。', cta: '在Amber上搜索', badge: '热门' },
+  ja: { title: 'Amberで学生住居を探す', desc: '韓国の大学近くの学生専用住居。認証済み物件、柔軟な契約、英語サポート付き。', cta: 'Amberで探す', badge: '人気' },
+  ru: { title: 'Студенческое жильё на Amber', desc: 'Жильё рядом с корейскими университетами. Проверенные объявления, гибкие условия, поддержка на английском.', cta: 'Найти на Amber', badge: 'Популярно' },
+};
+
+const UNILIVING_URL = 'https://www.universityliving.com/?referral=상욱강4744';
+const UNILIVING_BANNER: Record<string, { title: string; desc: string; cta: string; badge: string }> = {
+  en: { title: 'Student Housing via University Living', desc: 'Student-only platform near major Korean universities. Contract support and multilingual assistance available.', cta: 'Find Student Housing', badge: 'Affiliate' },
+  vi: { title: 'Nhà sinh viên qua University Living', desc: 'Nền tảng dành riêng cho sinh viên gần các trường ĐH Hàn Quốc. Hỗ trợ hợp đồng đa ngôn ngữ.', cta: 'Tìm nhà sinh viên', badge: 'Liên kết' },
+  zh: { title: '通过University Living找学生住房', desc: '专为学生设计，覆盖韩国主要大学附近，提供合同与多语言支持。', cta: '查找学生住房', badge: '推广' },
+  ja: { title: 'University Livingで学生住居を探す', desc: '韓国の主要大学近くの学生専用プラットフォーム。契約・多言語サポートあり。', cta: '学生住居を探す', badge: 'PR' },
+  ru: { title: 'Жильё через University Living', desc: 'Платформа для студентов рядом с ведущими вузами Кореи. Помощь с договором и многоязычная поддержка.', cta: 'Найти студенческое жильё', badge: 'Партнёр' },
+};
+
+const UHOMES_URL = 'https://kr.uhomes.com/referral/partnerShare?xcode=000a65acdd6030bd1ec5';
+const UHOMES_BANNER: Record<string, { title: string; desc: string; cta: string; badge: string }> = {
+  en: { title: 'Browse Rentals on uhomes', desc: 'Popular among Asian students. Listings across major Korean cities with Chinese & English language support.', cta: 'Search on uhomes', badge: 'Asia-friendly' },
+  vi: { title: 'Tìm phòng thuê trên uhomes', desc: 'Phổ biến trong sinh viên châu Á. Danh sách khắp các thành phố lớn Hàn Quốc, hỗ trợ tiếng Trung & Anh.', cta: 'Tìm trên uhomes', badge: 'Thân thiện Châu Á' },
+  zh: { title: '在uhomes上找房', desc: '在中韩学生中广受欢迎，覆盖韩国主要城市，提供中英文客服支持。', cta: '在uhomes上搜索', badge: '亚洲友好' },
+  ja: { title: 'uhomesで物件を探す', desc: '中国・韓国の学生に人気。韓国の主要都市をカバー、中国語・英語サポートあり。', cta: 'uhomesで探す', badge: 'アジア対応' },
+  ru: { title: 'Аренда жилья на uhomes', desc: 'Популярен среди азиатских студентов. Объекты в крупных городах Кореи, поддержка на китайском и английском.', cta: 'Найти на uhomes', badge: 'Для Азии' },
+};
+
 const SAILY_URL = 'https://go.saily.site/aff_c?offer_id=101&aff_id=13847';
 const SAILY_BANNER: Record<string, { title: string; desc: string; cta: string; badge: string }> = {
   en: { title: 'eSIM Korea with Saily', desc: 'Activate before you land. No physical SIM needed. Fast data from day one.', cta: 'Get Saily eSIM', badge: 'Affiliate' },
@@ -762,6 +789,46 @@ export default function GuideScreen() {
                 badgeBg="#bbf7d0"
                 badgeText="#166534"
               />
+            )}
+            {slug === 'rent' && (
+              <>
+                <AffiliateBannerBlock
+                  url={AMBER_URL}
+                  emoji="🏠"
+                  data={AMBER_BANNER[lang] ?? AMBER_BANNER.en}
+                  bgColor="#eef2ff"
+                  borderColor="#a5b4fc"
+                  textColor="#1e1b4b"
+                  descColor="#3730a3"
+                  ctaColor="#4f46e5"
+                  badgeBg="#e0e7ff"
+                  badgeText="#3730a3"
+                />
+                <AffiliateBannerBlock
+                  url={UNILIVING_URL}
+                  emoji="🎓"
+                  data={UNILIVING_BANNER[lang] ?? UNILIVING_BANNER.en}
+                  bgColor="#fff7ed"
+                  borderColor="#fdba74"
+                  textColor="#7c2d12"
+                  descColor="#9a3412"
+                  ctaColor="#ea580c"
+                  badgeBg="#ffedd5"
+                  badgeText="#9a3412"
+                />
+                <AffiliateBannerBlock
+                  url={UHOMES_URL}
+                  emoji="🏘️"
+                  data={UHOMES_BANNER[lang] ?? UHOMES_BANNER.en}
+                  bgColor="#f0fdfa"
+                  borderColor="#5eead4"
+                  textColor="#134e4a"
+                  descColor="#0f766e"
+                  ctaColor="#0d9488"
+                  badgeBg="#ccfbf1"
+                  badgeText="#0f766e"
+                />
+              </>
             )}
             {slug === 'delivery' && (
               <AffiliateBannerBlock
