@@ -70,14 +70,14 @@ export default function Hero({ lang }: { lang: Lang }) {
 
         {/* Stats bar */}
         <div className="mx-auto mt-14 flex max-w-sm flex-wrap justify-center gap-x-8 gap-y-3 text-sm text-slate-400">
-          <div className="flex items-center gap-2">
+          {/* <div className="flex items-center gap-2">
             <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
             <span>5 Topics</span>
           </div>
           <div className="flex items-center gap-2">
             <span className="h-1.5 w-1.5 rounded-full bg-blue-400" />
             <span>4 Languages</span>
-          </div>
+          </div> */}
           {/* <div className="flex items-center gap-2">
             <span className="h-1.5 w-1.5 rounded-full bg-rose-400" />
             <span>Always Free</span>
