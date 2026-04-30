@@ -2,21 +2,22 @@ import Link from 'next/link';
 import { getDictionary } from '@/data';
 import type { Lang } from '@/lib/i18n';
 
-type L = 'en' | 'zh' | 'ru' | 'ja';
+type L = 'en' | 'zh' | 'ru' | 'ja' | 'vi';
 
 const TAG_LABELS: Record<string, Record<L, string>> = {
-  'Start here': { en: 'Start here', zh: '从这里', ru: 'Старт', ja: 'まずここ' },
-  Everyday: { en: 'Everyday', zh: '日常', ru: 'Каждый день', ja: '毎日' },
-  Important: { en: 'Important', zh: '重要', ru: 'Важно', ja: '重要' },
-  Essential: { en: 'Essential', zh: '必须', ru: 'Нужно', ja: '必須' },
+  'Start here': { en: 'Start here', zh: '从这里', ru: 'Старт', ja: 'まずここ', vi: 'Bắt đầu' },
+  Everyday: { en: 'Everyday', zh: '日常', ru: 'Каждый день', ja: '毎日', vi: 'Hàng ngày' },
+  Important: { en: 'Important', zh: '重要', ru: 'Важно', ja: '重要', vi: 'Quan trọng' },
+  Essential: { en: 'Essential', zh: '必须', ru: 'Нужно', ja: '必須', vi: 'Cần thiết' },
   'Life tips': {
     en: 'Life tips',
     zh: '生活技巧',
     ru: 'Советы',
     ja: 'ライフtips',
+    vi: 'Mẹo sống',
   },
-  'Stay legal': { en: 'Stay legal', zh: '合法居留', ru: 'Виза', ja: '在留' },
-  Guide: { en: 'Guide', zh: '指南', ru: 'Гайд', ja: 'ガイド' },
+  'Stay legal': { en: 'Stay legal', zh: '合法居留', ru: 'Виза', ja: '在留', vi: 'Pháp lý' },
+  Guide: { en: 'Guide', zh: '指南', ru: 'Гайд', ja: 'ガイド', vi: 'Hướng dẫn' },
 };
 
 const EXPLORE_LABEL: Record<L, string> = {
@@ -24,6 +25,7 @@ const EXPLORE_LABEL: Record<L, string> = {
   zh: '查看指南',
   ru: 'Открыть',
   ja: 'ガイドを開く',
+  vi: 'Xem hướng dẫn',
 };
 
 const EXPLORE_HOVER: Record<L, string> = {
@@ -31,6 +33,7 @@ const EXPLORE_HOVER: Record<L, string> = {
   zh: '查看',
   ru: 'Открыть',
   ja: '開く',
+  vi: 'Mở',
 };
 
 const categoryMeta: Record<

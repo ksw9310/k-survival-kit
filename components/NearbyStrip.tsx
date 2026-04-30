@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-type L = 'en' | 'zh' | 'ru' | 'ja';
+type L = 'en' | 'zh' | 'ru' | 'ja' | 'vi';
 
 type NearbyItem = {
   icon: string;
@@ -23,6 +23,7 @@ const TITLES: Record<L, Record<TitleKey, string>> = {
   zh: { nearby: '查找周边', healthcare: '查找附近医疗', services: '查找周边服务' },
   ru: { nearby: 'Рядом со мной', healthcare: 'Медицина рядом', services: 'Услуги рядом' },
   ja: { nearby: '近くを探す', healthcare: '近くの医療機関', services: '近くのサービス' },
+  vi: { nearby: 'Tìm gần đây', healthcare: 'Tìm cơ sở y tế gần đây', services: 'Tìm dịch vụ gần đây' },
 };
 
 const ITEM_LABELS: Record<L, Record<string, string>> = {
@@ -30,6 +31,7 @@ const ITEM_LABELS: Record<L, Record<string, string>> = {
   zh: { bank: '银行', convenience: '便利店', supermarket: '大型超市', pharmacy: '药店' },
   ru: { bank: 'Банк', convenience: 'Магазин', supermarket: 'Супермаркет', pharmacy: 'Аптека' },
   ja: { bank: '銀行', convenience: 'コンビニ', supermarket: 'スーパー', pharmacy: '薬局' },
+  vi: { bank: 'Ngân hàng', convenience: 'Cửa hàng tiện lợi', supermarket: 'Siêu thị', pharmacy: 'Nhà thuốc' },
 };
 
 const HINTS: Record<L, Record<string, string>> = {
@@ -56,6 +58,12 @@ const HINTS: Record<L, Record<string, string>> = {
     convenience: 'T-moneyカード · ゴミ袋',
     supermarket: 'イーマート · ホームプラス · ロッテマート',
     pharmacy: '市販薬 · 処方箋不要',
+  },
+  vi: {
+    bank: 'Mở tài khoản · Dịch vụ người nước ngoài',
+    convenience: 'Thẻ T-money · Túi rác',
+    supermarket: 'E-Mart · Homeplus · Lotte Mart',
+    pharmacy: 'Thuốc OTC · Không cần đơn',
   },
 };
 

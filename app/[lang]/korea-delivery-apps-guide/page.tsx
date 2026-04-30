@@ -7,7 +7,7 @@ import RelatedPosts from '@/components/RelatedPosts';
 import JsonLd from '@/components/JsonLd';
 import AffiliateBanner from '@/components/AffiliateBanner';
 
-type L = 'en' | 'zh' | 'ru' | 'ja';
+type L = 'en' | 'zh' | 'ru' | 'ja' | 'vi';
 
 const META: Record<L, { title: string; description: string }> = {
   en: {
@@ -25,6 +25,10 @@ const META: Record<L, { title: string; description: string }> = {
   ja: {
     title: '韓国フードデリバリーアプリ外国人向けガイド2026 — Baemin・Coupang Eats比較',
     description: '韓国のデリバリーアプリはどれがいい？外国人向けにBaemin・Coupang Eats・Yogiyoを徹底比較。韓国語なしでも注文できる方法を解説。',
+  },
+  vi: {
+    title: 'Ứng dụng giao đồ ăn Hàn Quốc tốt nhất cho người nước ngoài 2026 — Baemin, Coupang Eats & Yogiyo',
+    description: 'Ứng dụng giao đồ ăn nào ở Hàn Quốc phù hợp cho người nước ngoài? So sánh Baemin, Coupang Eats và Yogiyo — hướng dẫn từng bước, mẹo tiếng Anh và cách đặt hàng không cần tiếng Hàn.',
   },
 };
 
@@ -215,6 +219,43 @@ const CONTENT: Record<L, PageContent> = {
     relatedSimBtn: 'SIMカードガイド',
     relatedStartBtn: 'はじめに',
   },
+  vi: {
+    eyebrow: 'Cuộc sống hàng ngày / Hướng dẫn ứng dụng giao đồ ăn',
+    heroTitle: 'Ứng dụng giao đồ ăn tốt nhất ở Hàn Quốc cho người nước ngoài (Hướng dẫn Baemin, Coupang Eats)',
+    heroLead: 'Dịch vụ giao đồ ăn ở Hàn Quốc rất nhanh, phổ biến và cực kỳ tiện lợi. Nhưng nhiều người nước ngoài và sinh viên quốc tế ban đầu cảm thấy bối rối vì các ứng dụng giao đồ ăn phổ biến nhất của Hàn Quốc chủ yếu được xây dựng cho người dùng địa phương. Hướng dẫn này giải thích các ứng dụng chính, cách chúng hoạt động và những điều cần lưu ý.',
+    quickAnswerTitle: 'Câu trả lời nhanh',
+    quickAnswerText: 'Các ứng dụng giao đồ ăn nổi tiếng nhất ở Hàn Quốc là Baemin, Coupang Eats và Yogiyo. Đối với nhiều sinh viên quốc tế, Baemin và Coupang Eats là điểm khởi đầu hữu ích nhất, nhưng thanh toán, xác minh số điện thoại và thiết lập địa chỉ đôi khi có thể gây bối rối nếu bạn mới đến Hàn Quốc.',
+    s1Title: 'Tại sao ứng dụng giao đồ ăn Hàn Quốc có cảm giác khác biệt',
+    s1P1: 'Ứng dụng giao đồ ăn Hàn Quốc không chỉ dùng để đặt thức ăn. Chúng là một phần của cuộc sống hàng ngày và mọi người sử dụng thường xuyên vì dịch vụ giao hàng nhanh và phổ biến rộng rãi. Tuy nhiên, nhiều ứng dụng giả định rằng bạn đã có số điện thoại Hàn Quốc, phương thức thanh toán địa phương và địa chỉ tiếng Hàn rõ ràng.',
+    s1P2: 'Đó là lý do tại sao nhiều người nước ngoài có thể tải ứng dụng nhưng vẫn gặp khó khăn trong quá trình đăng ký, thanh toán hoặc nhập địa chỉ.',
+    s2Title: '1. Baemin (Baedal Minjok)',
+    s2P: 'Baemin là một trong những ứng dụng giao đồ ăn phổ biến nhất ở Hàn Quốc. Nó có số lượng nhà hàng khổng lồ và được sử dụng rộng rãi ở nhiều thành phố. Nếu bạn hỏi người Hàn Quốc họ thường dùng ứng dụng giao đồ ăn nào nhất, Baemin thường là một trong những cái tên đầu tiên bạn nghe.',
+    s2Items: ['Lựa chọn nhà hàng rất đa dạng', 'Phổ biến trong cuộc sống hàng ngày', 'Tốt để so sánh nhiều cửa hàng gần đây', 'Giao diện có thể thiên về tiếng Hàn cho người mới bắt đầu'],
+    s3Title: '2. Coupang Eats',
+    s3P: 'Coupang Eats là một ứng dụng giao đồ ăn lớn khác ở Hàn Quốc và thường được đánh giá là đơn giản và tiện lợi. Một số người dùng thích nó vì luồng ứng dụng có thể cảm thấy gọn gàng hơn, và các khuyến mãi hoặc giảm giá có thể xuất hiện tùy thuộc vào khu vực.',
+    s3Items: ['Thường dễ duyệt qua', 'Đôi khi có ưu đãi khuyến mãi hấp dẫn', 'Hữu ích nếu bạn đã sử dụng các dịch vụ Coupang khác', 'Tính khả dụng có thể thay đổi theo khu phố'],
+    s4Title: '3. Yogiyo',
+    s4P: 'Yogiyo là một ứng dụng giao đồ ăn nổi tiếng khác ở Hàn Quốc và đã được nhiều cư dân sử dụng trong nhiều năm. Tùy thuộc vào khu vực của bạn, nó vẫn có thể là một lựa chọn hữu ích, đặc biệt khi so sánh tính khả dụng nhà hàng và giá cả.',
+    s4Items: ['Nền tảng giao đồ ăn được công nhận', 'Hữu ích như một lựa chọn thay thế khi so sánh ứng dụng', 'Tính khả dụng nhà hàng phụ thuộc vào khu vực'],
+    s5Title: 'Những gì bạn thường cần trước khi đặt hàng',
+    s5P: 'Hầu hết các ứng dụng giao đồ ăn Hàn Quốc hoạt động trơn tru hơn sau khi bạn hoàn thành thiết lập địa phương cơ bản.',
+    s5Items: ['Số điện thoại Hàn Quốc', 'Địa chỉ giao hàng rõ ràng tại Hàn Quốc', 'Thẻ địa phương hoặc phương thức thanh toán được hỗ trợ', 'Hiểu biết cơ bản về vị trí tòa nhà hoặc ký túc xá của bạn'],
+    s5P2: 'Nếu không có những điều này, ứng dụng vẫn có thể mở, nhưng việc đặt hàng thực tế có thể gây khó chịu.',
+    s6Title: 'Các vấn đề phổ biến người nước ngoài gặp phải',
+    s6Items: ['Vấn đề xác minh số điện thoại', 'Nhầm lẫn khi nhập địa chỉ', 'Hướng dẫn từ cửa hàng chỉ bằng tiếng Hàn', 'Phương thức thanh toán không hoạt động', 'Không hiểu yêu cầu hoặc ghi chú giao hàng'],
+    s6P: 'Những vấn đề này là bình thường lúc đầu. Hầu hết sinh viên mới cần một chút thời gian trước khi việc đặt hàng trở nên dễ dàng.',
+    s7Title: 'Cách làm cho việc giao hàng dễ dàng hơn',
+    s7Items: ['Thiết lập số điện thoại Hàn Quốc của bạn sớm', 'Lưu địa chỉ cẩn thận và kiểm tra lại', 'Sử dụng ghi chú giao hàng đơn giản nếu cần', 'So sánh cùng một nhà hàng trên các ứng dụng khác nhau', 'Bắt đầu với các chuỗi cửa hàng phổ biến nếu bạn muốn ít bất ngờ hơn'],
+    s8Title: 'Ứng dụng giao đồ ăn nào tốt nhất cho sinh viên quốc tế?',
+    s8P1: 'Không có câu trả lời đúng duy nhất, nhưng nhiều sinh viên quốc tế bắt đầu với Baemin hoặc Coupang Eats. Lựa chọn tốt nhất thường phụ thuộc vào nơi bạn sống, liệu bạn đã có số Hàn Quốc chưa và ứng dụng nào cảm thấy dễ sử dụng nhất với bạn.',
+    s8P2: 'Cách tiếp cận thực tế rất đơn giản: cài đặt hai ứng dụng, so sánh một vài nhà hàng và sử dụng ứng dụng hoạt động tốt nhất trong khu phố của bạn.',
+    finalTitle: 'Lời khuyên cuối',
+    finalP: 'Các ứng dụng giao đồ ăn Hàn Quốc có thể cảm thấy khó khăn trong ngày đầu tiên, nhưng chúng trở thành một trong những phần dễ nhất của cuộc sống hàng ngày khi số điện thoại, địa chỉ và thiết lập thanh toán của bạn đã sẵn sàng. Đối với hầu hết người nước ngoài, chiến lược tốt nhất là bắt đầu đơn giản, so sánh các ứng dụng và học hỏi bằng cách sử dụng chúng vài lần.',
+    relatedTitle: 'Hướng dẫn liên quan',
+    relatedDesc: 'Những hướng dẫn này sẽ giúp bạn sử dụng các dịch vụ hàng ngày ở Hàn Quốc dễ dàng hơn.',
+    relatedSimBtn: 'Hướng dẫn SIM Card',
+    relatedStartBtn: 'Bắt đầu',
+  },
 };
 
 type Props = {
@@ -388,7 +429,7 @@ export default async function KoreaDeliveryAppsGuidePage({ params }: Props) {
           <AffiliateBanner
             icon="🛍️"
             title={
-              ({ en: 'Shop on Coupang', zh: '在Coupang购物', ru: 'Покупки на Coupang', ja: 'Coupangでショッピング' } as Record<string, string>)[lang] ?? 'Shop on Coupang'
+              ({ en: 'Shop on Coupang', zh: '在Coupang购物', ru: 'Покупки на Coupang', ja: 'Coupangでショッピング', vi: 'Mua sắm trên Coupang' } as Record<string, string>)[lang] ?? 'Shop on Coupang'
             }
             description={
               ({
@@ -396,10 +437,11 @@ export default async function KoreaDeliveryAppsGuidePage({ params }: Props) {
                 zh: '在韩国找不到某样东西？在韩国最大的网上商城Coupang下单，享受超快火箭配送。',
                 ru: 'Не можете найти нужный товар в корейском магазине? Заказывайте на Coupang — крупнейшем онлайн-маркетплейсе Кореи с молниеносной доставкой.',
                 ja: '韓国のお店で見つからないものは、Coupangで注文！韓国最大のオンラインマーケットプレイスで超速ロケット配送。',
+                vi: 'Không tìm thấy thứ bạn cần ở cửa hàng Hàn Quốc? Đặt hàng trên Coupang — nền tảng mua sắm trực tuyến lớn nhất Hàn Quốc với giao hàng tên lửa cực nhanh.',
               } as Record<string, string>)[lang] ?? "Can't find something in a Korean store? Order it on Coupang — Korea's largest online marketplace with rocket-fast delivery."
             }
             href="https://link.coupang.com/a/esx4lG"
-            ctaText={({ en: 'Shop on Coupang', zh: '前往Coupang', ru: 'Перейти на Coupang', ja: 'Coupangで購入' } as Record<string, string>)[lang] ?? 'Shop on Coupang'}
+            ctaText={({ en: 'Shop on Coupang', zh: '前往Coupang', ru: 'Перейти на Coupang', ja: 'Coupangで購入', vi: 'Mua sắm trên Coupang' } as Record<string, string>)[lang] ?? 'Shop on Coupang'}
             accentColor="rose"
           />
         </div>

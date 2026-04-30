@@ -59,6 +59,7 @@ export default async function DailyLifePage({ params }: Props) {
     zh: { title: '在Coupang购物', description: '韩国最大的网上商店——食品杂货、日用品、电子产品等。火箭配送，快速送达。', ctaText: '前往Coupang' },
     ru: { title: 'Покупки на Coupang', description: 'Крупнейший интернет-магазин Кореи — продукты, товары первой необходимости, электроника и многое другое. Быстрая доставка Rocket.', ctaText: 'Перейти на Coupang' },
     ja: { title: 'Coupangでショッピング', description: '韓国最大のオンラインショップ——食料品、日用品、電化製品など。ロケット配送で素早くお届け。', ctaText: 'Coupangで購入' },
+    vi: { title: 'Mua sắm trên Coupang', description: 'Cửa hàng trực tuyến lớn nhất Hàn Quốc — thực phẩm, đồ dùng hàng ngày, điện tử và nhiều hơn. Giao hàng Rocket nhanh chóng đến tận cửa.', ctaText: 'Mua sắm trên Coupang' },
   };
 
   const coupangT = coupang[lang] ?? coupang.en;

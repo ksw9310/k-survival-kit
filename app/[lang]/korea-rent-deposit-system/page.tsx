@@ -6,7 +6,7 @@ import PageDisclaimer from '@/components/PageDisclaimer';
 import RelatedPosts from '@/components/RelatedPosts';
 import JsonLd from '@/components/JsonLd';
 
-type L = 'en' | 'zh' | 'ru' | 'ja';
+type L = 'en' | 'zh' | 'ru' | 'ja' | 'vi';
 
 const META: Record<L, { title: string; description: string }> = {
   en: {
@@ -28,6 +28,11 @@ const META: Record<L, { title: string; description: string }> = {
     title: '韓国賃貸保証金制度ガイド（チョンセ・ウォルセ） | K-Survival Kit',
     description:
       '韓国の家賃保証金制度に戸惑っていませんか？チョンセとウォルセの違い、必要な金額、外国人が契約前に確認すべきことを解説します。',
+  },
+  vi: {
+    title: 'Hướng dẫn hệ thống đặt cọc thuê nhà Hàn Quốc (Jeonse, Wolse) | K-Survival Kit',
+    description:
+      'Bối rối về tiền đặt cọc thuê nhà ở Hàn Quốc? Tìm hiểu sự khác biệt giữa jeonse và wolse, số tiền cần trả và những gì người nước ngoài cần kiểm tra trước khi ký hợp đồng.',
   },
 };
 
@@ -349,6 +354,71 @@ const CONTENT: Record<L, PageContent> = {
       '韓国での生活を準備している方に、これらのガイドも役立つかもしれません。',
     relatedHousingBtn: '住居ガイド',
     relatedStartBtn: 'はじめに',
+  },
+  vi: {
+    eyebrow: 'Nhà ở / Hướng dẫn thuê nhà',
+    heroTitle: 'Giải thích hệ thống đặt cọc thuê nhà Hàn Quốc (Jeonse, Wolse cho người nước ngoài)',
+    heroLead: 'Hệ thống đặt cọc thuê nhà ở Hàn Quốc có thể gây bối rối nếu bạn chưa quen với thị trường nhà ở Hàn Quốc. Nhiều người nước ngoài và sinh viên quốc tế không quen với việc trả tiền đặt cọc trước khi dọn vào, và sự khác biệt giữa jeonse và wolse ban đầu có thể khó hiểu.',
+    quickAnswerTitle: 'Câu trả lời nhanh',
+    quickAnswerText: 'Ở Hàn Quốc, hầu hết người thuê nhà trả tiền đặt cọc trước khi dọn vào. Sinh viên thường gặp wolse, nghĩa là đặt cọc cộng với tiền thuê hàng tháng. Jeonse liên quan đến khoản đặt cọc lớn hơn nhiều và thường không có tiền thuê hàng tháng, nhưng thường quá đắt đối với hầu hết sinh viên quốc tế.',
+    s1Title: 'Hệ thống đặt cọc thuê nhà Hàn Quốc là gì?',
+    s1P1: 'Hệ thống đặt cọc thuê nhà Hàn Quốc được xây dựng dựa trên ý tưởng rằng người thuê nhà trả tiền đặt cọc cho chủ nhà trước khi dọn vào. Số tiền đặt cọc có thể thay đổi rất nhiều tùy thuộc vào loại hợp đồng, khu vực và tình trạng bất động sản.',
+    s1P2: 'Đối với sinh viên quốc tế, tiền đặt cọc có thể cảm thấy bất thường, nhưng đây là phần bình thường của thị trường nhà ở Hàn Quốc.',
+    s2Title: 'Wolse là gì?',
+    s2P: 'Wolse là lựa chọn phổ biến nhất cho nhiều sinh viên. Nghĩa là bạn trả tiền đặt cọc và cũng trả tiền thuê hàng tháng.',
+    s2Items: [
+      'Đặt cọc ít hơn jeonse',
+      'Tiền thuê hàng tháng được trả mỗi tháng',
+      'Phổ biến cho căn hộ phòng đơn và nhà ở sinh viên',
+      'Thường là lựa chọn thực tế nhất cho người nước ngoài',
+    ],
+    s2Example: 'Ví dụ: bạn có thể trả tiền đặt cọc cộng với tiền thuê hàng tháng cho một căn hộ nhỏ gần trường đại học của bạn.',
+    s3Title: 'Jeonse là gì?',
+    s3P: 'Jeonse là hệ thống bạn trả một khoản đặt cọc rất lớn và thường không trả tiền thuê hàng tháng. Về lý thuyết có thể hấp dẫn, nhưng số tiền đặt cọc thường quá cao đối với hầu hết sinh viên quốc tế.',
+    s3Items: [
+      'Đặt cọc ban đầu rất lớn',
+      'Thường không có tiền thuê hàng tháng',
+      'Phổ biến hơn trong các hợp đồng nhà ở dài hạn',
+      'Ít thực tế hơn đối với hầu hết sinh viên và cư dân ngắn hạn',
+    ],
+    s4Title: 'Tiền đặt cọc thông thường cho sinh viên là bao nhiêu?',
+    s4P1: 'Đối với sinh viên quốc tế, số tiền đặt cọc phụ thuộc vào thành phố, khu phố và loại hình nhà ở. Căn hộ phòng đơn, goshiwon và nhà ở chung đều hoạt động khác nhau.',
+    s4P2: 'Nói chung, những nơi thân thiện với sinh viên thường có tiền đặt cọc thấp hơn nhà ở gia đình, nhưng bạn vẫn nên xác nhận số tiền chính xác và điều kiện hoàn trả trước khi ký bất kỳ điều gì.',
+    s5Title: 'Tại sao tiền đặt cọc quan trọng',
+    s5P: 'Tiền đặt cọc quan trọng vì đối với sinh viên, đây thường là một khoản tiền lớn. Nếu có vấn đề xảy ra với hợp đồng, việc lấy lại tiền đặt cọc có thể trở nên khó khăn.',
+    s5Items: [
+      'Luôn kiểm tra hợp đồng cẩn thận',
+      'Xác nhận ai nhận tiền đặt cọc',
+      'Giữ hồ sơ thanh toán',
+      'Chụp ảnh trước khi dọn vào',
+    ],
+    s6Title: 'Hợp đồng cần có những gì?',
+    s6P: 'Trước khi trả tiền đặt cọc, hãy đảm bảo hợp đồng thuê nhà thể hiện rõ ràng các chi tiết quan trọng.',
+    s6Items: [
+      'Số tiền đặt cọc',
+      'Số tiền thuê hàng tháng',
+      'Ngày dọn vào và ngày chuyển đi',
+      'Chi tiết thanh toán tiện ích',
+      'Điều kiện hoàn trả',
+      'Thông tin chủ nhà hoặc bất động sản',
+    ],
+    s7Title: 'Rủi ro phổ biến đối với người nước ngoài',
+    s7Items: [
+      'Ký hợp đồng mà không hiểu đầy đủ',
+      'Chuyển tiền trước khi kiểm tra bất động sản',
+      'Không xác nhận điều kiện hoàn trả tiền đặt cọc',
+      'Chỉ dựa vào lời hứa miệng',
+      'Không giữ bản sao tài liệu và biên lai',
+    ],
+    s8Title: 'Lựa chọn nhà ở tốt nhất cho hầu hết sinh viên quốc tế',
+    s8P1: 'Đối với hầu hết sinh viên, lựa chọn an toàn và thực tế nhất thường là ký túc xá, phòng đơn thân thiện với sinh viên theo hình thức wolse, hoặc một sắp xếp nhà ở khác với tiền đặt cọc có thể quản lý được.',
+    s8P2: 'Hiểu về jeonse là quan trọng, nhưng thực tế nhiều sinh viên không chọn nó vì chi phí ban đầu cao.',
+    finalTitle: 'Lời khuyên cuối',
+    finalP: 'Hệ thống đặt cọc thuê nhà Hàn Quốc khác với những gì nhiều người nước ngoài mong đợi. Đừng vội vàng. Đọc kỹ hợp đồng, xác nhận tổng chi phí và chọn lựa chọn thuê nhà phù hợp với ngân sách thực tế của bạn. Hiểu jeonse, wolse và tiền đặt cọc sớm có thể giúp bạn tiết kiệm tiền và căng thẳng sau này.',
+    relatedTitle: 'Hướng dẫn liên quan',
+    relatedDesc: 'Nếu bạn đang chuẩn bị sống ở Hàn Quốc, những hướng dẫn này cũng có thể giúp ích.',
+    relatedHousingBtn: 'Hướng dẫn nhà ở',
+    relatedStartBtn: 'Bắt đầu',
   },
 };
 

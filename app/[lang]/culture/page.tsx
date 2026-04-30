@@ -74,6 +74,11 @@ export default async function CulturePage({ params }: Props) {
       description: '寺院ステイからK-popクラスまで、韓国のツアーやアクティビティを簡単予約。予約後すぐに確認できます。',
       ctaText: '韓国のアクティビティを見る',
     },
+    vi: {
+      title: 'Khám phá Hàn Quốc với Klook',
+      description: 'Đặt tour, hoạt động và trải nghiệm tại Hàn Quốc — từ ở chùa đến lớp K-pop. Đặt dễ dàng, xác nhận tức thì.',
+      ctaText: 'Khám phá hoạt động Hàn Quốc',
+    },
   };
 
   const klookT = klook[lang] ?? klook.en;

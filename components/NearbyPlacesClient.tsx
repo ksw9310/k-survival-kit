@@ -10,7 +10,7 @@ const DEFAULT_POS = { lat: 37.5665, lng: 126.978 };
 const CACHE_KEY = 'ksk_last_position';
 const KAKAO_APP_KEY = '085f096caf889be28ed7560edf5a00a9';
 
-type L = 'en' | 'zh' | 'ru' | 'ja';
+type L = 'en' | 'zh' | 'ru' | 'ja' | 'vi';
 
 type Strings = {
   categories: { bank: string; pharmacy: string; supermarket: string; convenience: string; hospital: string; police: string };
@@ -88,6 +88,21 @@ const STRINGS: Record<L, Strings> = {
     noResults: '1km以内に結果がありません。',
     myLocation: '📍 現在地',
     directions: 'ルート',
+  },
+  vi: {
+    categories: { bank: 'Ngân hàng', pharmacy: 'Nhà thuốc', supermarket: 'Siêu thị', convenience: 'Cửa hàng tiện lợi', hospital: 'Bệnh viện', police: 'Cảnh sát' },
+    convenienceTip: 'Cửa hàng tiện lợi (GS25, CU, 7-Eleven,...) bán túi rác theo quy định (종량제) và thẻ T-money.',
+    locating: 'Đang xác định vị trí…',
+    live: 'Vị trí trực tiếp',
+    cached: 'Vị trí lần trước',
+    enableLocation: '📍 Bật vị trí',
+    locationDeniedMsg: 'Quyền truy cập vị trí bị từ chối. Nhấp 🔒 trên thanh địa chỉ → Vị trí → Cho phép, rồi tải lại trang.',
+    searching: 'Đang tìm kiếm…',
+    checkingLocation: 'Đang lấy vị trí của bạn…',
+    resultsCount: (count, label) => `${count} ${label} trong vòng 1km`,
+    noResults: 'Không có kết quả trong vòng 1km.',
+    myLocation: '📍 Vị trí của tôi',
+    directions: 'Chỉ đường',
   },
 };
 

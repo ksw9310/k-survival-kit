@@ -9,7 +9,7 @@ import JsonLd from '@/components/JsonLd';
 
 const WISE_AFFILIATE_URL = 'https://wise.prf.hn/click/camref:1101l5IGWo';
 
-type L = 'en' | 'zh' | 'ru' | 'ja';
+type L = 'en' | 'zh' | 'ru' | 'ja' | 'vi';
 
 const META: Record<L, { title: string; description: string }> = {
   en: {
@@ -32,6 +32,10 @@ const META: Record<L, { title: string; description: string }> = {
     title: '韓国外国人向け銀行口座開設ガイド | K-Survival Kit',
     description:
       '韓国で銀行口座を開設したい外国人・留学生向け。おすすめの銀行、必要書類、よくある失敗の避け方を解説します。',
+  },
+  vi: {
+    title: 'Tài khoản ngân hàng tốt nhất ở Hàn Quốc cho người nước ngoài | K-Survival Kit',
+    description: 'Tìm tài khoản ngân hàng Hàn Quốc tốt nhất cho người nước ngoài và du học sinh. Hướng dẫn này giải thích những gì cần mang theo, ngân hàng nào nên xem xét và cách mở tài khoản suôn sẻ.',
   },
 };
 
@@ -438,6 +442,56 @@ const CONTENT: Record<L, PageContent> = {
       'これらのページは、韓国での初期セットアップの残りの部分をサポートします。',
     relatedArcBtn: 'ARCガイド',
     relatedSimBtn: 'SIMカードガイド',
+  },
+  vi: {
+    eyebrow: 'Ngân hàng / Hướng dẫn cuộc sống hàng ngày',
+    heroTitle: 'Tài khoản ngân hàng tốt nhất ở Hàn Quốc cho người nước ngoài (Hướng dẫn thiết lập dễ dàng)',
+    heroLead: 'Mở tài khoản ngân hàng ở Hàn Quốc có thể gây bối rối nếu bạn chưa quen với đất nước. Nhiều người nước ngoài và du học sinh cần tài khoản ngân hàng Hàn Quốc để trả tiền thuê, chuyển tiền, làm việc bán thời gian và thanh toán hàng ngày, nhưng quá trình có thể phụ thuộc vào tài liệu và tình trạng visa của bạn.',
+    affiliateTitle: 'Nhận tiền từ nhà? Dùng Wise',
+    affiliateDesc: 'Hầu hết du học sinh nhận tiền học bổng, học phí hoặc trợ cấp từ gia đình. Wise chuyển tiền nhanh hơn với tỷ giá thực và phí minh bạch — không đánh dấu ẩn, không bất ngờ.',
+    affiliateCta: 'Nhận lần chuyển tiền đầu tiên miễn phí →',
+    quickAnswerTitle: 'Trả lời nhanh',
+    quickAnswerText: 'Tài khoản ngân hàng tốt nhất cho người nước ngoài ở Hàn Quốc thường phụ thuộc vào thời gian bạn ở, liệu bạn đã có ARC chưa và dịch vụ bạn cần nhất. Với nhiều du học sinh, lựa chọn tốt nhất là ngân hàng có quy trình mở tài khoản thân thiện với người nước ngoài, yêu cầu tài liệu hợp lý, hỗ trợ rõ ràng cho khách hàng nước ngoài và ứng dụng di động tiện dụng.',
+    s1Title: 'Tại sao Bạn Cần Tài khoản Ngân hàng Hàn Quốc',
+    s1P: 'Tài khoản ngân hàng Hàn Quốc giúp cuộc sống hàng ngày dễ dàng hơn nhiều. Nếu không có nó, bạn có thể gặp khó khăn với chuyển khoản, thanh toán trực tuyến, tiền đặt cọc liên quan đến học phí hoặc nhận tiền ở Hàn Quốc.',
+    s1Items: ['Trả tiền thuê hoặc đặt cọc', 'Đăng ký gói điện thoại dài hạn', 'Nhận tiền từ gia đình hoặc công việc', 'Kết nối với hệ thống thanh toán Hàn Quốc', 'Quản lý chi tiêu địa phương dễ dàng hơn'],
+    s2Title: 'Điều gì Làm cho Ngân hàng Tốt cho Người nước ngoài?',
+    s2P: 'Ngân hàng tốt nhất cho người nước ngoài ở Hàn Quốc không phải lúc nào cũng là ngân hàng lớn nhất. Những câu hỏi quan trọng hơn là liệu ngân hàng có thoải mái khi làm việc với khách hàng nước ngoài không, liệu nhân viên có thể giải thích quy trình rõ ràng không và liệu ứng dụng có thực tế cho sử dụng hàng ngày không.',
+    s2Items: ['Quy trình mở tài khoản thân thiện với người nước ngoài', 'Yêu cầu tài liệu hợp lý', 'Ứng dụng ngân hàng di động hữu ích', 'Tiếp cận chi nhánh tốt gần trường hoặc nhà', 'Chức năng chuyển khoản và thanh toán ổn định'],
+    s3Title: 'Các Giấy tờ Thường Cần',
+    s3P1: 'Yêu cầu chính xác có thể khác nhau tùy ngân hàng và tình trạng của bạn, nhưng nhiều người nước ngoài được yêu cầu một bộ giấy tờ tương tự.',
+    s3Items: ['Hộ chiếu', 'ARC hoặc bằng chứng tình trạng cư trú', 'Số điện thoại Hàn Quốc', 'Chứng chỉ đăng ký trường học hoặc tài liệu sinh viên', 'Thông tin địa chỉ'],
+    s3P2: 'Một số ngân hàng có thể linh hoạt hơn những ngân hàng khác, nhưng bạn không nên cho rằng quy trình là giống nhau ở mọi nơi.',
+    s4Title: 'Bạn Có thể Mở Tài khoản Ngân hàng Mà Không Cần ARC Không?',
+    s4P1: 'Trong một số trường hợp, người nước ngoài có thể mở tài khoản hạn chế mà không có ARC, nhưng thường dễ hơn nhiều sau khi nhận ARC. Nhiều chức năng ngân hàng trở nên thực tế hơn khi danh tính và tình trạng cư trú được xác nhận rõ ràng trong hệ thống.',
+    s4P2: 'Nếu bạn vừa đến, kế hoạch thực tế nhất thường là thiết lập cơ bản trước rồi đến ngân hàng sau khi có tài liệu đầy đủ nhất.',
+    s5Title: 'Các Vấn đề Thường Gặp mà Người nước ngoài Đối mặt tại Ngân hàng Hàn Quốc',
+    s5Items: ['Quy tắc tài liệu khác nhau tùy chi nhánh', 'Rào cản ngôn ngữ trong quá trình mở tài khoản', 'Hạn chế về chuyển khoản hoặc tính năng tài khoản ban đầu', 'Khó khăn trong việc thiết lập ngân hàng di động', 'Nhầm lẫn về mục đích tài khoản hoặc giới hạn giao dịch'],
+    s5P: 'Đây là lý do tại sao nhiều sinh viên nhờ văn phòng quốc tế của trường tư vấn trước khi đến ngân hàng.',
+    s6Title: 'Mẹo Thực tế Trước khi Đến Ngân hàng',
+    s6Items: ['Mang nhiều tài liệu hơn bạn nghĩ cần', 'Đến chi nhánh gần trường hoặc khu vực nhiều người nước ngoài', 'Nhờ trường hoặc bạn bè giới thiệu', 'Viết địa chỉ Hàn Quốc của bạn rõ ràng', 'Đến sớm trong ngày nếu có thể', 'Chuẩn bị số điện thoại rõ ràng'],
+    s7Title: 'Ngân hàng Nào Tốt Nhất?',
+    s7P1: 'Không có câu trả lời hoàn hảo duy nhất cho tất cả mọi người. Tài khoản ngân hàng tốt nhất cho người nước ngoài ở Hàn Quốc phụ thuộc vào vị trí, tài liệu và những gì bạn cần tài khoản. Ngân hàng hoạt động tốt cho sinh viên ở Seoul có thể không phải là lựa chọn dễ nhất cho sinh viên ở thành phố khác.',
+    s7P2: 'Trong thực tế, lựa chọn tốt nhất thường là ngân hàng giúp bạn có trải nghiệm mở tài khoản suôn sẻ nhất, cho phép bạn quản lý tiền dễ dàng và hoạt động tốt với tài liệu hiện tại của bạn.',
+    closingP: 'Với nhiều người mới đến, việc tìm tài khoản ngân hàng tốt nhất cho người nước ngoài ở Hàn Quốc không phải về uy tín mà về ngân hàng nào dễ mở nhất, dễ sử dụng nhất và thực tế nhất với tài liệu hiện tại của bạn.',
+    faqTitle: 'Câu hỏi thường gặp',
+    faq1Q: 'Người nước ngoài có thể mở tài khoản ngân hàng ở Hàn Quốc không?',
+    faq1A: 'Có, người nước ngoài có thể mở tài khoản ngân hàng ở Hàn Quốc, nhưng quy trình phụ thuộc vào ngân hàng, tình trạng visa và tài liệu bạn có.',
+    faq2Q: 'Tôi có cần ARC để mở tài khoản ngân hàng ở Hàn Quốc không?',
+    faq2A: 'Trong nhiều trường hợp, mở tài khoản ngân hàng trở nên dễ hơn sau khi có ARC. Một số ngân hàng có thể cung cấp các tùy chọn hạn chế trước đó, nhưng điều này khác nhau.',
+    faq3Q: 'Tài khoản ngân hàng nào tốt nhất cho du học sinh ở Hàn Quốc?',
+    faq3A: 'Tài khoản ngân hàng tốt nhất cho du học sinh ở Hàn Quốc thường là tài khoản có chi nhánh gần trường, xử lý đơn từ người nước ngoài rõ ràng và cung cấp ứng dụng ngân hàng di động thực tế.',
+    finalTitle: 'Lời khuyên cuối',
+    finalP: 'Nếu bạn là du học sinh, đừng chỉ tập trung vào thương hiệu ngân hàng. Tập trung vào những gì thực tế ngay bây giờ: tài liệu của bạn, vị trí trường, và ngân hàng có thể giúp bạn rõ ràng nhất. Tài khoản ngân hàng tốt nhất cho người nước ngoài ở Hàn Quốc là cái bạn có thể mở suôn sẻ, dễ sử dụng nhất và hoạt động tốt nhất với tình huống hiện tại của bạn.',
+    prepTitle: 'Cần làm Trước khi Mở Tài khoản Ngân hàng',
+    prepP: 'Trước khi đến ngân hàng ở Hàn Quốc, hầu hết du học sinh nên chuẩn bị số điện thoại cơ bản, thông tin địa chỉ và thông tin cư trú.',
+    arcLabel: 'Hướng dẫn thẻ ARC',
+    simLabel: 'Hướng dẫn SIM Card',
+    gettingStartedLabel: 'Hướng dẫn Bắt đầu',
+    relatedTitle: 'Hướng dẫn liên quan',
+    relatedDesc: 'Những trang này sẽ giúp bạn xử lý phần còn lại của thiết lập ban đầu ở Hàn Quốc.',
+    relatedArcBtn: 'Hướng dẫn ARC',
+    relatedSimBtn: 'Hướng dẫn SIM Card',
   },
 };
 

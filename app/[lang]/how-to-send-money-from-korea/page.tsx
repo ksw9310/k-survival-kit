@@ -9,7 +9,7 @@ import JsonLd from '@/components/JsonLd';
 
 const WISE_AFFILIATE_URL = 'https://wise.prf.hn/click/camref:1101l5IGWo';
 
-type L = 'en' | 'zh' | 'ru' | 'ja';
+type L = 'en' | 'zh' | 'ru' | 'ja' | 'vi';
 
 const META: Record<L, { title: string; description: string }> = {
   en: {
@@ -31,6 +31,11 @@ const META: Record<L, { title: string; description: string }> = {
     title: '韓国から海外送金する方法（2026年版） | K-Survival Kit',
     description:
       '韓国から海外にお金を送りたいですか？このガイドでは、韓国在住の外国人・留学生向けに最も安くて簡単な国際送金の方法を解説します。',
+  },
+  vi: {
+    title: 'Cách chuyển tiền từ Hàn Quốc ra nước ngoài (Rẻ nhất & Dễ nhất) | K-Survival Kit',
+    description:
+      'Cho dù bạn gửi tiền về nhà, trả học phí ở nước ngoài hay chia sẻ chi phí, chuyển tiền quốc tế từ Hàn Quốc có thể gây bối rối. Hướng dẫn này chỉ bạn cách tốt hơn.',
   },
 };
 
@@ -443,6 +448,98 @@ const CONTENT: Record<L, PageContent> = {
     finalTitle: 'まとめ',
     finalP:
       '韓国在住の外国人や留学生のほとんどにとって、Wiseが海外送金で最も実用的でコスト効率の高い方法です。完全オンラインで動作し、実勢為替レートを使用し、確認前に手数料を透明に表示します。韓国銀行送金も選択肢としては残りますが、手数料と為替レートのロスでほぼ必ず割高になります。',
+  },
+  vi: {
+    eyebrow: 'Tiền / Chuyển tiền quốc tế',
+    heroTitle: 'Cách chuyển tiền từ Hàn Quốc ra nước ngoài (Rẻ nhất & Dễ nhất)',
+    heroLead:
+      'Cho dù bạn gửi tiền về nhà, trả học phí ở nước ngoài hay chia sẻ chi phí với gia đình, chuyển tiền quốc tế từ Hàn Quốc có thể gây bối rối. Ngân hàng Hàn Quốc thường tính phí cao và tỷ giá bất lợi. Hướng dẫn này chỉ bạn cách tốt hơn.',
+    affiliateTitle: 'Chuyển tiền ra nước ngoài với Wise',
+    affiliateDesc:
+      'Wise sử dụng tỷ giá thị trường thực — cùng tỷ giá bạn thấy trên Google — với phí thấp, minh bạch. Hầu hết các lần chuyển tiền đến trong 1-2 ngày làm việc. Được hàng triệu người trên toàn thế giới tin dùng.',
+    affiliateCta: 'Chuyển tiền với Wise',
+    quickAnswerTitle: 'Trả lời nhanh',
+    quickAnswerText:
+      'Cách rẻ nhất và đáng tin cậy nhất để chuyển tiền quốc tế từ Hàn Quốc là qua Wise (trước đây là TransferWise). Ngân hàng Hàn Quốc tính phí chuyển khoản quốc tế thường từ ₩5.000-₩10.000 phí cộng với đánh dấu tỷ giá 2-3%. Wise tính một khoản phí nhỏ cố định và sử dụng tỷ giá thực, giúp bạn tiết kiệm đáng kể cho mỗi lần chuyển tiền.',
+    s1Title: 'Tại sao Chuyển khoản Ngân hàng Hàn Quốc Đắt',
+    s1P: 'Hầu hết mọi người theo bản năng thử sử dụng ngân hàng Hàn Quốc của họ cho các giao dịch quốc tế — nhưng điều này thường tốn hơn dự kiến.',
+    s1Items: [
+      'Đánh dấu tỷ giá 1,5-3% so với tỷ giá thực',
+      'Phí chuyển khoản cố định ₩5.000-₩10.000 mỗi giao dịch',
+      'Phí ngân hàng trung gian bổ sung trong một số trường hợp',
+      'Thời gian xử lý chậm (2-5 ngày làm việc)',
+      'Đôi khi cần giấy tờ và đến chi nhánh cho các giao dịch lớn',
+    ],
+    s2Title: 'Các Cách Chuyển tiền từ Hàn Quốc',
+    s2P: 'Có một số lựa chọn cho người nước ngoài ở Hàn Quốc. Đây là so sánh các phương thức phổ biến nhất.',
+    s2Items: [
+      {
+        label: 'Wise (Được đề xuất)',
+        desc: 'Tỷ giá thực, phí minh bạch, giao dịch nhanh (1-2 ngày), hoàn toàn trực tuyến. Tốt nhất cho hầu hết mọi người.',
+      },
+      {
+        label: 'Chuyển khoản ngân hàng Hàn Quốc',
+        desc: 'Có tại mọi ngân hàng lớn (KB, Shinhan, IBK, v.v.). Phí cao và tỷ giá kém. Đáng tin cậy nhưng đắt.',
+      },
+      {
+        label: 'Western Union / MoneyGram',
+        desc: 'Có sẵn rộng rãi nhưng thường tính phí rất cao và tỷ giá kém. Không được đề xuất sử dụng thường xuyên.',
+      },
+      {
+        label: 'Kakao Pay / Toss (Chỉ nội địa)',
+        desc: 'Tiện lợi cho thanh toán trong Hàn Quốc, nhưng không có sẵn cho chuyển tiền quốc tế.',
+      },
+    ],
+    s3Title: 'Cách Chuyển tiền với Wise từ Hàn Quốc',
+    s3P: 'Wise hoạt động hoàn toàn trực tuyến — không cần đến chi nhánh. Đây là quy trình cơ bản.',
+    s3Steps: [
+      'Tạo tài khoản Wise miễn phí tại wise.com',
+      'Xác minh danh tính của bạn (hộ chiếu hoặc thẻ ARC)',
+      'Nhập số tiền bạn muốn gửi và tiền tệ đích',
+      'Xem chính xác phí và tỷ giá trước khi xác nhận',
+      'Thêm thông tin ngân hàng của người nhận',
+      'Thanh toán từ tài khoản ngân hàng Hàn Quốc qua chuyển khoản hoặc thẻ',
+      'Người nhận của bạn nhận tiền — thường trong 1-2 ngày làm việc',
+    ],
+    s4Title: 'Những gì Bạn Cần để Chuyển tiền từ Hàn Quốc',
+    s4P1: 'Trước khi thực hiện chuyển khoản quốc tế từ Hàn Quốc, bạn thường cần những thứ sau.',
+    s4Items: [
+      'Hộ chiếu hoặc thẻ ARC hợp lệ để xác minh danh tính',
+      'Tài khoản ngân hàng hoặc thẻ ghi nợ Hàn Quốc để tài trợ cho việc chuyển khoản',
+      'Họ tên đầy đủ, tên ngân hàng, số tài khoản của người nhận và mã SWIFT/BIC',
+      'Địa chỉ của người nhận (yêu cầu bởi một số dịch vụ)',
+    ],
+    s4P2: 'Với các giao dịch lớn hơn, một số dịch vụ có thể yêu cầu tài liệu bổ sung để tuân thủ các quy định tài chính Hàn Quốc.',
+    s5Title: 'Mẹo Chuyển tiền Quốc tế từ Hàn Quốc',
+    s5P: 'Một vài điều thực tế cần ghi nhớ khi chuyển tiền ra nước ngoài từ Hàn Quốc.',
+    s5Items: [
+      'Luôn so sánh tỷ giá với tỷ giá thị trường thực (kiểm tra xe.com hoặc Google)',
+      'Tránh chuyển khoản vào cuối tuần nếu bạn cần giao hàng nhanh',
+      'Với số tiền lớn, kiểm tra xem ngân hàng Hàn Quốc của bạn có giới hạn chuyển khoản hàng ngày không',
+      'Lưu hồ sơ chuyển khoản cho mục đích thuế hoặc visa',
+      'Wise hiển thị tổng chi phí trước — không có bất ngờ khi đến',
+    ],
+    s6Title: 'Du học sinh Có thể Chuyển tiền từ Hàn Quốc Không?',
+    s6P1:
+      'Có. Du học sinh có tài khoản ngân hàng Hàn Quốc có thể gửi tiền ra nước ngoài. Bạn sẽ cần xác minh danh tính với Wise bằng hộ chiếu hoặc thẻ ARC. Không có hạn chế về chuyển tiền quốc tế từ Hàn Quốc cho mục đích cá nhân với tư cách là sinh viên.',
+    s6P2:
+      'Nếu bạn đang nhận tiền từ gia đình ở nước ngoài thay vì gửi tiền, Wise cũng cho phép bạn dễ dàng nhận tiền vào tài khoản Wise — thường nhanh hơn và rẻ hơn so với chuyển khoản ngân hàng tiêu chuẩn vào tài khoản Hàn Quốc của bạn.',
+    faqTitle: 'Câu hỏi thường gặp',
+    faq1Q: 'Cách rẻ nhất để chuyển tiền từ Hàn Quốc là gì?',
+    faq1A:
+      'Wise thường là lựa chọn rẻ nhất cho hầu hết các giao dịch quốc tế từ Hàn Quốc. Nó sử dụng tỷ giá thực và tính một khoản phí nhỏ, minh bạch — thấp hơn đáng kể so với chuyển khoản ngân hàng Hàn Quốc trong hầu hết các trường hợp.',
+    faq2Q: 'Tôi có thể dùng Wise ở Hàn Quốc không?',
+    faq2A:
+      'Có. Wise có sẵn ở Hàn Quốc. Bạn có thể tạo tài khoản, xác minh danh tính và gửi tiền quốc tế từ Hàn Quốc hoàn toàn trực tuyến.',
+    faq3Q: 'Mất bao lâu để chuyển khoản quốc tế từ Hàn Quốc?',
+    faq3A:
+      'Với Wise, hầu hết các lần chuyển tiền đến trong 1-2 ngày làm việc. Chuyển khoản ngân hàng Hàn Quốc thường mất 2-5 ngày làm việc tùy thuộc vào quốc gia đích.',
+    faq4Q: 'Tôi có cần ARC để chuyển tiền ra nước ngoài từ Hàn Quốc không?',
+    faq4A:
+      'Bạn cần một số hình thức xác minh danh tính. Hộ chiếu thường đủ cho Wise. Đối với chuyển khoản ngân hàng Hàn Quốc, thẻ ARC của bạn cũng có thể được sử dụng. Với các khoản chuyển lớn, bạn có thể cần đến chi nhánh.',
+    finalTitle: 'Tóm tắt',
+    finalP:
+      'Với hầu hết người nước ngoài và du học sinh ở Hàn Quốc, Wise là cách thực tế và tiết kiệm chi phí nhất để chuyển tiền ra nước ngoài. Nó hoạt động hoàn toàn trực tuyến, sử dụng tỷ giá thực và minh bạch về phí trước khi bạn cam kết. Chuyển khoản ngân hàng Hàn Quốc vẫn là một lựa chọn nhưng gần như luôn tốn kém hơn về phí và đánh dấu tỷ giá.',
   },
 };
 

@@ -6,7 +6,7 @@ import PageDisclaimer from '@/components/PageDisclaimer';
 import RelatedPosts from '@/components/RelatedPosts';
 import JsonLd from '@/components/JsonLd';
 
-type L = 'en' | 'zh' | 'ru' | 'ja';
+type L = 'en' | 'zh' | 'ru' | 'ja' | 'vi';
 
 const META: Record<L, { title: string; description: string }> = {
   en: {
@@ -24,6 +24,10 @@ const META: Record<L, { title: string; description: string }> = {
   ja: {
     title: '韓国外国人登録証（ARC）取得ガイド | K-Survival Kit',
     description: '韓国でARCカードが必要？このガイドでは、ARCとは何か、いつ申請するか、必要書類、そして留学生がよくあるミスを避ける方法を解説します。',
+  },
+  vi: {
+    title: 'Hướng dẫn thẻ ARC Hàn Quốc cho Du học sinh (2026) | K-Survival Kit',
+    description: 'Cần thẻ ARC ở Hàn Quốc? Hướng dẫn này giải thích thẻ ARC là gì, cách nộp đơn và những gì du học sinh quốc tế cần biết trước khi đăng ký.',
   },
 };
 
@@ -258,6 +262,52 @@ const CONTENT: Record<L, PageContent> = {
     relatedDesc: 'ARC申請の流れを確認した後は、SIMカードの設定や韓国生活の基本についても確認しておきましょう。',
     relatedSimBtn: 'SIMカードガイド',
     relatedStartBtn: 'はじめに',
+  },
+  vi: {
+    eyebrow: 'Visa / Hướng dẫn ARC',
+    heroTitle: 'Hướng dẫn thẻ ARC Hàn Quốc cho Du học sinh (2026)',
+    heroLead: 'Nếu bạn dự định ở Hàn Quốc hơn một thời gian ngắn, ARC là một trong những giấy tờ quan trọng nhất bạn cần. Hướng dẫn này giải thích ARC là gì, tại sao nó quan trọng và cách du học sinh có thể chuẩn bị cho quá trình này.',
+    quickAnswerTitle: 'Trả lời nhanh',
+    quickAnswerText: 'ARC, thường được gọi là Thẻ Đăng ký Người nước ngoài hoặc thẻ cư trú, là thẻ căn cước thiết yếu cho người nước ngoài sống ở Hàn Quốc. Du học sinh thường cần nó cho ngân hàng, gói điện thoại, bảo hiểm và nhiều dịch vụ chính thức.',
+    s1Title: 'ARC Card ở Hàn Quốc là gì?',
+    s1P1: 'Thẻ ARC ở Hàn Quốc là thẻ căn cước do người nước ngoài đăng ký cư trú nắm giữ. Nó giúp chứng minh tình trạng cư trú hợp pháp của bạn và thường cần thiết cho các công việc hàng ngày quan trọng sau khi đến nơi.',
+    s1P2: 'Ngay cả khi mọi người vẫn nói "ARC", thuật ngữ và quy trình có thể thay đổi theo thời gian, vì vậy hãy luôn kiểm tra hướng dẫn chính thức hiện tại trước khi nộp đơn.',
+    arcImportantP: 'Thẻ ARC ở Hàn Quốc là một trong những bước quan trọng nhất cho người nước ngoài và du học sinh có kế hoạch ở lại lâu dài và sử dụng các dịch vụ địa phương.',
+    s2Title: 'Tại sao ARC Quan trọng',
+    s2P: 'Với nhiều du học sinh, cuộc sống ở Hàn Quốc trở nên dễ dàng hơn nhiều sau khi nhận được thẻ ARC. Nếu không có nó, một số dịch vụ có thể bị hạn chế hoặc khó tiếp cận hơn.',
+    s2Items: ['Mở tài khoản ngân hàng Hàn Quốc', 'Đăng ký gói điện thoại dài hạn', 'Sử dụng một số dịch vụ tài chính và xác minh danh tính', 'Xử lý các cập nhật liên quan đến nhập cư suôn sẻ hơn'],
+    s3Title: 'Khi nào Nên Nộp đơn?',
+    s3P1: 'Nếu bạn ở Hàn Quốc lâu dài, bạn thường cần đăng ký trong thời gian quy định sau khi đến. Du học sinh nên không chờ đến phút cuối vì chỗ đặt lịch hẹn và thời gian xử lý có thể thay đổi.',
+    s3P2: 'Cách tiếp cận an toàn nhất là kiểm tra điều kiện visa của bạn sớm và bắt đầu chuẩn bị ngay sau khi nhập cảnh Hàn Quốc.',
+    s4Title: 'Các Giấy tờ Thường Cần',
+    s4P: 'Yêu cầu có thể khác nhau, nhưng du học sinh thường chuẩn bị một bộ giấy tờ tương tự trước khi nộp đơn ARC.',
+    s4Items: ['Hộ chiếu', 'Giấy tờ liên quan đến visa', 'Giấy tờ đăng ký học hoặc nhập học', 'Ảnh cỡ hộ chiếu', 'Mẫu đơn hoặc xác nhận lịch hẹn', 'Thông tin địa chỉ tại Hàn Quốc'],
+    s4P2: 'Luôn xác nhận danh sách kiểm tra mới nhất qua hệ thống nhập cảnh chính thức hoặc văn phòng quốc tế của trường bạn.',
+    s5Title: 'Quy trình ARC Thường Hoạt động Như thế nào',
+    s5P: 'Quy trình ARC ở Hàn Quốc thường liên quan đến việc chuẩn bị giấy tờ, đặt lịch hẹn nếu cần, đến văn phòng xuất nhập cảnh, nộp đơn và chờ xử lý.',
+    s5Items: ['Kiểm tra các yêu cầu hiện tại', 'Chuẩn bị giấy tờ cẩn thận', 'Đặt lịch hẹn nếu cần', 'Đến văn phòng xuất nhập cảnh đúng giờ', 'Nộp giấy tờ và hoàn tất quy trình', 'Chờ cấp hoặc giao thẻ'],
+    s6Title: 'Những Lỗi Thường Gặp Cần Tránh',
+    s6Items: ['Chờ quá lâu để kiểm tra các yêu cầu', 'Mang giấy tờ không đầy đủ', 'Sử dụng thông tin lỗi thời', 'Bỏ lỡ lịch hẹn hoặc thời gian đặt hẹn', 'Giả định mọi visa đều theo cùng một quy trình'],
+    s7Title: 'Mẹo Hữu ích cho Du học sinh',
+    s7Items: ['Hỏi văn phòng quốc tế của trường để được hỗ trợ', 'Chuẩn bị bản kỹ thuật số và in của các tài liệu quan trọng', 'Ghi địa chỉ Hàn Quốc của bạn rõ ràng', 'Đến sớm vào ngày hẹn', 'Kiểm tra thông tin chính thức thay vì chỉ dựa vào blog'],
+    faqTitle: 'Câu hỏi thường gặp',
+    faq1Q: 'ARC Card ở Hàn Quốc là gì?',
+    faq1A: 'Thẻ ARC ở Hàn Quốc là thẻ căn cước cho người nước ngoài. Nó cần thiết cho nhiều dịch vụ như ngân hàng, gói điện thoại và xác minh chính thức.',
+    faq2Q: 'Du học sinh có cần ARC ở Hàn Quốc không?',
+    faq2A: 'Có, hầu hết du học sinh ở lâu dài cần nộp đơn ARC sau khi đến Hàn Quốc.',
+    faq3Q: 'Mất bao lâu để nhận thẻ ARC?',
+    faq3A: 'Thời gian xử lý có thể khác nhau, nhưng thường mất vài tuần tùy thuộc vào văn phòng xuất nhập cảnh và thời điểm nộp đơn.',
+    finalTitle: 'Lời khuyên cuối',
+    finalP: 'Quy trình ARC thoạt đầu có vẻ phức tạp, nhưng hoàn toàn có thể quản lý được nếu bạn chuẩn bị sớm và tuân theo hướng dẫn hiện tại. Với hầu hết du học sinh, chiến lược tốt nhất là xử lý đơn ARC là một trong những việc ưu tiên đầu tiên sau khi đến.',
+    prepTitle: 'Cần làm Trước và Sau khi Nhận ARC',
+    prepP: 'Trước khi nộp đơn ARC ở Hàn Quốc, việc chuẩn bị SIM card và thiết lập cơ bản sẽ hữu ích. Sau khi nhận ARC, bạn có thể tiếp cận nhiều dịch vụ hơn như ngân hàng và gói điện thoại.',
+    simLabel: 'Hướng dẫn SIM Card',
+    bankLabel: 'Hướng dẫn tài khoản ngân hàng',
+    deliveryLabel: 'Hướng dẫn ứng dụng giao đồ ăn',
+    relatedTitle: 'Hướng dẫn liên quan',
+    relatedDesc: 'Sau khi kiểm tra quy trình ARC, bạn cũng nên thiết lập SIM card và tìm hiểu cơ bản về bắt đầu ở Hàn Quốc.',
+    relatedSimBtn: 'Hướng dẫn SIM Card',
+    relatedStartBtn: 'Bắt đầu',
   },
 };
 

@@ -78,6 +78,11 @@ export default async function GettingStartedPage({ params }: Props) {
       description: 'Занимайтесь 1 на 1 с носителями корейского языка. Начните с основ до или после приезда в Корею — в удобном темпе.',
       ctaText: 'Найти репетитора',
     },
+    vi: {
+      title: 'Học tiếng Hàn với italki',
+      description: 'Kết nối với gia sư tiếng Hàn bản ngữ cho các buổi học 1-1. Bắt đầu từ cơ bản trước hoặc sau khi đến Hàn Quốc — theo tốc độ của bạn.',
+      ctaText: 'Tìm gia sư tiếng Hàn',
+    },
     ja: {
       title: 'italki で韓国語を学ぼう',
       description: 'ネイティブの韓国語チューターと1対1レッスン。来韓前でも来韓後でも、自分のペースで基礎から始められます。',
