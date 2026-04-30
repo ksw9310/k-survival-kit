@@ -32,11 +32,11 @@ const KLOOK_BANNER: Record<string, { title: string; desc: string; cta: string; b
 
 const SAILY_URL = 'https://go.saily.site/aff_c?offer_id=101&aff_id=13847';
 const SAILY_BANNER: Record<string, { title: string; desc: string; cta: string; badge: string }> = {
-  en: { title: 'eSIM Korea with Saily', desc: 'Activate before you land. No physical SIM needed. Fast data from day one.', cta: 'Get Saily eSIM', badge: 'Affiliate' },
-  vi: { title: 'eSIM Hàn Quốc với Saily', desc: 'Kích hoạt trước khi lên máy bay. Không cần SIM vật lý. Có data ngay ngày đầu.', cta: 'Xem Saily', badge: 'Liên kết' },
-  zh: { title: '韩国eSIM — Saily', desc: '落地前激活，无需实体SIM卡，第一天就能用流量。', cta: '获取Saily eSIM', badge: '推广' },
-  ja: { title: '韓国eSIM — Saily', desc: '到着前に開通。物理SIM不要。初日からデータ通信可能。', cta: 'SailyでeSIMを取得', badge: 'PR' },
-  ru: { title: 'eSIM в Корею — Saily', desc: 'Активируйте до прилёта. Физическая SIM не нужна. Интернет с первого дня.', cta: 'Получить Saily eSIM', badge: 'Партнёр' },
+  en: { title: 'eSIM Korea with Saily', desc: 'Activate before you land. No physical SIM needed. Fast data from day one. Use code KSURVIVALKIT for a discount.', cta: 'Get Saily eSIM', badge: 'Affiliate' },
+  vi: { title: 'eSIM Hàn Quốc với Saily', desc: 'Kích hoạt trước khi lên máy bay. Không cần SIM vật lý. Có data ngay ngày đầu. Dùng mã KSURVIVALKIT để được giảm giá.', cta: 'Xem Saily', badge: 'Liên kết' },
+  zh: { title: '韩国eSIM — Saily', desc: '落地前激活，无需实体SIM卡，第一天就能用流量。使用优惠码 KSURVIVALKIT 享受折扣。', cta: '获取Saily eSIM', badge: '推广' },
+  ja: { title: '韓国eSIM — Saily', desc: '到着前に開通。物理SIM不要。初日からデータ通信可能。クーポンコード KSURVIVALKIT で割引適用。', cta: 'SailyでeSIMを取得', badge: 'PR' },
+  ru: { title: 'eSIM в Корею — Saily', desc: 'Активируйте до прилёта. Физическая SIM не нужна. Интернет с первого дня. Используйте код KSURVIVALKIT для скидки.', cta: 'Получить Saily eSIM', badge: 'Партнёр' },
 };
 
 const NORDVPN_URL = 'https://go.nordvpn.net/aff_c?offer_id=15&aff_id=146085&url_id=23180';
@@ -739,7 +739,7 @@ export default function GuideScreen() {
                 <Text style={styles.body}>{section.body}</Text>
               </View>
             ))}
-            {slug === 'bank' && (
+            {(slug === 'bank' || slug === 'rent') && (
               <AffiliateBannerBlock
                 url={WISE_URL}
                 emoji="💸"
