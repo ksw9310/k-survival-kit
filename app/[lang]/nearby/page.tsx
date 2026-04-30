@@ -8,7 +8,7 @@ type Props = {
   searchParams: Promise<{ category?: string }>;
 };
 
-type L = 'en' | 'zh' | 'ru' | 'ja';
+type L = 'en' | 'zh' | 'ru' | 'ja' | 'vi';
 const loc = (lang: string, m: Record<L, string>) => m[lang as L] ?? m.en;
 
 const META_TITLE: Record<L, string> = {
@@ -16,12 +16,14 @@ const META_TITLE: Record<L, string> = {
   zh: '查找周边 | K-Survival Kit',
   ru: 'Найти рядом | K-Survival Kit',
   ja: '近くを探す | K-Survival Kit',
+  vi: 'Tìm gần đây | K-Survival Kit',
 };
 const META_DESC: Record<L, string> = {
   en: 'Find the nearest bank, pharmacy, supermarket, and convenience store based on your current location.',
   zh: '根据您的当前位置查找附近的银行、药店、大型超市和便利店。',
   ru: 'Найдите ближайший банк, аптеку, супермаркет и магазин рядом с вами.',
   ja: '現在地から近くの銀行・薬局・スーパー・コンビニを検索できます。',
+  vi: 'Tìm ngân hàng, nhà thuốc, siêu thị và cửa hàng tiện lợi gần nhất trong vòng 1km từ vị trí của bạn, sắp xếp theo khoảng cách.',
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -189,6 +191,40 @@ const PAGE_CONTENT: Record<L, PageStrings> = {
         icon: '💊',
         label: '薬局',
         body: '頭痛薬・消化薬・風邪薬など、処方箋なしで購入できる市販薬が豊富です。一部はコンビニでも販売しています。',
+      },
+    ],
+  },
+  vi: {
+    pageTitle: 'Tìm gần đây',
+    pageDesc:
+      'Tìm ngân hàng, nhà thuốc, siêu thị và cửa hàng tiện lợi gần nhất trong vòng 1km từ vị trí của bạn, sắp xếp theo khoảng cách.',
+    categories: [
+      { icon: '🏦', label: 'Ngân hàng', desc: 'Mở tài khoản · Ngân hàng' },
+      { icon: '💊', label: 'Nhà thuốc', desc: 'Đơn thuốc · Thuốc không kê đơn' },
+      { icon: '🛒', label: 'Siêu thị', desc: 'Thực phẩm · Đồ gia dụng' },
+      { icon: '🏪', label: 'Cửa hàng tiện lợi', desc: 'Túi rác · Thẻ T-money' },
+    ],
+    infoTitle: '💡 Thông tin hữu ích',
+    infoItems: [
+      {
+        icon: '🗑️',
+        label: 'Túi rác (종량제)',
+        body: 'Bạn phải mua túi phù hợp với quận (구) đã đăng ký. Bán tại hầu hết cửa hàng tiện lợi (GS25, CU, 7-Eleven, v.v.).',
+      },
+      {
+        icon: '🚌',
+        label: 'Thẻ T-money',
+        body: 'Có bán tại cửa hàng tiện lợi và trung tâm dịch vụ ga tàu điện ngầm. Dùng được trên xe buýt và tàu điện ngầm toàn quốc sau khi phát hành.',
+      },
+      {
+        icon: '🏦',
+        label: 'Tài khoản ngân hàng cho người nước ngoài',
+        body: 'Mang theo hộ chiếu và thẻ ARC. Woori Bank và Shinhan Bank nổi tiếng về dịch vụ cho người nước ngoài.',
+      },
+      {
+        icon: '💊',
+        label: 'Nhà thuốc',
+        body: 'Nhiều thuốc không kê đơn có thể mua không cần đơn, bao gồm thuốc đau đầu, tiêu hóa và cảm. Một số cũng được bán tại cửa hàng tiện lợi.',
       },
     ],
   },

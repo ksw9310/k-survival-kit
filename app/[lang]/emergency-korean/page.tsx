@@ -5,7 +5,7 @@ import { isValidLocale } from '@/lib/i18n';
 
 type Props = { params: Promise<{ lang: string }> };
 
-type L = 'en' | 'zh' | 'ru' | 'ja';
+type L = 'en' | 'zh' | 'ru' | 'ja' | 'vi';
 const loc = (lang: string, m: Record<L, string>) => m[lang as L] ?? m.en;
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -16,12 +16,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     zh: '紧急韩语短句 | K-Survival Kit',
     ru: 'Экстренные фразы на корейском | K-Survival Kit',
     ja: '緊急韓国語フレーズ | K-Survival Kit',
+    vi: 'Cụm từ tiếng Hàn khẩn cấp | K-Survival Kit',
   };
   const desc: Record<L, string> = {
     en: 'Essential Korean phrases for emergencies — hospital, police, landlord, taxi, subway and daily situations.',
     zh: '紧急情况必备韩语短句——医院、警察、房东、出租车、地铁及日常所需。',
     ru: 'Необходимые корейские фразы для экстренных ситуаций — больница, полиция, домовладелец, такси, метро.',
     ja: '緊急時に役立つ韓国語フレーズ集 — 病院・警察・家主・タクシー・地下鉄など。',
+    vi: 'Cụm từ tiếng Hàn thiết yếu trong tình huống khẩn cấp — bệnh viện, cảnh sát, chủ nhà, taxi, tàu điện ngầm và tình huống hàng ngày.',
   };
   return {
     title: title[lang as L] ?? title.en,
@@ -83,6 +85,7 @@ const SECTIONS: Section[] = [
       zh: '在医院 / 诊所',
       ru: 'В больнице / Клинике',
       ja: '病院・クリニックで',
+      vi: 'Tại bệnh viện / Phòng khám',
     },
     color: 'text-red-700',
     bg: 'bg-red-50',
@@ -96,6 +99,7 @@ const SECTIONS: Section[] = [
           zh: '我不舒服 / 很痛。',
           ru: 'Мне плохо / Больно.',
           ja: '具合が悪いです / 痛いです。',
+          vi: 'Tôi bị ốm / Đau.',
         },
       },
       {
@@ -106,6 +110,7 @@ const SECTIONS: Section[] = [
           zh: '这里痛。（指向患处）',
           ru: 'Здесь больно. (укажите на место)',
           ja: 'ここが痛いです。（患部を指して）',
+          vi: 'Đau ở đây.',
         },
       },
       {
@@ -116,6 +121,7 @@ const SECTIONS: Section[] = [
           zh: '我头痛。',
           ru: 'У меня болит голова.',
           ja: '頭が痛いです。',
+          vi: 'Tôi bị đau đầu.',
         },
       },
       {
@@ -126,46 +132,40 @@ const SECTIONS: Section[] = [
           zh: '我发烧了。',
           ru: 'У меня жар.',
           ja: '熱があります。',
+          vi: 'Tôi bị sốt.',
         },
       },
       {
-        korean: '구역질이 나요.',
-        romanization: 'Gu-yeok-jil-i na-yo.',
+        korean: '기침이 나요.',
+        romanization: 'Gi-chim-i na-yo.',
         meaning: {
-          en: "I'm nauseous.",
-          zh: '我感到恶心。',
-          ru: 'Меня тошнит.',
-          ja: '吐き気がします。',
+          en: "I'm coughing.",
+          zh: '我在咳嗽。',
+          ru: 'Я кашляю.',
+          ja: 'せきが出ます。',
+          vi: 'Tôi bị ho.',
         },
       },
       {
-        korean: '영어 할 수 있는 의사 있나요?',
-        romanization: 'Yeong-eo hal su in-neun ui-sa it-na-yo?',
+        korean: '영어 할 수 있는 의사가 있나요?',
+        romanization: 'Yeong-eo hal su in-neun ui-sa-ga it-na-yo?',
         meaning: {
           en: 'Is there a doctor who speaks English?',
           zh: '有会说英语的医生吗？',
           ru: 'Есть ли врач, говорящий по-английски?',
           ja: '英語が話せる医師はいますか？',
+          vi: 'Có bác sĩ nói tiếng Anh không?',
         },
       },
       {
-        korean: '외국인등록증이 있어요.',
-        romanization: 'Oe-guk-in-deung-rok-jeung-i i-sseo-yo.',
+        korean: '국민건강보험이 있어요.',
+        romanization: 'Guk-min-geon-gang-bo-heom-i i-sseo-yo.',
         meaning: {
-          en: 'I have my ARC card.',
-          zh: '我有外国人登录证（ARC卡）。',
-          ru: 'У меня есть карта иностранца (ARC).',
-          ja: '外国人登録証を持っています。',
-        },
-      },
-      {
-        korean: '건강보험이 있어요.',
-        romanization: 'Geon-gang-bo-heom-i i-sseo-yo.',
-        meaning: {
-          en: 'I have health insurance.',
-          zh: '我有健康保险。',
-          ru: 'У меня есть медицинская страховка.',
-          ja: '健康保険に加入しています。',
+          en: 'I have national health insurance.',
+          zh: '我有国家医疗保险。',
+          ru: 'У меня есть национальная медицинская страховка.',
+          ja: '国民健康保険に加入しています。',
+          vi: 'Tôi có bảo hiểm y tế quốc gia.',
         },
       },
       {
@@ -176,6 +176,7 @@ const SECTIONS: Section[] = [
           zh: '请给我开处方。',
           ru: 'Пожалуйста, дайте рецепт.',
           ja: '処方箋をください。',
+          vi: 'Làm ơn cho tôi đơn thuốc.',
         },
       },
       {
@@ -186,6 +187,7 @@ const SECTIONS: Section[] = [
           zh: '我有过敏症。',
           ru: 'У меня аллергия.',
           ja: 'アレルギーがあります。',
+          vi: 'Tôi bị dị ứng.',
         },
       },
     ],
@@ -197,19 +199,21 @@ const SECTIONS: Section[] = [
       zh: '在药店',
       ru: 'В аптеке',
       ja: '薬局で',
+      vi: 'Tại nhà thuốc',
     },
     color: 'text-emerald-700',
     bg: 'bg-emerald-50',
     border: 'border-emerald-200',
     phrases: [
       {
-        korean: '두통약 주세요.',
-        romanization: 'Du-tong-yak ju-se-yo.',
+        korean: '통역사 불러주세요.',
+        romanization: 'Tong-yeok-sa bul-leo-ju-se-yo.',
         meaning: {
-          en: 'Headache medicine, please.',
-          zh: '请给我头痛药。',
-          ru: 'Пожалуйста, лекарство от головной боли.',
-          ja: '頭痛薬をください。',
+          en: 'Please call an interpreter.',
+          zh: '请叫翻译。',
+          ru: 'Пожалуйста, вызовите переводчика.',
+          ja: '通訳者を呼んでください。',
+          vi: 'Gọi phiên dịch viên cho tôi.',
         },
       },
       {
@@ -220,26 +224,18 @@ const SECTIONS: Section[] = [
           zh: '请给我消化药。',
           ru: 'Пожалуйста, средство для пищеварения.',
           ja: '消化薬をください。',
+          vi: 'Cho tôi thuốc tiêu hóa.',
         },
       },
       {
-        korean: '감기약 주세요.',
-        romanization: 'Gam-gi-yak ju-se-yo.',
+        korean: '진통제 주세요.',
+        romanization: 'Jin-tong-je ju-se-yo.',
         meaning: {
-          en: 'Cold medicine, please.',
-          zh: '请给我感冒药。',
-          ru: 'Пожалуйста, лекарство от простуды.',
-          ja: '風邪薬をください。',
-        },
-      },
-      {
-        korean: '처방전이 있어요.',
-        romanization: 'Cheo-bang-jeon-i i-sseo-yo.',
-        meaning: {
-          en: 'I have a prescription.',
-          zh: '我有处方。',
-          ru: 'У меня есть рецепт.',
-          ja: '処方箋があります。',
+          en: 'Painkiller, please.',
+          zh: '请给我止痛药。',
+          ru: 'Пожалуйста, болеутоляющее.',
+          ja: '鎮痛薬をください。',
+          vi: 'Cho tôi thuốc giảm đau.',
         },
       },
       {
@@ -250,6 +246,7 @@ const SECTIONS: Section[] = [
           zh: '这个不用处方就能买吗？',
           ru: 'Могу ли я купить это без рецепта?',
           ja: 'これは処方箋なしで買えますか？',
+          vi: 'Có thể mua cái này không cần đơn thuốc không?',
         },
       },
     ],
@@ -261,6 +258,7 @@ const SECTIONS: Section[] = [
       zh: '警察 / 紧急情况',
       ru: 'Полиция / Экстренная помощь',
       ja: '警察・緊急',
+      vi: 'Cảnh sát / Khẩn cấp',
     },
     color: 'text-blue-700',
     bg: 'bg-blue-50',
@@ -274,6 +272,7 @@ const SECTIONS: Section[] = [
           zh: '救命！',
           ru: 'Помогите!',
           ja: '助けてください！',
+          vi: 'Giúp tôi với!',
         },
       },
       {
@@ -284,6 +283,7 @@ const SECTIONS: Section[] = [
           zh: '请叫警察。',
           ru: 'Пожалуйста, вызовите полицию.',
           ja: '警察を呼んでください。',
+          vi: 'Gọi cảnh sát cho tôi.',
         },
       },
       {
@@ -294,6 +294,7 @@ const SECTIONS: Section[] = [
           zh: '请叫救护车。',
           ru: 'Пожалуйста, вызовите скорую помощь.',
           ja: '救急車を呼んでください。',
+          vi: 'Gọi xe cứu thương cho tôi.',
         },
       },
       {
@@ -304,6 +305,7 @@ const SECTIONS: Section[] = [
           zh: '我被抢劫了。',
           ru: 'Меня ограбили.',
           ja: '盗難に遭いました。',
+          vi: 'Tôi bị cướp.',
         },
       },
       {
@@ -314,6 +316,7 @@ const SECTIONS: Section[] = [
           zh: '我丢了钱包。',
           ru: 'Я потерял(а) кошелёк.',
           ja: '財布をなくしました。',
+          vi: 'Tôi mất ví.',
         },
       },
       {
@@ -324,6 +327,7 @@ const SECTIONS: Section[] = [
           zh: '我丢了护照。',
           ru: 'Я потерял(а) паспорт.',
           ja: 'パスポートをなくしました。',
+          vi: 'Tôi mất hộ chiếu.',
         },
       },
       {
@@ -334,6 +338,7 @@ const SECTIONS: Section[] = [
           zh: '我需要英语翻译。',
           ru: 'Мне нужен переводчик с английского.',
           ja: '英語の通訳が必要です。',
+          vi: 'Tôi cần cảnh sát nói tiếng Anh.',
         },
       },
       {
@@ -344,6 +349,7 @@ const SECTIONS: Section[] = [
           zh: '我是外国人。',
           ru: 'Я иностранец/иностранка.',
           ja: '外国人です。',
+          vi: 'Tôi là người nước ngoài.',
         },
       },
     ],
@@ -355,6 +361,7 @@ const SECTIONS: Section[] = [
       zh: '与房东沟通',
       ru: 'Разговор с хозяином жилья',
       ja: '家主との会話',
+      vi: 'Nói chuyện với chủ nhà',
     },
     color: 'text-amber-700',
     bg: 'bg-amber-50',
@@ -368,6 +375,7 @@ const SECTIONS: Section[] = [
           zh: '没有水。',
           ru: 'Вода не идёт.',
           ja: '水が出ません。',
+          vi: 'Không có nước.',
         },
       },
       {
@@ -378,6 +386,7 @@ const SECTIONS: Section[] = [
           zh: '热水器坏了。',
           ru: 'Бойлер сломан.',
           ja: 'ボイラーが故障しています。',
+          vi: 'Lò sưởi bị hỏng.',
         },
       },
       {
@@ -388,6 +397,7 @@ const SECTIONS: Section[] = [
           zh: '空调不工作了。',
           ru: 'Кондиционер не работает.',
           ja: 'エアコンが壊れています。',
+          vi: 'Máy lạnh không hoạt động.',
         },
       },
       {
@@ -398,6 +408,7 @@ const SECTIONS: Section[] = [
           zh: '停电了。',
           ru: 'Электричества нет.',
           ja: '電気がつきません。',
+          vi: 'Mất điện.',
         },
       },
       {
@@ -408,6 +419,7 @@ const SECTIONS: Section[] = [
           zh: '请修理一下。',
           ru: 'Пожалуйста, почините.',
           ja: '修理してください。',
+          vi: 'Làm ơn sửa giúp.',
         },
       },
       {
@@ -418,6 +430,7 @@ const SECTIONS: Section[] = [
           zh: '什么时候能修好？',
           ru: 'Когда это можно починить?',
           ja: 'いつ直してもらえますか？',
+          vi: 'Khi nào sửa được?',
         },
       },
       {
@@ -428,6 +441,7 @@ const SECTIONS: Section[] = [
           zh: '我想再确认一下合同。',
           ru: 'Я хочу пересмотреть договор.',
           ja: '契約書を再確認したいです。',
+          vi: 'Tôi muốn xem lại hợp đồng.',
         },
       },
       {
@@ -438,13 +452,20 @@ const SECTIONS: Section[] = [
           zh: '我想要回押金。',
           ru: 'Я хочу вернуть залог.',
           ja: '保証金を返してほしいです。',
+          vi: 'Tôi muốn lấy lại tiền đặt cọc.',
         },
       },
     ],
   },
   {
     icon: '🚕',
-    title: { en: 'Taxi', zh: '出租车', ru: 'Такси', ja: 'タクシー' },
+    title: {
+      en: 'Taxi',
+      zh: '出租车',
+      ru: 'Такси',
+      ja: 'タクシー',
+      vi: 'Taxi',
+    },
     color: 'text-yellow-700',
     bg: 'bg-yellow-50',
     border: 'border-yellow-200',
@@ -457,6 +478,7 @@ const SECTIONS: Section[] = [
           zh: '请载我去这个地址。（出示地址）',
           ru: 'Пожалуйста, отвезите меня по этому адресу. (покажите адрес)',
           ja: 'このアドレスまで連れて行ってください。（住所を見せる）',
+          vi: 'Cho tôi đến địa chỉ này.',
         },
       },
       {
@@ -467,6 +489,7 @@ const SECTIONS: Section[] = [
           zh: '请开计价器。',
           ru: 'Пожалуйста, включите счётчик.',
           ja: 'メーターを入れてください。',
+          vi: 'Bật đồng hồ.',
         },
       },
       {
@@ -477,6 +500,7 @@ const SECTIONS: Section[] = [
           zh: '请在这里停车。',
           ru: 'Остановитесь здесь, пожалуйста.',
           ja: 'ここで止めてください。',
+          vi: 'Dừng ở đây.',
         },
       },
       {
@@ -487,6 +511,7 @@ const SECTIONS: Section[] = [
           zh: '请再走一点。',
           ru: 'Поезжайте ещё немного вперёд.',
           ja: 'もう少し進んでください。',
+          vi: 'Đi thêm chút nữa.',
         },
       },
       {
@@ -497,6 +522,7 @@ const SECTIONS: Section[] = [
           zh: '我要刷卡。',
           ru: 'Я заплачу картой.',
           ja: 'カードで払います。',
+          vi: 'Tôi trả bằng thẻ.',
         },
       },
       {
@@ -507,6 +533,7 @@ const SECTIONS: Section[] = [
           zh: '请给我收据。',
           ru: 'Пожалуйста, дайте чек.',
           ja: '領収書をください。',
+          vi: 'Cho tôi biên lai.',
         },
       },
       {
@@ -517,6 +544,7 @@ const SECTIONS: Section[] = [
           zh: '请开后备箱。',
           ru: 'Пожалуйста, откройте багажник.',
           ja: 'トランクを開けてください。',
+          vi: 'Mở cốp xe giúp tôi.',
         },
       },
       {
@@ -527,6 +555,7 @@ const SECTIONS: Section[] = [
           zh: '请开空调。',
           ru: 'Не могли бы вы включить кондиционер?',
           ja: 'エアコンをつけてもらえますか？',
+          vi: 'Bật máy lạnh giúp tôi.',
         },
       },
       {
@@ -537,6 +566,7 @@ const SECTIONS: Section[] = [
           zh: '请快点，我很急。',
           ru: 'Поторопитесь, пожалуйста. Я спешу.',
           ja: '急いでください。急いでいます。',
+          vi: 'Tôi cần đi nhanh, khẩn cấp.',
         },
       },
       {
@@ -547,6 +577,7 @@ const SECTIONS: Section[] = [
           zh: '稍等，我查一下路。',
           ru: 'Одну минуту, я проверю маршрут.',
           ja: '少し待って、道を確認します。',
+          vi: 'Đợi tôi chút, tôi đang kiểm tra đường.',
         },
       },
     ],
@@ -558,6 +589,7 @@ const SECTIONS: Section[] = [
       zh: '地铁与公交',
       ru: 'Метро и автобус',
       ja: '地下鉄・バス',
+      vi: 'Tàu điện ngầm & Xe buýt',
     },
     color: 'text-violet-700',
     bg: 'bg-violet-50',
@@ -571,6 +603,7 @@ const SECTIONS: Section[] = [
           zh: '几号地铁线？',
           ru: 'Какая это линия метро?',
           ja: '何号線ですか？',
+          vi: 'Tôi phải đi tuyến nào?',
         },
       },
       {
@@ -581,6 +614,7 @@ const SECTIONS: Section[] = [
           zh: '下一站是哪里？',
           ru: 'Какая следующая станция?',
           ja: '次の駅はどこですか？',
+          vi: 'Ga tiếp theo là đâu?',
         },
       },
       {
@@ -591,6 +625,7 @@ const SECTIONS: Section[] = [
           zh: '这一站可以换乘吗？',
           ru: 'Можно ли здесь пересесть?',
           ja: 'この駅で乗り換えられますか？',
+          vi: 'Tôi có thể chuyển tuyến ở ga này không?',
         },
       },
       {
@@ -601,6 +636,7 @@ const SECTIONS: Section[] = [
           zh: '还有几站？',
           ru: 'Сколько остановок?',
           ja: '何駅ありますか？',
+          vi: 'Còn mấy ga nữa?',
         },
       },
       {
@@ -611,6 +647,7 @@ const SECTIONS: Section[] = [
           zh: '终点站在哪里？',
           ru: 'Где конечная остановка?',
           ja: '終点はどこですか？',
+          vi: 'Trạm cuối là đâu?',
         },
       },
       {
@@ -621,6 +658,7 @@ const SECTIONS: Section[] = [
           zh: '这辆公交车去___吗？',
           ru: 'Этот автобус едет до ___?',
           ja: 'このバスは___に行きますか？',
+          vi: 'Xe buýt này có đi ___ không?',
         },
       },
       {
@@ -631,6 +669,7 @@ const SECTIONS: Section[] = [
           zh: 'T-money卡在哪里充值？',
           ru: 'Где я могу пополнить T-money карту?',
           ja: 'T-moneyカードはどこでチャージできますか？',
+          vi: 'Mua thẻ T-money ở đâu?',
         },
       },
       {
@@ -641,6 +680,7 @@ const SECTIONS: Section[] = [
           zh: '出口在哪里？',
           ru: 'Где выход?',
           ja: '出口はどこですか？',
+          vi: 'Lối thoát là đâu?',
         },
       },
       {
@@ -651,6 +691,7 @@ const SECTIONS: Section[] = [
           zh: '这个方向对吗？',
           ru: 'Это правильное направление?',
           ja: 'この方向で合っていますか？',
+          vi: 'Hướng này có đúng không?',
         },
       },
       {
@@ -661,6 +702,7 @@ const SECTIONS: Section[] = [
           zh: '末班车是几点？',
           ru: 'В какое время последний поезд/автобус?',
           ja: '終電・最終バスは何時ですか？',
+          vi: 'Chuyến cuối lúc mấy giờ?',
         },
       },
     ],
@@ -672,6 +714,7 @@ const SECTIONS: Section[] = [
       zh: '日常沟通',
       ru: 'Общение',
       ja: '日常コミュニケーション',
+      vi: 'Giao tiếp chung',
     },
     color: 'text-slate-700',
     bg: 'bg-slate-50',
@@ -685,6 +728,7 @@ const SECTIONS: Section[] = [
           zh: '在哪里？',
           ru: 'Где это?',
           ja: 'どこですか？',
+          vi: 'Nó ở đâu?',
         },
       },
       {
@@ -695,6 +739,7 @@ const SECTIONS: Section[] = [
           zh: '我迷路了。',
           ru: 'Я заблудился/заблудилась.',
           ja: '迷子になりました。',
+          vi: 'Tôi bị lạc đường.',
         },
       },
       {
@@ -705,6 +750,7 @@ const SECTIONS: Section[] = [
           zh: '多少钱？',
           ru: 'Сколько стоит?',
           ja: 'いくらですか？',
+          vi: 'Bao nhiêu tiền?',
         },
       },
       {
@@ -715,6 +761,7 @@ const SECTIONS: Section[] = [
           zh: '我韩语不好。',
           ru: 'Я плохо говорю по-корейски.',
           ja: '韓国語があまり話せません。',
+          vi: 'Tôi nói tiếng Hàn không tốt.',
         },
       },
       {
@@ -725,6 +772,7 @@ const SECTIONS: Section[] = [
           zh: '请说慢一点。',
           ru: 'Говорите, пожалуйста, помедленнее.',
           ja: 'ゆっくり話してください。',
+          vi: 'Nói chậm thôi.',
         },
       },
       {
@@ -735,6 +783,7 @@ const SECTIONS: Section[] = [
           zh: '请再说一遍。',
           ru: 'Пожалуйста, повторите.',
           ja: 'もう一度言ってください。',
+          vi: 'Nói lại giúp tôi.',
         },
       },
       {
@@ -745,6 +794,7 @@ const SECTIONS: Section[] = [
           zh: '我听不懂。',
           ru: 'Я не понимаю.',
           ja: 'わかりません。',
+          vi: 'Tôi không hiểu.',
         },
       },
       {
@@ -755,6 +805,7 @@ const SECTIONS: Section[] = [
           zh: '请写下来。',
           ru: 'Пожалуйста, запишите.',
           ja: '書いてください。',
+          vi: 'Viết cho tôi.',
         },
       },
     ],
@@ -767,54 +818,63 @@ const UI = {
     zh: '紧急韩语短句',
     ru: 'Экстренные фразы',
     ja: '緊急韓国語フレーズ',
+    vi: 'Tiếng Hàn khẩn cấp',
   },
   pageSubtitle: {
     en: 'Essential phrases for urgent situations — hospital, police, landlord, and daily needs. Save or print this page.',
     zh: '紧急情况必备韩语——医院、警察、房东及日常所需。请保存或打印本页面。',
     ru: 'Необходимые фразы для экстренных ситуаций — больница, полиция, домовладелец и повседневные нужды.',
     ja: '緊急時に必要なフレーズ集 — 病院・警察・家主・日常のニーズ。保存または印刷してください。',
+    vi: 'Cụm từ thiết yếu trong tình huống khẩn cấp — bệnh viện, cảnh sát, chủ nhà, taxi, tàu điện ngầm và tình huống hàng ngày.',
   },
   emergencyNumbers: {
     en: '☎️ Emergency Numbers',
     zh: '☎️ 紧急电话',
     ru: '☎️ Экстренные номера',
     ja: '☎️ 緊急電話番号',
+    vi: '☎️ Số điện thoại khẩn cấp',
   },
   tip: {
     en: "Show your phone screen to Korean speakers when you can't pronounce the phrase. Google Translate's camera feature can also help translate signs in real time.",
     zh: '无法发音时，可将手机屏幕展示给韩国人看。谷歌翻译的相机功能也可实时翻译标志和菜单。',
     ru: 'Показывайте экран телефона корейцам, когда не можете произнести фразу. Функция камеры в Google Переводчике поможет переводить вывески в реальном времени.',
     ja: 'フレーズを発音できない時は、スマホ画面を韓国人に見せましょう。Googleレンズの翻訳機能で看板やメニューをリアルタイム翻訳できます。',
+    vi: 'Khi bạn không thể phát âm được cụm từ, hãy đưa màn hình điện thoại cho người Hàn Quốc xem. Tính năng camera của Google Dịch cũng có thể giúp dịch các biển hiệu và thực đơn theo thời gian thực.',
   },
   printBtn: {
     en: '🖨️ Print / Save as PDF',
     zh: '🖨️ 打印 / 另存为PDF',
     ru: '🖨️ Печать / Сохранить как PDF',
     ja: '🖨️ 印刷 / PDFとして保存',
+    vi: '🖨️ In / Lưu dưới dạng PDF',
   },
   relatedContacts: {
     en: 'Emergency Contacts',
     zh: '紧急联系电话',
     ru: 'Экстренные контакты',
     ja: '緊急連絡先',
+    vi: 'Liên hệ khẩn cấp',
   },
   relatedContactsDesc: {
     en: 'Full directory · Embassies · Foreigner helplines',
     zh: '完整号码 · 大使馆 · 外国人支援中心',
     ru: 'Полный справочник · Посольства · Линии помощи',
     ja: '番号一覧 · 大使館 · 外国人支援センター',
+    vi: 'Danh bạ đầy đủ · Đại sứ quán · Đường dây trợ giúp người nước ngoài',
   },
   relatedTransport: {
     en: 'Getting Around',
     zh: '在韩国出行',
     ru: 'Передвижение',
     ja: '交通ガイド',
+    vi: 'Đi lại',
   },
   relatedTransportDesc: {
     en: 'Subway · Bus · Taxi · T-money guide',
     zh: '地铁 · 公交 · 出租车 · T-money',
     ru: 'Метро · Автобус · Такси · T-money',
     ja: '地下鉄 · バス · タクシー · T-money',
+    vi: 'Tàu điện ngầm · Xe buýt · Taxi · Hướng dẫn T-money',
   },
 };
 

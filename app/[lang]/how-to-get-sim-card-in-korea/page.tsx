@@ -10,7 +10,7 @@ import JsonLd from '@/components/JsonLd';
 // TODO: Replace href with Airalo affiliate link once approved
 const AIRALO_AFFILIATE_URL = 'https://www.airalo.com/korea-esim';
 
-type L = 'en' | 'zh' | 'ru' | 'ja';
+type L = 'en' | 'zh' | 'ru' | 'ja' | 'vi';
 
 const META: Record<L, { title: string; description: string }> = {
   en: {
@@ -28,6 +28,10 @@ const META: Record<L, { title: string; description: string }> = {
   ja: {
     title: '韓国でSIMカードを取得する方法 | K-Survival Kit',
     description: '韓国でSIMカードの購入に困っていませんか？このガイドでは、空港での購入方法、プランの比較、よくあるミスの回避方法を外国人向けに解説します。',
+  },
+  vi: {
+    title: 'Cách mua SIM card tại Hàn Quốc (Hướng dẫn 2026) | K-Survival Kit',
+    description: 'Bối rối khi mua SIM card ở Hàn Quốc? Hướng dẫn này chỉ người nước ngoài và du học sinh cách dễ nhất để mua SIM tại sân bay, so sánh gói cước và tránh lỗi phổ biến.',
   },
 };
 
@@ -292,6 +296,58 @@ const CONTENT: Record<L, PageContent> = {
     faq2A: 'プリペイドSIMカードにはARCは不要です。ただし、長期の携帯プランには通常ARCが必要です。',
     faq3Q: '韓国の留学生に最適なSIMカードはどれですか？',
     faq3A: 'ほとんどの留学生は、素早く手続きができて複雑な設定が不要なプリペイドSIMまたはeSIMから始めます。',
+  },
+  vi: {
+    eyebrow: 'Cuộc sống hàng ngày / Hướng dẫn SIM',
+    heroTitle: 'Cách mua SIM card tại Hàn Quốc cho người nước ngoài (Hướng dẫn 2026)',
+    heroLead: 'Nếu bạn là người nước ngoài hoặc du học sinh đến Hàn Quốc, có số điện thoại Hàn Quốc sớm sẽ giúp cuộc sống dễ dàng hơn nhiều. SIM card ở Hàn Quốc thường cần thiết cho ứng dụng giao đồ ăn, ngân hàng, xác minh tài khoản và giao tiếp hàng ngày.',
+    introP: 'SIM card ở Hàn Quốc là thiết yếu cho người nước ngoài và du học sinh muốn dùng ứng dụng giao đồ ăn, mở tài khoản ngân hàng và xác minh dịch vụ trực tuyến.',
+    affiliateTitle: 'Mua eSIM Hàn Quốc trước khi đáp máy bay',
+    affiliateDesc: 'Airalo cho phép bạn mua eSIM Hàn Quốc trực tuyến và kích hoạt trước chuyến bay. Không cần xếp hàng ở sân bay, không cần SIM vật lý — chỉ cần quét mã QR là kết nối ngay khi vừa đến.',
+    affiliateCta: 'Xem các gói eSIM Hàn Quốc',
+    quickAnswerTitle: 'Trả lời nhanh',
+    quickAnswerText: 'Cách dễ nhất để có SIM card ở Hàn Quốc là mua tại sân bay Incheon hoặc đặt trước trực tuyến để nhận tại sân bay. Hầu hết du học sinh bắt đầu với SIM trả trước hoặc eSIM, sau đó so sánh các gói tháng nếu ở lâu dài.',
+    s1Title: 'Mua SIM card ở đâu tại Hàn Quốc',
+    s1P: 'Những nơi dễ mua SIM card nhất ở Hàn Quốc là sân bay Incheon, cửa hàng viễn thông và một số cửa hàng tiện lợi. Hầu hết du khách và sinh viên mới chọn sân bay vì đơn giản và nhanh chóng.',
+    s1Items: ['Quầy viễn thông sân bay Incheon', 'Cửa hàng chính thức KT, SKT, và LG U+', 'Một số cửa hàng tiện lợi và bán SIM du lịch', 'Đặt trước trực tuyến và nhận tại sân bay'],
+    s2Title: 'Các nhà mạng chính tại Hàn Quốc',
+    s2P: 'Ba nhà mạng lớn là KT, SKT và LG U+. Tất cả đều phổ biến ở Hàn Quốc và thường cung cấp SIM du lịch, gói trả trước và tùy chọn data.',
+    s2KT: 'KT: thường dễ cho người nước ngoài và nhận tại sân bay',
+    s2SKT: 'SKT: thương hiệu mạnh và phủ sóng rộng',
+    s2LG: 'LG U+: đôi khi có gói trả trước tốt',
+    s3Title: 'SIM card ở Hàn Quốc giá bao nhiêu?',
+    s3P1: 'SIM card ở Hàn Quốc thường có giá khoảng 30.000 đến 60.000 KRW, tùy thuộc vào dung lượng data, tùy chọn gọi và thời gian sử dụng. eSIM và gói trả trước có thể có giá hơi khác.',
+    s3P2: 'Nếu bạn ở ngắn hạn, SIM du lịch trả trước thường là lựa chọn dễ nhất. Nếu ở lâu hơn, bạn nên so sánh các gói tháng sau khi có thẻ ARC.',
+    s4Title: 'Lựa chọn tốt nhất cho du học sinh',
+    s4P: 'Với hầu hết du học sinh, bước đầu tiên tốt nhất là SIM trả trước hoặc eSIM. Nhanh chóng, đơn giản và không cần nhiều thủ tục vào ngày đầu đến Hàn Quốc.',
+    s4Items: ['Ở ngắn hạn: SIM trả trước hoặc eSIM', 'Ở dài hạn: gói tháng sau khi ổn định', 'Mang hộ chiếu khi mua', 'Một số gói dài hạn có thể cần thẻ ARC sau này'],
+    s5Title: 'eSIM so với SIM vật lý',
+    s5P: 'eSIM tiện lợi vì bạn không cần lắp thẻ vật lý. Tuy nhiên, không phải điện thoại nào cũng hỗ trợ eSIM. SIM vật lý vẫn là lựa chọn phổ biến nhất cho nhiều người mới đến.',
+    s5Items: ['eSIM: cài đặt nhanh, không cần thẻ', 'SIM vật lý: phổ biến hơn, dễ tìm', 'Kiểm tra khả năng tương thích điện thoại trước khi mua'],
+    s6Title: 'Những gì cần mang theo',
+    s6P: 'Trong hầu hết các trường hợp, bạn nên mang hộ chiếu. Với một số gói di động dài hạn ở Hàn Quốc, có thể cần thêm giấy tờ sau.',
+    s7Title: 'Mẹo thực tế trước khi mua',
+    s7P: '',
+    s8Title: '',
+    s8Items: ['Mua tại sân bay nếu bạn muốn thiết lập dễ nhất vào ngày đầu', 'So sánh giới hạn data trước khi chọn gói', 'Kiểm tra xem có bao gồm tethering không', 'Đảm bảo điện thoại của bạn đã được mở khóa', 'Giữ biên lai và vỏ SIM để được hỗ trợ'],
+    finalTitle: 'Lời khuyên cuối',
+    finalP: 'Nếu bạn mới đến Hàn Quốc, đừng suy nghĩ quá nhiều. Bắt đầu với SIM card dễ nhất giúp bạn có data và số điện thoại Hàn Quốc nhanh chóng. Sau đó, bạn có thể chuyển sang gói phù hợp hơn khi hiểu rõ nhu cầu của mình hơn.',
+    nextTitle: 'Việc cần làm sau khi có SIM card',
+    nextP: 'Sau khi cài đặt SIM card ở Hàn Quốc, các bước tiếp theo thường bao gồm làm thẻ ARC và mở tài khoản ngân hàng.',
+    arcLabel: 'Hướng dẫn thẻ ARC',
+    bankLabel: 'Hướng dẫn tài khoản ngân hàng',
+    deliveryLabel: 'Hướng dẫn ứng dụng giao đồ ăn',
+    relatedTitle: 'Hướng dẫn liên quan',
+    relatedDesc: 'Sau khi có SIM card, bước quan trọng tiếp theo thường là làm ARC và thiết lập cơ bản để sống ở Hàn Quốc.',
+    relatedStartBtn: 'Bắt đầu',
+    relatedHousingBtn: 'Hướng dẫn nhà ở',
+    faqTitle: 'Câu hỏi thường gặp',
+    faq1Q: 'Người nước ngoài có thể mua SIM card ở Hàn Quốc không?',
+    faq1A: 'Có, người nước ngoài dễ dàng mua SIM card ở Hàn Quốc. Hầu hết mọi người mua tại sân bay Incheon hoặc cửa hàng viễn thông bằng hộ chiếu.',
+    faq2Q: 'Tôi có cần thẻ ARC để mua SIM card ở Hàn Quốc không?',
+    faq2A: 'Không, bạn không cần ARC cho SIM trả trước. Tuy nhiên, các gói di động dài hạn thường cần ARC.',
+    faq3Q: 'SIM card nào tốt nhất cho du học sinh ở Hàn Quốc?',
+    faq3A: 'Hầu hết du học sinh bắt đầu với SIM trả trước hoặc eSIM vì nhanh và không cần thiết lập phức tạp.',
   },
 };
 

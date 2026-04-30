@@ -9,6 +9,7 @@ const FALLBACK_RATES: Record<string, number> = {
   JPY: 9.1,
   CNY: 189,
   RUB: 15.2,
+  VND: 0.054,
 };
 
 const CURRENCIES = [
@@ -17,6 +18,7 @@ const CURRENCIES = [
   { code: 'JPY', flag: '🇯🇵', name: 'JPY' },
   { code: 'CNY', flag: '🇨🇳', name: 'CNY' },
   { code: 'RUB', flag: '🇷🇺', name: 'RUB' },
+  { code: 'VND', flag: '🇻🇳', name: 'VND' },
 ];
 
 const T: Record<
@@ -82,7 +84,7 @@ function formatKRW(n: number) {
   return Math.round(n).toLocaleString() + ' ₩';
 }
 function formatForeign(n: number, code: string) {
-  const d = code === 'JPY' ? 0 : 2;
+  const d = code === 'JPY' || code === 'VND' ? 0 : 2;
   return n.toLocaleString(undefined, {
     minimumFractionDigits: d,
     maximumFractionDigits: d,
@@ -104,7 +106,7 @@ export default function CurrencyCalculator({ lang }: { lang: Lang }) {
       .then((data) => {
         const raw: Record<string, number> = data.rates ?? {};
         const parsed: Record<string, number> = {};
-        for (const code of ['USD', 'EUR', 'JPY', 'CNY', 'RUB']) {
+        for (const code of ['USD', 'EUR', 'JPY', 'CNY', 'RUB', 'VND']) {
           if (raw[code]) parsed[code] = parseFloat((1 / raw[code]).toFixed(4));
         }
         setRates(parsed);
