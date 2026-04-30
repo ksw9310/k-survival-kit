@@ -463,6 +463,7 @@ const TRANSPORT_PHRASES: Phrase[] = [
       zh: '请载我去这个地址。',
       ru: 'Пожалуйста, отвезите меня по этому адресу.',
       ja: 'このアドレスまで連れて行ってください。',
+      vi: 'Cho tôi đến địa chỉ này.',
     },
   },
   {
@@ -473,6 +474,7 @@ const TRANSPORT_PHRASES: Phrase[] = [
       zh: '请开计价器。',
       ru: 'Пожалуйста, включите счётчик.',
       ja: 'メーターを入れてください。',
+      vi: 'Bật đồng hồ.',
     },
   },
   {
@@ -483,6 +485,7 @@ const TRANSPORT_PHRASES: Phrase[] = [
       zh: '请在这里停车。',
       ru: 'Остановитесь здесь, пожалуйста.',
       ja: 'ここで止めてください。',
+      vi: 'Dừng ở đây.',
     },
   },
   {
@@ -493,6 +496,7 @@ const TRANSPORT_PHRASES: Phrase[] = [
       zh: '我要刷卡。',
       ru: 'Я заплачу картой.',
       ja: 'カードで払います。',
+      vi: 'Tôi trả bằng thẻ.',
     },
   },
   {
@@ -503,6 +507,7 @@ const TRANSPORT_PHRASES: Phrase[] = [
       zh: '请给我收据。',
       ru: 'Пожалуйста, дайте чек.',
       ja: '領収書をください。',
+      vi: 'Cho tôi biên lai.',
     },
   },
   {
@@ -513,6 +518,7 @@ const TRANSPORT_PHRASES: Phrase[] = [
       zh: '几号地铁线？',
       ru: 'Какая это линия метро?',
       ja: '何号線ですか？',
+      vi: 'Đây là tuyến tàu số mấy?',
     },
   },
   {
@@ -523,6 +529,7 @@ const TRANSPORT_PHRASES: Phrase[] = [
       zh: '这辆公交车去___吗？',
       ru: 'Этот автобус едет до ___?',
       ja: 'このバスは___に行きますか？',
+      vi: 'Xe buýt này có đi ___ không?',
     },
   },
   {
@@ -533,6 +540,7 @@ const TRANSPORT_PHRASES: Phrase[] = [
       zh: '下一站是哪里？',
       ru: 'Какая следующая станция?',
       ja: '次の駅はどこですか？',
+      vi: 'Ga tiếp theo là đâu?',
     },
   },
   {
@@ -543,6 +551,7 @@ const TRANSPORT_PHRASES: Phrase[] = [
       zh: '在哪里下车换乘？',
       ru: 'Где выйти, чтобы пересесть?',
       ja: 'どこで降りて乗り換えますか？',
+      vi: 'Tôi xuống ở đâu để chuyển tuyến?',
     },
   },
   {
@@ -553,6 +562,7 @@ const TRANSPORT_PHRASES: Phrase[] = [
       zh: '末班车是几点？',
       ru: 'В какое время последний поезд/автобус?',
       ja: '終電・最終バスは何時ですか？',
+      vi: 'Chuyến cuối lúc mấy giờ?',
     },
   },
   {
@@ -563,6 +573,7 @@ const TRANSPORT_PHRASES: Phrase[] = [
       zh: 'T-money卡在哪里买？',
       ru: 'Где купить карту T-money?',
       ja: 'T-moneyカードはどこで買えますか？',
+      vi: 'Mua thẻ T-money ở đâu?',
     },
   },
   {
@@ -573,6 +584,7 @@ const TRANSPORT_PHRASES: Phrase[] = [
       zh: '请帮我充值。',
       ru: 'Пожалуйста, пополните (T-money).',
       ja: 'チャージしてください。',
+      vi: 'Nạp tiền giúp tôi. (T-money)',
     },
   },
   {
@@ -583,6 +595,7 @@ const TRANSPORT_PHRASES: Phrase[] = [
       zh: '出口在哪里？',
       ru: 'Где выход?',
       ja: '出口はどこですか？',
+      vi: 'Lối ra ở đâu?',
     },
   },
   {
@@ -593,6 +606,7 @@ const TRANSPORT_PHRASES: Phrase[] = [
       zh: '这个方向对吗？',
       ru: 'Это правильное направление?',
       ja: 'この方向で合っていますか？',
+      vi: 'Đây có phải hướng đúng không?',
     },
   },
 ];
