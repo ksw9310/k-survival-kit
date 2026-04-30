@@ -33,12 +33,12 @@ const LABELS: Record<Lang, {
     tipTitle: '💡 Tip',
     tipText: 'Searches use Korean keywords for more accurate local results.',
   },
-  ko: {
-    title: '📍 주변 찾기',
-    sub: '탭하면 구글 지도에서 열립니다',
-    items: ['병원', '약국', '은행 / ATM', '편의점', '지하철역', '버스 정류장', '음식점', '경찰서'],
-    tipTitle: '💡 팁',
-    tipText: '한국어 키워드로 검색하여 더 정확한 현지 결과를 제공합니다.',
+  vi: {
+    title: '📍 Tìm xung quanh',
+    sub: 'Nhấn vào danh mục để mở Google Maps',
+    items: ['Bệnh viện', 'Nhà thuốc', 'Ngân hàng / ATM', 'Cửa hàng tiện lợi', 'Ga tàu điện ngầm', 'Trạm xe buýt', 'Nhà hàng', 'Đồn cảnh sát'],
+    tipTitle: '💡 Mẹo',
+    tipText: 'Tìm kiếm dùng từ khóa tiếng Hàn để có kết quả địa phương chính xác hơn.',
   },
   zh: {
     title: '📍 查找周边',

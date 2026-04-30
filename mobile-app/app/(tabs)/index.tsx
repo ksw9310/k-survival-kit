@@ -11,10 +11,10 @@ import { useLang, Lang } from '../../context/LanguageContext';
 
 const LANGS: { code: Lang; label: string }[] = [
   { code: 'en', label: '🇺🇸 EN' },
-  { code: 'ko', label: '🇰🇷 KO' },
   { code: 'zh', label: '🇨🇳 ZH' },
   { code: 'ja', label: '🇯🇵 JA' },
   { code: 'ru', label: '🇷🇺 RU' },
+  { code: 'vi', label: '🇻🇳 VI' },
 ];
 
 const T = {
@@ -31,17 +31,17 @@ const T = {
       { emoji: '🚇', label: 'Transport', route: '/guide/transport' },
     ],
   },
-  ko: {
-    subtitle: '한국 생활에 필요한 모든 것',
-    quickGuides: '빠른 가이드',
-    emergency: '긴급 전화번호',
+  vi: {
+    subtitle: 'Mọi thứ bạn cần để sống ở Hàn Quốc',
+    quickGuides: 'Hướng dẫn nhanh',
+    emergency: 'Số khẩn cấp',
     guides: [
-      { emoji: '🪪', label: '외국인등록증', route: '/guide/arc-card' },
-      { emoji: '🏦', label: '은행 계좌', route: '/guide/bank' },
-      { emoji: '📱', label: 'SIM 카드', route: '/guide/sim' },
-      { emoji: '🛵', label: '배달 앱', route: '/guide/delivery' },
-      { emoji: '🏠', label: '전월세', route: '/guide/rent' },
-      { emoji: '🚇', label: '교통', route: '/guide/transport' },
+      { emoji: '🪪', label: 'Thẻ ARC', route: '/guide/arc-card' },
+      { emoji: '🏦', label: 'Tài khoản ngân hàng', route: '/guide/bank' },
+      { emoji: '📱', label: 'SIM Card', route: '/guide/sim' },
+      { emoji: '🛵', label: 'App giao đồ ăn', route: '/guide/delivery' },
+      { emoji: '🏠', label: 'Thuê nhà & Đặt cọc', route: '/guide/rent' },
+      { emoji: '🚇', label: 'Giao thông', route: '/guide/transport' },
     ],
   },
   zh: {

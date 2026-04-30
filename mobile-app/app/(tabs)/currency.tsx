@@ -20,11 +20,11 @@ const WISE_LABELS: Record<string, { title: string; desc: string; cta: string; ba
     cta: 'Open Wise',
     badge: 'Affiliate',
   },
-  ko: {
-    title: 'Wise로 해외 송금',
-    desc: '실제 환율, 낮은 수수료. 숨겨진 수수료 없음.',
-    cta: 'Wise 열기',
-    badge: '제휴',
+  vi: {
+    title: 'Chuyển tiền với Wise',
+    desc: 'Tỷ giá thực, phí thấp. Không có phí ngân hàng ẩn.',
+    cta: 'Mở Wise',
+    badge: 'Liên kết',
   },
   zh: {
     title: '使用Wise汇款',
@@ -52,6 +52,7 @@ const FALLBACK_RATES: Record<string, number> = {
   JPY: 9.1,
   CNY: 189,
   RUB: 15.2,
+  VND: 0.055,
 };
 
 const CURRENCIES = [
@@ -60,6 +61,7 @@ const CURRENCIES = [
   { code: 'JPY', flag: '🇯🇵', name: 'Japanese Yen' },
   { code: 'CNY', flag: '🇨🇳', name: 'Chinese Yuan' },
   { code: 'RUB', flag: '🇷🇺', name: 'Russian Ruble' },
+  { code: 'VND', flag: '🇻🇳', name: 'Vietnamese Dong' },
 ];
 
 const LABELS: Record<
@@ -79,12 +81,12 @@ const LABELS: Record<
     error: 'Using fallback rates',
     updated: 'Updated',
   },
-  ko: {
-    title: '환율 계산기',
-    note: '실시간 환율 (1시간 갱신)',
-    loading: '환율 불러오는 중…',
-    error: '기본 환율 사용 중',
-    updated: '업데이트',
+  vi: {
+    title: 'Máy tính tỷ giá',
+    note: 'Tỷ giá cập nhật mỗi giờ',
+    loading: 'Đang tải tỷ giá…',
+    error: 'Đang dùng tỷ giá dự phòng',
+    updated: 'Cập nhật',
   },
   zh: {
     title: '汇率计算器',
@@ -141,7 +143,7 @@ export default function CurrencyScreen() {
       .then((r) => r.json())
       .then((data) => {
         const raw: Record<string, number> = data.rates ?? {};
-        const codes = ['USD', 'EUR', 'JPY', 'CNY', 'RUB'];
+        const codes = ['USD', 'EUR', 'JPY', 'CNY', 'RUB', 'VND'];
         const parsed: Record<string, number> = {};
         for (const code of codes) {
           if (raw[code]) parsed[code] = parseFloat((1 / raw[code]).toFixed(4));

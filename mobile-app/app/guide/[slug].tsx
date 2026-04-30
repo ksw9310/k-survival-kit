@@ -7,7 +7,7 @@ const COUPANG_URL = 'https://link.coupang.com/a/esx4lG';
 
 const WISE_BANNER: Record<string, { title: string; desc: string; cta: string; badge: string }> = {
   en: { title: 'Send money with Wise', desc: 'Real exchange rates, low fees. No hidden markups.', cta: 'Open Wise', badge: 'Affiliate' },
-  ko: { title: 'Wise로 해외 송금', desc: '실제 환율, 낮은 수수료. 숨겨진 수수료 없음.', cta: 'Wise 열기', badge: '제휴' },
+  vi: { title: 'Chuyển tiền với Wise', desc: 'Tỷ giá thực, phí thấp. Không có phí ẩn.', cta: 'Mở Wise', badge: 'Liên kết' },
   zh: { title: '使用Wise汇款', desc: '真实汇率，低手续费，无隐藏费用。', cta: '打开Wise', badge: '推广' },
   ja: { title: 'Wiseで海外送金', desc: '実際の為替レート・低手数料・隠れた手数料なし。', cta: 'Wiseを開く', badge: 'PR' },
   ru: { title: 'Переводы через Wise', desc: 'Реальный курс, низкие комиссии. Без скрытых наценок.', cta: 'Открыть Wise', badge: 'Партнёр' },
@@ -15,7 +15,7 @@ const WISE_BANNER: Record<string, { title: string; desc: string; cta: string; ba
 
 const COUPANG_BANNER: Record<string, { title: string; desc: string; cta: string; badge: string }> = {
   en: { title: 'Shop on Coupang', desc: 'Korea\'s #1 shopping app. Fast delivery, great prices.', cta: 'Open Coupang', badge: 'Affiliate' },
-  ko: { title: '쿠팡에서 쇼핑하기', desc: '한국 1위 쇼핑 앱. 빠른 배송, 합리적인 가격.', cta: '쿠팡 열기', badge: '제휴' },
+  vi: { title: 'Mua sắm trên Coupang', desc: 'App mua sắm số 1 Hàn Quốc. Giao hàng nhanh, giá tốt.', cta: 'Mở Coupang', badge: 'Liên kết' },
   zh: { title: '在Coupang购物', desc: '韩国第一购物应用，快速配送，价格实惠。', cta: '打开Coupang', badge: '推广' },
   ja: { title: 'Coupangで買い物', desc: '韓国No.1ショッピングアプリ。即日配送・お得な価格。', cta: 'Coupangを開く', badge: 'PR' },
   ru: { title: 'Покупки на Coupang', desc: 'Лучший шопинг-приложение Кореи. Быстрая доставка.', cta: 'Открыть Coupang', badge: 'Партнёр' },
@@ -24,10 +24,28 @@ const COUPANG_BANNER: Record<string, { title: string; desc: string; cta: string;
 const KLOOK_URL = 'https://affiliate.klook.com/redirect?aid=118997&aff_adid=1259369&k_site=https%3A%2F%2Fwww.klook.com%2F';
 const KLOOK_BANNER: Record<string, { title: string; desc: string; cta: string; badge: string }> = {
   en: { title: 'Book Transport Passes with Klook', desc: 'Airport bus, T-money, KTX passes — book in advance with instant confirmation.', cta: 'Browse Klook', badge: 'Affiliate' },
-  ko: { title: 'Klook에서 교통권 예약', desc: '공항버스, T-머니, KTX패스 등 사전 예약 가능.', cta: 'Klook 보기', badge: '제휴' },
+  vi: { title: 'Đặt vé giao thông trên Klook', desc: 'Xe buýt sân bay, thẻ T-money, vé KTX — đặt trước, xác nhận ngay.', cta: 'Xem Klook', badge: 'Liên kết' },
   zh: { title: '在Klook预订交通票券', desc: '机场大巴、T-money卡、KTX通票——提前预订，即时确认。', cta: '浏览Klook', badge: '推广' },
   ja: { title: 'Klookで交通パスを予約', desc: '空港バス・T-money・KTXパス——事前予約で即時確認。', cta: 'Klookを見る', badge: 'PR' },
   ru: { title: 'Транспортные билеты на Klook', desc: 'Автобус из аэропорта, T-money, KTX — бронируйте заранее.', cta: 'Смотреть Klook', badge: 'Партнёр' },
+};
+
+const SAILY_URL = 'https://go.saily.site/aff_c?offer_id=101&aff_id=13847';
+const SAILY_BANNER: Record<string, { title: string; desc: string; cta: string; badge: string }> = {
+  en: { title: 'eSIM Korea with Saily', desc: 'Activate before you land. No physical SIM needed. Fast data from day one.', cta: 'Get Saily eSIM', badge: 'Affiliate' },
+  vi: { title: 'eSIM Hàn Quốc với Saily', desc: 'Kích hoạt trước khi lên máy bay. Không cần SIM vật lý. Có data ngay ngày đầu.', cta: 'Xem Saily', badge: 'Liên kết' },
+  zh: { title: '韩国eSIM — Saily', desc: '落地前激活，无需实体SIM卡，第一天就能用流量。', cta: '获取Saily eSIM', badge: '推广' },
+  ja: { title: '韓国eSIM — Saily', desc: '到着前に開通。物理SIM不要。初日からデータ通信可能。', cta: 'SailyでeSIMを取得', badge: 'PR' },
+  ru: { title: 'eSIM в Корею — Saily', desc: 'Активируйте до прилёта. Физическая SIM не нужна. Интернет с первого дня.', cta: 'Получить Saily eSIM', badge: 'Партнёр' },
+};
+
+const NORDVPN_URL = 'https://go.nordvpn.net/aff_c?offer_id=15&aff_id=146085&url_id=23180';
+const NORDVPN_BANNER: Record<string, { title: string; desc: string; cta: string; badge: string }> = {
+  en: { title: 'Stay Safe Online with NordVPN', desc: 'Public Wi-Fi at cafes and universities can expose your data. Browse securely anywhere in Korea.', cta: 'Get NordVPN', badge: 'Affiliate' },
+  vi: { title: 'Duyệt web an toàn với NordVPN', desc: 'Wi-Fi công cộng ở quán cà phê, trường học có thể lộ dữ liệu. Bảo mật kết nối ở Hàn Quốc.', cta: 'Dùng NordVPN', badge: 'Liên kết' },
+  zh: { title: '用NordVPN保护上网安全', desc: '咖啡馆、学校公共Wi-Fi可能暴露数据。在韩国随时安全上网。', cta: '获取NordVPN', badge: '推广' },
+  ja: { title: 'NordVPNで安全なネット接続', desc: 'カフェや大学のWi-Fiはデータ漏洩のリスクあり。韓国中どこでも安全に接続。', cta: 'NordVPNを取得', badge: 'PR' },
+  ru: { title: 'Безопасный интернет с NordVPN', desc: 'Публичный Wi-Fi в кафе и университетах небезопасен. Защитите данные в Корее.', cta: 'Получить NordVPN', badge: 'Партнёр' },
 };
 
 type Section = { heading: string; body: string };
@@ -82,11 +100,11 @@ const GUIDES: Record<Lang, GuideMap> = {
       sections: [
         {
           heading: 'Options',
-          body: '• Airport SIM (KT, SK Telecom at Incheon): Easy, no ARC needed\n• eSIM (Airalo, KT eSIM): Activate before you land\n• Full Korean Plan: Cheapest long-term, requires ARC',
+          body: '• Airport SIM (KT, SK Telecom at Incheon): Easy, no ARC needed\n• eSIM (Saily, KT eSIM): Activate before you land\n• Full Korean Plan: Cheapest long-term, requires ARC',
         },
         {
           heading: 'Best for Short Stay',
-          body: 'Get an eSIM through Airalo before flying. Plans start from $5 for 1GB.',
+          body: 'Get an eSIM through Saily before flying. Plans start from $5 for 1GB.',
         },
         {
           heading: 'Best for Long Stay',
@@ -157,124 +175,124 @@ const GUIDES: Record<Lang, GuideMap> = {
       ],
     },
   },
-  ko: {
+  vi: {
     'arc-card': {
-      title: '외국인등록증 가이드',
+      title: 'Hướng dẫn thẻ ARC',
       emoji: '🪪',
       sections: [
         {
-          heading: '외국인등록증이란?',
-          body: '외국인등록증(ARC)은 한국에 거주하는 외국인을 위한 신분증입니다. 은행, 휴대폰 개통, 보험 등 대부분의 공식 서비스에 필요합니다.',
+          heading: 'Thẻ ARC là gì?',
+          body: 'Thẻ đăng ký người nước ngoài (ARC) là CMND cho người nước ngoài cư trú tại Hàn Quốc. Cần thiết để mở tài khoản ngân hàng, đăng ký SIM, bảo hiểm và nhiều dịch vụ chính thức khác.',
         },
         {
-          heading: '신청 시기',
-          body: '입국 후 90일 이상 체류할 경우 90일 이내에 신청해야 합니다. 예약이 빨리 차므로 가능한 빨리 신청하세요.',
+          heading: 'Khi nào nộp đơn',
+          body: 'Nộp đơn trong vòng 90 ngày sau khi nhập cảnh nếu ở lại hơn 90 ngày. Nên đăng ký sớm — lịch hẹn nhanh đầy.',
         },
         {
-          heading: '필요 서류',
-          body: '• 여권\n• 비자 서류\n• 재학증명서\n• 여권 사진\n• 신청서\n• 국내 주소',
+          heading: 'Giấy tờ cần thiết',
+          body: '• Hộ chiếu\n• Giấy tờ visa\n• Giấy xác nhận nhập học\n• Ảnh hộ chiếu\n• Đơn đăng ký\n• Địa chỉ tại Hàn Quốc',
         },
         {
-          heading: '신청 장소',
-          body: '가까운 출입국관리사무소를 방문하세요. 대학교 국제처에서 가장 가까운 사무소를 안내해 드립니다.',
+          heading: 'Nộp đơn ở đâu',
+          body: 'Đến Văn phòng Xuất nhập cảnh gần nhất (출입국관리사무소). Phòng Quốc tế của trường có thể hướng dẫn bạn đến văn phòng gần nhất.',
         },
       ],
     },
     bank: {
-      title: '외국인 은행 계좌 개설',
+      title: 'Ngân hàng tốt nhất cho người nước ngoài',
       emoji: '🏦',
       sections: [
         {
-          heading: '추천 은행',
-          body: '카카오뱅크와 토스뱅크는 외국인이 온라인으로 개설하기 가장 쉽습니다. 오프라인은 우리은행과 IBK기업은행이 외국인 전담 서비스를 운영합니다.',
+          heading: 'Ngân hàng đề xuất',
+          body: 'KakaoBank và Toss Bank dễ mở tài khoản online nhất. Tại quầy: Woori Bank và IBK có dịch vụ chuyên dành cho người nước ngoài.',
         },
         {
-          heading: '필요 서류',
-          body: '• 여권\n• 외국인등록증 (대부분의 은행에서 필수)\n• 한국 휴대폰 번호\n• 국내 주소',
+          heading: 'Giấy tờ cần thiết',
+          body: '• Hộ chiếu\n• Thẻ ARC (bắt buộc ở hầu hết ngân hàng)\n• Số điện thoại Hàn Quốc\n• Địa chỉ tại Hàn Quốc',
         },
         {
-          heading: '팁',
-          body: '외국인등록증을 받자마자 은행 계좌를 개설하세요. 일부 지점에는 영어 가능 직원이 있으니 미리 전화로 확인하세요.',
+          heading: 'Mẹo',
+          body: 'Mở tài khoản ngay khi có thẻ ARC. Một số chi nhánh có nhân viên nói tiếng Anh — gọi điện trước để kiểm tra.',
         },
       ],
     },
     sim: {
-      title: '한국 SIM 카드',
+      title: 'SIM Card ở Hàn Quốc',
       emoji: '📱',
       sections: [
         {
-          heading: '옵션',
-          body: '• 공항 SIM (인천공항 KT·SK텔레콤): 간편, 외국인등록증 불필요\n• eSIM (Airalo, KT eSIM): 입국 전 개통 가능\n• 정식 요금제: 장기 거주에 저렴, 외국인등록증 필요',
+          heading: 'Các lựa chọn',
+          body: '• SIM sân bay (KT, SK Telecom tại Incheon): Tiện lợi, không cần ARC\n• eSIM (Saily, KT eSIM): Kích hoạt trước khi lên máy bay\n• Gói dài hạn: Rẻ nhất về lâu dài, cần ARC',
         },
         {
-          heading: '단기 체류',
-          body: '출국 전 Airalo에서 eSIM을 구매하세요. 1GB에 약 $5부터 시작합니다.',
+          heading: 'Ở ngắn hạn',
+          body: 'Mua eSIM qua Saily trước khi bay. Gói từ 1GB chỉ $5.',
         },
         {
-          heading: '장기 체류',
-          body: '외국인등록증 발급 후 알뜰폰 요금제를 사용하세요. 데이터 무제한이 월 1~3만 원 수준입니다.',
+          heading: 'Ở dài hạn',
+          body: 'Sau khi có ARC, đăng ký gói MVNO (알뜰폰). Chi phí: 10.000–30.000₩/tháng cho data không giới hạn.',
         },
       ],
     },
     delivery: {
-      title: '한국 배달 앱',
+      title: 'Ứng dụng giao đồ ăn ở Hàn Quốc',
       emoji: '🛵',
       sections: [
         {
-          heading: '주요 앱',
-          body: '• 배달의민족: 가장 많은 음식점\n• 쿠팡이츠: 빠른 배달, 할인 많음\n• 요기요: 서울 외 지역에서도 커버리지 좋음',
+          heading: 'Ứng dụng chính',
+          body: '• Baemin (배달의민족): Lớn nhất, nhiều nhà hàng nhất\n• Coupang Eats: Giao hàng nhanh, nhiều khuyến mãi\n• Yogiyo: Phủ sóng tốt ngoài Seoul',
         },
         {
-          heading: '주문 방법',
-          body: '1. 배민 또는 쿠팡이츠 다운로드\n2. 한국 휴대폰 번호로 가입\n3. 한국어로 주소 입력\n4. 카드 결제 (대부분 앱에서 외국 카드 사용 가능)',
+          heading: 'Cách đặt đồ ăn',
+          body: '1. Tải Baemin hoặc Coupang Eats\n2. Đăng ký bằng số điện thoại Hàn Quốc\n3. Nhập địa chỉ bằng tiếng Hàn\n4. Thanh toán bằng thẻ (thẻ nước ngoài dùng được ở hầu hết app)',
         },
         {
-          heading: '팁',
-          body: '네이버 지도에서 한국어 주소를 확인하세요. 배민은 설정에서 영어 모드를 지원합니다.',
+          heading: 'Mẹo',
+          body: 'Dùng Naver Maps để lấy địa chỉ tiếng Hàn. Baemin có chế độ tiếng Anh trong cài đặt.',
         },
       ],
     },
     rent: {
-      title: '한국 전월세 가이드',
+      title: 'Hệ thống thuê nhà Hàn Quốc',
       emoji: '🏠',
       sections: [
         {
-          heading: '월세',
-          body: '보증금과 월 임대료를 내는 일반적인 임대 방식입니다. 외국인에게 가장 일반적입니다.',
+          heading: 'Wolse (월세)',
+          body: 'Thuê nhà theo tháng thông thường. Đặt cọc nhỏ + tiền thuê hàng tháng. Phổ biến nhất cho người nước ngoài.',
         },
         {
-          heading: '전세',
-          body: '집값의 30~80%에 해당하는 보증금을 일시 납부하고 월세 없이 거주하는 방식입니다. 계약 종료 시 전액 반환됩니다.',
+          heading: 'Jeonse (전세)',
+          body: 'Đặt cọc một lần lớn (30–80% giá trị tài sản), không trả tiền thuê hàng tháng. Hoàn lại khi hết hợp đồng.',
         },
         {
-          heading: '외국인을 위한 팁',
-          body: '외국인에게는 월세가 강력히 추천됩니다. 반드시 공인중개사를 통해 계약하고, 동 주민센터에서 전입신고를 하세요.',
+          heading: 'Dành cho người nước ngoài',
+          body: 'Nên chọn Wolse. Luôn dùng môi giới bất động sản có phép (공인중개사) và đăng ký hợp đồng tại văn phòng Dong.',
         },
         {
-          heading: '계약 시 주의사항',
-          body: '• 집주인 소유 여부 확인\n• 근저당 설정 여부 확인\n• 전입신고 필수\n• 모든 서류 보관',
+          heading: 'Mẹo ký hợp đồng',
+          body: '• Xác nhận chủ nhà có quyền sở hữu\n• Kiểm tra các khoản vay hiện có\n• Đăng ký thuê nhà (전입신고)\n• Giữ tất cả giấy tờ',
         },
       ],
     },
     transport: {
-      title: '한국 교통 이용',
+      title: 'Giao thông ở Hàn Quốc',
       emoji: '🚇',
       sections: [
         {
-          heading: 'T-머니 카드',
-          body: '편의점에서 2,500원에 구매할 수 있습니다. 지하철, 버스, 택시에서 사용하며 단건 구매보다 저렴합니다.',
+          heading: 'Thẻ T-Money',
+          body: 'Mua thẻ T-Money tại bất kỳ cửa hàng tiện lợi nào với giá 2.500₩. Quẹt khi đi tàu điện ngầm, xe buýt và taxi. Rẻ hơn mua vé lẻ.',
         },
         {
-          heading: '지하철',
-          body: '서울 지하철은 수도권 전 지역을 커버합니다. 기본 요금 1,400원. 네이버 지도나 카카오맵으로 경로를 확인하세요.',
+          heading: 'Tàu điện ngầm',
+          body: 'Tàu điện ngầm Seoul bao phủ toàn bộ khu vực thủ đô. Giá cơ bản 1.400₩. Dùng Naver Maps hoặc KakaoMap để tra đường.',
         },
         {
-          heading: '버스',
-          body: '파란 버스: 서울 주요 간선 노선\n초록 버스: 동네 지선 노선\n빨간 버스: 수도권 급행',
+          heading: 'Xe buýt',
+          body: 'Xe buýt xanh: Tuyến chính qua Seoul\nXe buýt xanh lá: Tuyến nội khu\nXe buýt đỏ: Tốc hành ra ngoại ô',
         },
         {
-          heading: '유용한 앱',
-          body: '• 카카오맵 / 네이버 지도: 대중교통 경로\n• 카카오버스: 실시간 버스 위치\n• 코레일 앱: KTX 예매',
+          heading: 'Ứng dụng',
+          body: '• KakaoMap / Naver Maps: Tra tuyến xe\n• KakaoBus: Theo dõi xe buýt thời gian thực\n• Korail: Đặt vé KTX',
         },
       ],
     },
@@ -326,11 +344,11 @@ const GUIDES: Record<Lang, GuideMap> = {
       sections: [
         {
           heading: '选择方案',
-          body: '• 机场SIM（仁川机场KT·SK电信）：方便快捷，无需登录证\n• eSIM（Airalo、KT eSIM）：入境前可激活\n• 正式套餐：长期居住最划算，需要登录证',
+          body: '• 机场SIM（仁川机场KT·SK电信）：方便快捷，无需登录证\n• eSIM（Saily、KT eSIM）：入境前可激活\n• 正式套餐：长期居住最划算，需要登录证',
         },
         {
           heading: '短期居住',
-          body: '出发前通过Airalo购买eSIM。1GB套餐约5美元起。',
+          body: '出发前通过Saily购买eSIM。1GB套餐约5美元起。',
         },
         {
           heading: '长期居住',
@@ -448,11 +466,11 @@ const GUIDES: Record<Lang, GuideMap> = {
       sections: [
         {
           heading: '選択肢',
-          body: '• 空港SIM（仁川空港KT・SKテレコム）：簡単、登録証不要\n• eSIM（Airalo、KT eSIM）：入国前に開通可能\n• 正規プラン：長期滞在に最安、登録証が必要',
+          body: '• 空港SIM（仁川空港KT・SKテレコム）：簡単、登録証不要\n• eSIM（Saily、KT eSIM）：入国前に開通可能\n• 正規プラン：長期滞在に最安、登録証が必要',
         },
         {
           heading: '短期滞在',
-          body: '出発前にAiraloでeSIMを購入。1GBプランは約500円から。',
+          body: '出発前にSailyでeSIMを購入。1GBプランは約500円から。',
         },
         {
           heading: '長期滞在',
@@ -570,11 +588,11 @@ const GUIDES: Record<Lang, GuideMap> = {
       sections: [
         {
           heading: 'Варианты',
-          body: '• SIM в аэропорту (KT, SK Telecom в Инчхоне): просто, без ARC\n• eSIM (Airalo, KT eSIM): активируйте до прилёта\n• Местный тариф: дешевле всего для долгого проживания, нужна ARC',
+          body: '• SIM в аэропорту (KT, SK Telecom в Инчхоне): просто, без ARC\n• eSIM (Saily, KT eSIM): активируйте до прилёта\n• Местный тариф: дешевле всего для долгого проживания, нужна ARC',
         },
         {
           heading: 'Для краткосрочного пребывания',
-          body: 'Купите eSIM через Airalo до отлёта. Тарифы от $5 за 1 ГБ.',
+          body: 'Купите eSIM через Saily до отлёта. Тарифы от $5 за 1 ГБ.',
         },
         {
           heading: 'Для долгосрочного пребывания',
@@ -762,6 +780,34 @@ export default function GuideScreen() {
                 badgeBg="#ffe4e6"
                 badgeText="#be123c"
               />
+            )}
+            {slug === 'sim' && (
+              <>
+                <AffiliateBannerBlock
+                  url={SAILY_URL}
+                  emoji="📶"
+                  data={SAILY_BANNER[lang] ?? SAILY_BANNER.en}
+                  bgColor="#eff6ff"
+                  borderColor="#93c5fd"
+                  textColor="#1e3a5f"
+                  descColor="#1d4ed8"
+                  ctaColor="#2563eb"
+                  badgeBg="#dbeafe"
+                  badgeText="#1d4ed8"
+                />
+                <AffiliateBannerBlock
+                  url={NORDVPN_URL}
+                  emoji="🔒"
+                  data={NORDVPN_BANNER[lang] ?? NORDVPN_BANNER.en}
+                  bgColor="#f0f9ff"
+                  borderColor="#7dd3fc"
+                  textColor="#0c4a6e"
+                  descColor="#0369a1"
+                  ctaColor="#0284c7"
+                  badgeBg="#e0f2fe"
+                  badgeText="#0369a1"
+                />
+              </>
             )}
           </>
         )}

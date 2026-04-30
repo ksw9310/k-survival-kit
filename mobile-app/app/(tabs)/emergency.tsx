@@ -30,12 +30,12 @@ const LABELS: Record<Lang, {
     phrasesTitle: 'Emergency Korean Phrases',
     tip: 'Tap a number to call directly. 1345 is the 24h foreigners helpline (multilingual).',
   },
-  ko: {
-    banner: '🆘 긴급 전화번호',
-    bannerSub: '탭하여 바로 전화',
-    labels: ['경찰', '소방서', '구급차', '외국인 상담 전화', '긴급신고'],
-    phrasesTitle: '긴급 한국어 표현',
-    tip: '번호를 탭하면 바로 전화가 연결됩니다. 1345는 24시간 다국어 외국인 상담 전화입니다.',
+  vi: {
+    banner: '🆘 Số Khẩn Cấp',
+    bannerSub: 'Nhấn để gọi trực tiếp',
+    labels: ['Cảnh sát', 'Phòng cháy chữa cháy', 'Cấp cứu', 'Đường dây người nước ngoài', 'Báo khẩn'],
+    phrasesTitle: 'Các câu tiếng Hàn khẩn cấp',
+    tip: 'Nhấn vào số để gọi trực tiếp. 1345 là đường dây nóng 24h cho người nước ngoài (đa ngôn ngữ).',
   },
   zh: {
     banner: '🆘 紧急电话号码',
@@ -60,12 +60,12 @@ const LABELS: Record<Lang, {
   },
 };
 
-const PHRASES: { ko: string; phonetic: string; en: string; zh: string; ja: string; ru: string }[] = [
-  { ko: '도와주세요', phonetic: 'Do-wa-ju-se-yo', en: 'Help me!', zh: '救命！', ja: '助けてください', ru: 'Помогите!' },
-  { ko: '응급실이 어디예요?', phonetic: 'Eung-geup-sil-i eo-di-ye-yo?', en: 'Where is the ER?', zh: '急诊室在哪里？', ja: '救急室はどこですか？', ru: 'Где скорая помощь?' },
-  { ko: '경찰을 불러주세요', phonetic: 'Gyeong-chal-eul bul-leo-ju-se-yo', en: 'Call the police', zh: '请叫警察', ja: '警察を呼んでください', ru: 'Вызовите полицию' },
-  { ko: '길을 잃었어요', phonetic: 'Gil-eul il-leo-sseo-yo', en: 'I am lost', zh: '我迷路了', ja: '道に迷いました', ru: 'Я потерялся' },
-  { ko: '병원에 가야 해요', phonetic: 'Byeong-won-e ga-ya hae-yo', en: 'I need to go to hospital', zh: '我需要去医院', ja: '病院に行かないといけません', ru: 'Мне нужно в больницу' },
+const PHRASES: { ko: string; phonetic: string; en: string; zh: string; ja: string; ru: string; vi: string }[] = [
+  { ko: '도와주세요', phonetic: 'Do-wa-ju-se-yo', en: 'Help me!', zh: '救命！', ja: '助けてください', ru: 'Помогите!', vi: 'Giúp tôi với!' },
+  { ko: '응급실이 어디예요?', phonetic: 'Eung-geup-sil-i eo-di-ye-yo?', en: 'Where is the ER?', zh: '急诊室在哪里？', ja: '救急室はどこですか？', ru: 'Где скорая помощь?', vi: 'Phòng cấp cứu ở đâu?' },
+  { ko: '경찰을 불러주세요', phonetic: 'Gyeong-chal-eul bul-leo-ju-se-yo', en: 'Call the police', zh: '请叫警察', ja: '警察を呼んでください', ru: 'Вызовите полицию', vi: 'Gọi cảnh sát giúp tôi' },
+  { ko: '길을 잃었어요', phonetic: 'Gil-eul il-leo-sseo-yo', en: 'I am lost', zh: '我迷路了', ja: '道に迷いました', ru: 'Я потерялся', vi: 'Tôi bị lạc đường' },
+  { ko: '병원에 가야 해요', phonetic: 'Byeong-won-e ga-ya hae-yo', en: 'I need to go to hospital', zh: '我需要去医院', ja: '病院に行かないといけません', ru: 'Мне нужно в больницу', vi: 'Tôi cần đến bệnh viện' },
 ];
 
 export default function EmergencyScreen() {
@@ -73,10 +73,10 @@ export default function EmergencyScreen() {
   const t = LABELS[lang];
 
   const getPhraseTranslation = (p: typeof PHRASES[0]) => {
-    if (lang === 'ko') return p.ko;
     if (lang === 'zh') return p.zh;
     if (lang === 'ja') return p.ja;
     if (lang === 'ru') return p.ru;
+    if (lang === 'vi') return p.vi;
     return p.en;
   };
 

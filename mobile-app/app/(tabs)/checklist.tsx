@@ -115,81 +115,85 @@ const DATA: Record<string, ChecklistData> = {
       },
     ],
   },
-  ko: {
-    title: '입국 체크리스트',
+  vi: {
+    title: 'Danh sách kiểm tra',
     groups: [
       {
-        heading: '📅 입국 당일',
+        heading: '📅 Ngày 1',
         items: [
           {
             id: 'd1-1',
-            label: '공항 SIM 또는 eSIM 개통',
-            sub: '인천공항 KT / SK텔레콤 부스',
+            label: 'Mua SIM sân bay hoặc kích hoạt eSIM',
+            sub: 'Quầy KT / SK Telecom tại Incheon',
           },
           {
             id: 'd1-2',
-            label: '한국 주소 메모',
-            sub: '기숙사 또는 계약서의 주소',
+            label: 'Ghi lại địa chỉ Hàn Quốc',
+            sub: 'Ký túc xá hoặc hợp đồng nhà ở',
           },
-          { id: 'd1-3', label: '현금 환전', sub: '공항 은행 환율이 가장 좋음' },
+          { id: 'd1-3', label: 'Đổi một ít tiền mặt', sub: 'Ngân hàng & ATM sân bay có tỷ giá tốt nhất' },
         ],
       },
       {
-        heading: '📅 첫째 주',
+        heading: '📅 Tuần 1',
         items: [
-          { id: 'w1-1', label: 'T-머니 카드 구매', sub: '편의점에서 2,500원' },
+          { id: 'w1-1', label: 'Mua thẻ T-Money', sub: 'Bất kỳ cửa hàng tiện lợi nào — 2.500₩' },
           {
             id: 'w1-2',
-            label: '카카오맵 & 네이버 지도 다운로드',
-            sub: '이동에 필수',
+            label: 'Tải KakaoMap & Naver Maps',
+            sub: 'Cần thiết để đi lại',
           },
           {
             id: 'w1-3',
-            label: '동 주민센터에서 전입신고',
-            sub: '여권 지참 필요',
+            label: 'Đăng ký địa chỉ tại văn phòng Dong',
+            sub: '동 주민센터 — mang hộ chiếu',
           },
           {
             id: 'w1-4',
-            label: '외국인등록증 예약',
-            sub: 'hi.korea.go.kr (입국 90일 이내 필수)',
+            label: 'Đặt lịch hẹn ARC',
+            sub: 'hi.korea.go.kr (phải nộp trong 90 ngày)',
           },
         ],
       },
       {
-        heading: '📅 첫 달',
+        heading: '📅 Tháng 1',
         items: [
           {
             id: 'm1-1',
-            label: '외국인등록증 신청',
-            sub: '출입국관리사무소 방문 — 서류 모두 지참',
+            label: 'Nộp đơn xin thẻ ARC',
+            sub: 'Văn phòng Xuất nhập cảnh — mang đầy đủ giấy tờ',
           },
           {
             id: 'm1-2',
-            label: '국민건강보험 가입',
-            sub: '외국인등록증 발급 후 — 건강보험공단 방문',
+            label: 'Đăng ký Bảo hiểm Y tế Quốc gia',
+            sub: 'Sau khi có ARC — đến văn phòng NHIS',
           },
           {
             id: 'm1-3',
-            label: '은행 계좌 개설',
-            sub: '카카오뱅크(온라인) 또는 우리·IBK(방문)',
+            label: 'Mở tài khoản ngân hàng',
+            sub: 'KakaoBank (online) hoặc Woori / IBK (trực tiếp)',
           },
           {
             id: 'm1-4',
-            label: '한국 요금제 개통',
-            sub: '알뜰폰 — 외국인등록증 있으면 가장 저렴',
+            label: 'Đăng ký gói SIM Hàn Quốc',
+            sub: 'MVNO 알뜰폰 — rẻ nhất khi có ARC',
           },
         ],
       },
       {
-        heading: '✅ 추가 추천',
+        heading: '✅ Nên có',
         items: [
-          { id: 'n1', label: '배민 또는 쿠팡이츠 다운로드', sub: '배달 앱' },
-          { id: 'n2', label: '카카오톡 설치', sub: '한국 주요 메신저' },
-          { id: 'n3', label: '코레일 앱 다운로드', sub: 'KTX 예매용' },
+          {
+            id: 'n1',
+            label: 'Tải Baemin hoặc Coupang Eats',
+            sub: 'Ứng dụng giao đồ ăn',
+          },
+          { id: 'n2', label: 'Cài KakaoTalk', sub: 'Ứng dụng nhắn tin chính ở Hàn Quốc' },
+          { id: 'n3', label: 'Tải ứng dụng Korail', sub: 'Đặt vé tàu KTX' },
           {
             id: 'n4',
-            label: '기본 한국어 표현 익히기',
-            sub: '긴급 탭에서 확인',
+            label: 'Học một số câu tiếng Hàn cơ bản',
+            sub: 'Xem tab Khẩn cấp để bắt đầu',
           },
         ],
       },
@@ -459,7 +463,7 @@ const DATA: Record<string, ChecklistData> = {
 
 const TITLES: Record<string, string> = {
   en: 'Arrival Checklist',
-  ko: '입국 체크리스트',
+  vi: 'Danh sách kiểm tra',
   zh: '入境清单',
   ja: '入国チェックリスト',
   ru: 'Чеклист',
