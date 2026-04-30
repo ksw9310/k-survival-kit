@@ -856,11 +856,11 @@ export default async function TransportPage({ params }: Props) {
             vi: 'Cần data để dùng các app này? Mua eSIM Hàn Quốc',
           })}
           description={loc(lang, {
-            en: 'Naver Map, Kakao T and all transport apps need mobile data to work. Saily lets you buy a Korea eSIM online and activate it before landing — no airport queues. Use code KSURVIVALKIT for a discount.',
-            zh: 'Naver Map、Kakao T等所有交通App都需要移动数据。Saily让您在线购买韩国eSIM并在落地前激活——无需在机场排队。使用优惠码 KSURVIVALKIT 享受折扣。',
-            ru: 'Naver Map, Kakao T и другие транспортные приложения требуют мобильного интернета. Saily позволяет купить корейскую eSIM онлайн и активировать до посадки — без очередей в аэропорту. Используйте код KSURVIVALKIT для скидки.',
-            ja: 'Naver Map・Kakao Tなどの交通アプリにはモバイルデータが必要です。Sailyなら韓国eSIMをオンラインで購入し、着陸前に有効化できます——空港での行列不要。クーポンコード KSURVIVALKIT で割引適用。',
-            vi: 'Naver Map, Kakao T và tất cả ứng dụng giao thông cần có dữ liệu di động. Saily cho phép bạn mua eSIM Hàn Quốc trực tuyến và kích hoạt trước khi đáp — không cần xếp hàng sân bay. Dùng mã KSURVIVALKIT để được giảm giá.',
+            en: 'Naver Map, Kakao T and all transport apps need mobile data to work. Saily lets you buy a Korea eSIM online and activate it before landing — no airport queues.',
+            zh: 'Naver Map、Kakao T等所有交通App都需要移动数据。Saily让您在线购买韩国eSIM并在落地前激活——无需在机场排队。',
+            ru: 'Naver Map, Kakao T и другие транспортные приложения требуют мобильного интернета. Saily позволяет купить корейскую eSIM онлайн и активировать до посадки — без очередей в аэропорту.',
+            ja: 'Naver Map・Kakao Tなどの交通アプリにはモバイルデータが必要です。Sailyなら韓国eSIMをオンラインで購入し、着陸前に有効化できます——空港での行列不要。',
+            vi: 'Naver Map, Kakao T và tất cả ứng dụng giao thông cần có dữ liệu di động. Saily cho phép bạn mua eSIM Hàn Quốc trực tuyến và kích hoạt trước khi đáp — không cần xếp hàng sân bay.',
           })}
           href="https://go.saily.site/aff_c?offer_id=101&aff_id=13847"
           ctaText={loc(lang, {
@@ -871,6 +871,8 @@ export default async function TransportPage({ params }: Props) {
             vi: 'Mua eSIM Hàn Quốc trên Saily',
           })}
           accentColor="blue"
+          lang={lang}
+          couponCode="KSURVIVALKIT"
         />
 
         {/* Klook Affiliate Banner */}

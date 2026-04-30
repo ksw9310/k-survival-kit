@@ -8,6 +8,14 @@ const BADGE: Record<L, string> = {
   vi: 'Được đề xuất',
 };
 
+const COUPON_LABEL: Record<L, string> = {
+  en: 'Promo code',
+  zh: '优惠码',
+  ru: 'Промокод',
+  ja: 'クーポンコード',
+  vi: 'Mã khuyến mãi',
+};
+
 const DISCLOSURE: Record<L, string> = {
   en: '* This is an affiliate link. We may earn a small commission if you sign up — at no extra cost to you.',
   zh: '* 这是一个联盟推广链接。您通过此链接注册时，我们可能会获得少量佣金，对您不产生任何额外费用。',
@@ -24,6 +32,7 @@ type AffiliateBannerProps = {
   ctaText: string;
   accentColor?: 'rose' | 'blue' | 'green';
   lang?: string;
+  couponCode?: string;
 };
 
 export default function AffiliateBanner({
@@ -34,6 +43,7 @@ export default function AffiliateBanner({
   ctaText,
   accentColor = 'rose',
   lang = 'en',
+  couponCode,
 }: AffiliateBannerProps) {
   const l: L = (lang as L) in BADGE ? (lang as L) : 'en';
 
@@ -73,6 +83,12 @@ export default function AffiliateBanner({
               </span>
             </div>
             <p className="text-sm leading-6 text-slate-600">{description}</p>
+            {couponCode && (
+              <div className="mt-2 inline-flex items-center gap-2 rounded-lg border border-dashed border-slate-400 bg-white px-3 py-1">
+                <span className="text-xs text-slate-500">{COUPON_LABEL[l]}:</span>
+                <span className="font-mono text-sm font-bold tracking-widest text-slate-900">{couponCode}</span>
+              </div>
+            )}
           </div>
         </div>
         <a

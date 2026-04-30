@@ -94,7 +94,7 @@ const CONTENT: Record<L, PageContent> = {
     heroLead: 'If you are a foreigner or international student arriving in Korea, getting a Korean phone number early makes life much easier. A SIM card in Korea is often needed for delivery apps, banking, account verification, and everyday communication.',
     introP: 'A SIM card in Korea is essential for foreigners and international students who want to use delivery apps, open bank accounts, and verify online services.',
     affiliateTitle: 'Get a Korea eSIM Before You Land',
-    affiliateDesc: 'Saily lets you buy a Korea eSIM online and activate it before your flight. No airport queues, no physical SIM needed — just scan a QR code and you\'re connected the moment you land. Use code KSURVIVALKIT for a discount.',
+    affiliateDesc: 'Saily lets you buy a Korea eSIM online and activate it before your flight. No airport queues, no physical SIM needed — just scan a QR code and you\'re connected the moment you land.',
     affiliateCta: 'Browse Korea eSIM Plans',
     quickAnswerTitle: 'Quick Answer',
     quickAnswerText: 'The easiest way to get a SIM card in Korea is to buy one at Incheon Airport or reserve one online for airport pickup. Most international students start with a prepaid SIM card or eSIM, then compare monthly plans later if they stay long-term.',
@@ -146,7 +146,7 @@ const CONTENT: Record<L, PageContent> = {
     heroLead: '如果您是刚到韩国的外国人或留学生，尽早获得韩国手机号码会让生活方便很多。在韩国，SIM卡通常是使用外卖应用、开设银行账户、账户验证和日常通话所必需的。',
     introP: '对于想使用外卖应用、开设银行账户和验证网络服务的外国人和留学生来说，韩国SIM卡是必不可少的。',
     affiliateTitle: '落地前先购入韩国eSIM',
-    affiliateDesc: 'Saily可让您在线购买韩国eSIM并在出发前激活。无需在机场排队，无需实体SIM卡——只需扫描二维码，落地即可上网。使用优惠码 KSURVIVALKIT 享受折扣。',
+    affiliateDesc: 'Saily可让您在线购买韩国eSIM并在出发前激活。无需在机场排队，无需实体SIM卡——只需扫描二维码，落地即可上网。',
     affiliateCta: '浏览韩国eSIM套餐',
     quickAnswerTitle: '简要回答',
     quickAnswerText: '在韩国获取SIM卡最简单的方式是在仁川机场购买，或在线预订并在机场取卡。大多数留学生从预付SIM卡或eSIM开始，如果长期居住则之后再比较月租套餐。',
@@ -198,7 +198,7 @@ const CONTENT: Record<L, PageContent> = {
     heroLead: 'Если вы иностранец или студент, приезжающий в Корею, ранний доступ к корейскому номеру телефона значительно упростит жизнь. SIM-карта в Корее часто нужна для приложений доставки, банковских услуг, верификации аккаунтов и повседневного общения.',
     introP: 'SIM-карта в Корее необходима иностранцам и студентам, которые хотят пользоваться приложениями доставки, открывать банковские счета и верифицировать онлайн-сервисы.',
     affiliateTitle: 'Купите корейскую eSIM до вылета',
-    affiliateDesc: 'Saily позволяет купить корейскую eSIM онлайн и активировать её до рейса. Никаких очередей в аэропорту, никакой физической SIM-карты — просто отсканируйте QR-код и выходите в интернет сразу после приземления. Используйте код KSURVIVALKIT для скидки.',
+    affiliateDesc: 'Saily позволяет купить корейскую eSIM онлайн и активировать её до рейса. Никаких очередей в аэропорту, никакой физической SIM-карты — просто отсканируйте QR-код и выходите в интернет сразу после приземления.',
     affiliateCta: 'Посмотреть планы eSIM для Кореи',
     quickAnswerTitle: 'Быстрый ответ',
     quickAnswerText: 'Самый простой способ получить SIM-карту в Корее — купить её в аэропорту Инчхон или заказать онлайн с получением в аэропорту. Большинство студентов начинают с предоплаченной SIM-карты или eSIM, а потом при необходимости выбирают месячный тариф.',
@@ -250,7 +250,7 @@ const CONTENT: Record<L, PageContent> = {
     heroLead: '韓国に来る外国人や留学生にとって、早めに韓国の電話番号を入手すると生活が格段に楽になります。韓国のSIMカードは、デリバリーアプリ・銀行口座・アカウント認証・日常のコミュニケーションに必要となることが多いです。',
     introP: 'デリバリーアプリを使いたい、銀行口座を開設したい、オンラインサービスを認証したい外国人・留学生にとって、韓国のSIMカードは必須です。',
     affiliateTitle: '渡航前に韓国eSIMを購入しよう',
-    affiliateDesc: 'Sailyなら韓国のeSIMをオンラインで購入し、フライト前に有効化できます。空港での行列も物理SIMも不要 — QRコードをスキャンするだけで、着陸と同時に接続できます。クーポンコード KSURVIVALKIT で割引適用。',
+    affiliateDesc: 'Sailyなら韓国のeSIMをオンラインで購入し、フライト前に有効化できます。空港での行列も物理SIMも不要 — QRコードをスキャンするだけで、着陸と同時に接続できます。',
     affiliateCta: '韓国eSIMプランを見る',
     quickAnswerTitle: 'ひと言で言うと',
     quickAnswerText: '韓国でSIMカードを入手する最も簡単な方法は、仁川空港で購入するか、オンラインで予約して空港で受け取ることです。多くの留学生はまずプリペイドSIMまたはeSIMから始め、長期滞在の場合は後で月額プランを比較します。',
@@ -302,7 +302,7 @@ const CONTENT: Record<L, PageContent> = {
     heroLead: 'Nếu bạn là người nước ngoài hoặc du học sinh đến Hàn Quốc, có số điện thoại Hàn Quốc sớm sẽ giúp cuộc sống dễ dàng hơn nhiều. SIM card ở Hàn Quốc thường cần thiết cho ứng dụng giao đồ ăn, ngân hàng, xác minh tài khoản và giao tiếp hàng ngày.',
     introP: 'SIM card ở Hàn Quốc là thiết yếu cho người nước ngoài và du học sinh muốn dùng ứng dụng giao đồ ăn, mở tài khoản ngân hàng và xác minh dịch vụ trực tuyến.',
     affiliateTitle: 'Mua eSIM Hàn Quốc trước khi đáp máy bay',
-    affiliateDesc: 'Saily cho phép bạn mua eSIM Hàn Quốc trực tuyến và kích hoạt trước chuyến bay. Không cần xếp hàng ở sân bay, không cần SIM vật lý — chỉ cần quét mã QR là kết nối ngay khi vừa đến. Dùng mã KSURVIVALKIT để được giảm giá.',
+    affiliateDesc: 'Saily cho phép bạn mua eSIM Hàn Quốc trực tuyến và kích hoạt trước chuyến bay. Không cần xếp hàng ở sân bay, không cần SIM vật lý — chỉ cần quét mã QR là kết nối ngay khi vừa đến.',
     affiliateCta: 'Xem các gói eSIM Hàn Quốc',
     quickAnswerTitle: 'Trả lời nhanh',
     quickAnswerText: 'Cách dễ nhất để có SIM card ở Hàn Quốc là mua tại sân bay Incheon hoặc đặt trước trực tuyến để nhận tại sân bay. Hầu hết du học sinh bắt đầu với SIM trả trước hoặc eSIM, sau đó so sánh các gói tháng nếu ở lâu dài.',
@@ -452,6 +452,8 @@ export default async function SimCardGuidePage({ params }: Props) {
           href={SAILY_AFFILIATE_URL}
           ctaText={c.affiliateCta}
           accentColor="rose"
+          lang={lang}
+          couponCode="KSURVIVALKIT"
         />
 
         <section className="space-y-4">

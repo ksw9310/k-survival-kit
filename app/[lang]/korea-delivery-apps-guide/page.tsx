@@ -433,16 +433,18 @@ export default async function KoreaDeliveryAppsGuidePage({ params }: Props) {
             }
             description={
               ({
-                en: 'Baemin, Coupang Eats and Yogiyo all need mobile data. Saily lets you buy a Korea eSIM online and stay connected from day one — no SIM card swap needed. Use code KSURVIVALKIT for a discount.',
-                zh: 'Baemin、Coupang Eats和Yogiyo都需要移动数据。Saily让您在线购买韩国eSIM，从第一天起保持网络连接——无需更换SIM卡。使用优惠码 KSURVIVALKIT 享受折扣。',
-                ru: 'Baemin, Coupang Eats и Yogiyo требуют мобильного интернета. Saily позволяет купить корейскую eSIM онлайн и оставаться на связи с первого дня — замена SIM не нужна. Используйте код KSURVIVALKIT для скидки.',
-                ja: 'Baemin・Coupang Eats・Yogiyoはモバイルデータが必要です。SailyでeSIMをオンライン購入し、初日から繋がり続けよう——SIM交換不要。クーポンコード KSURVIVALKIT で割引適用。',
-                vi: 'Baemin, Coupang Eats và Yogiyo đều cần dữ liệu di động. Saily cho phép bạn mua eSIM Hàn Quốc trực tuyến và kết nối từ ngày đầu tiên — không cần đổi SIM. Dùng mã KSURVIVALKIT để được giảm giá.',
+                en: 'Baemin, Coupang Eats and Yogiyo all need mobile data. Saily lets you buy a Korea eSIM online and stay connected from day one — no SIM card swap needed.',
+                zh: 'Baemin、Coupang Eats和Yogiyo都需要移动数据。Saily让您在线购买韩国eSIM，从第一天起保持网络连接——无需更换SIM卡。',
+                ru: 'Baemin, Coupang Eats и Yogiyo требуют мобильного интернета. Saily позволяет купить корейскую eSIM онлайн и оставаться на связи с первого дня — замена SIM не нужна.',
+                ja: 'Baemin・Coupang Eats・Yogiyoはモバイルデータが必要です。SailyでeSIMをオンライン購入し、初日から繋がり続けよう——SIM交換不要。',
+                vi: 'Baemin, Coupang Eats và Yogiyo đều cần dữ liệu di động. Saily cho phép bạn mua eSIM Hàn Quốc trực tuyến và kết nối từ ngày đầu tiên — không cần đổi SIM.',
               } as Record<string, string>)[lang] ?? 'Baemin, Coupang Eats and Yogiyo all need mobile data. Saily lets you buy a Korea eSIM online and stay connected from day one — no SIM card swap needed.'
             }
             href="https://go.saily.site/aff_c?offer_id=101&aff_id=13847"
             ctaText={({ en: 'Get a Korea eSIM on Saily', zh: '在Saily获取韩国eSIM', ru: 'Купить eSIM на Saily', ja: 'SailyでeSIMを入手', vi: 'Mua eSIM Hàn Quốc trên Saily' } as Record<string, string>)[lang] ?? 'Get a Korea eSIM on Saily'}
             accentColor="blue"
+            lang={lang}
+            couponCode="KSURVIVALKIT"
           />
           <AffiliateBanner
             icon="🛍️"
