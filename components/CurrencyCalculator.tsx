@@ -171,12 +171,12 @@ export default function CurrencyCalculator({ lang }: { lang: Lang }) {
           {CURRENCIES.map((c) => {
             const isFlipped = !!flipped[c.code];
             const rate = rates[c.code] ?? FALLBACK_RATES[c.code];
-            const result = isFlipped ? num / rate : num * rate;
+            const result = isFlipped ? num * rate : num / rate;
             const fromStr = isFlipped ? `${c.flag} ${c.code}` : '🇰🇷 KRW';
             const toStr = isFlipped ? '🇰🇷 KRW' : `${c.flag} ${c.code}`;
             const resultStr = isFlipped
-              ? formatForeign(result, c.code)
-              : formatKRW(result);
+              ? formatKRW(result)
+              : formatForeign(result, c.code);
 
             return (
               <button
