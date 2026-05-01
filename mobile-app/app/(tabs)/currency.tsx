@@ -211,7 +211,7 @@ export default function CurrencyScreen() {
 
       {/* Currency Rows */}
       {CURRENCIES.map((c) => {
-        const dir = direction[c.code] ?? 'toKRW';
+        const dir = direction[c.code] ?? 'fromKRW';
         const rate = rates[c.code] ?? FALLBACK_RATES[c.code];
         const result = dir === 'toKRW' ? numVal * rate : numVal / rate;
         const fromLabel = dir === 'toKRW' ? `${c.flag} ${c.code}` : '🇰🇷 KRW';
@@ -226,7 +226,7 @@ export default function CurrencyScreen() {
             onPress={() =>
               setDirection((prev) => ({
                 ...prev,
-                [c.code]: prev[c.code] === 'fromKRW' ? 'toKRW' : 'fromKRW',
+                [c.code]: (prev[c.code] ?? 'fromKRW') === 'fromKRW' ? 'toKRW' : 'fromKRW',
               }))
             }
             activeOpacity={0.75}
