@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a1a; font-family: 'Anton', sans-serif; }
+
+  .slides-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding: 40px 0 60px;
+  }
+
+  .slide-label {
+    color: #888;
+    font-family: sans-serif;
+    font-size: 13px;
+    margin-bottom: 6px;
+    align-self: flex-start;
+    margin-left: calc(50% - 540px);
+  }
+
+  .slide {
+    width: 1080px;
+    height: 1080px;
+    position: relative;
+    background-color: #f0ebe0;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .slide::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(112deg, transparent 42%, rgba(0,0,0,0.025) 43%, rgba(0,0,0,0.025) 44%, transparent 45%),
+      linear-gradient(68deg, transparent 25%, rgba(0,0,0,0.018) 26%, rgba(0,0,0,0.018) 27%, transparent 28%),
+      linear-gradient(125deg, transparent 58%, rgba(0,0,0,0.022) 59%, rgba(0,0,0,0.022) 60%, transparent 61%),
+      repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,0,0,0.009) 3px, rgba(0,0,0,0.009) 4px);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .slide-inner {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 80px 80px 56px 80px;
+  }
+
+  /* RED BADGE */
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    background: #e8174a;
+    padding: 12px 26px;
+    transform: rotate(-1.2deg);
+    width: fit-content;
+  }
+  .badge span {
+    font-family: 'Anton', sans-serif;
+    font-size: 42px;
+    color: #fff;
+    letter-spacing: 3px;
+    line-height: 1;
+  }
+
+  .black-tag {
+    display: inline-flex;
+    background: #0d0d0d;
+    padding: 8px 20px;
+    width: fit-content;
+  }
+  .black-tag span {
+    font-family: 'Anton', sans-serif;
+    font-size: 30px;
+    color: #f0ebe0;
+    letter-spacing: 2px;
+  }
+
+  /* BRAND */
+  .brand-wrap { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+  .brand {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 26px; font-weight: 700;
+    color: #0d0d0d; letter-spacing: 1px; text-transform: lowercase;
+  }
+  .brand-line { width: 920px; height: 5px; background: #e8174a; }
+
+  /* SLIDE 1 — COVER */
+  .cover-title {
+    font-family: 'Anton', sans-serif;
+    font-size: 108px;
+    line-height: 0.92;
+    color: #0d0d0d;
+    text-transform: uppercase;
+    margin-top: 36px;
+  }
+  .cover-row { display: flex; align-items: flex-start; justify-content: space-between; }
+  .cover-arrow { font-family: 'Anton', sans-serif; font-size: 90px; color: #e8174a; margin-top: 40px; flex-shrink: 0; }
+
+  /* CONTENT SLIDES */
+  .slide-title {
+    font-family: 'Anton', sans-serif;
+    font-size: 72px;
+    line-height: 0.94;
+    color: #0d0d0d;
+    text-transform: uppercase;
+    margin-top: 28px;
+    margin-bottom: 44px;
+  }
+
+  .bullet-list { list-style: none; display: flex; flex-direction: column; gap: 20px; }
+  .bullet-list li {
+    display: flex; align-items: flex-start; gap: 18px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 48px; font-weight: 700;
+    color: #0d0d0d; line-height: 1.05; text-transform: uppercase;
+  }
+  .dot { width: 16px; height: 16px; background: #e8174a; border-radius: 50%; flex-shrink: 0; margin-top: 13px; }
+
+  .arrow-item {
+    display: flex; align-items: flex-start; gap: 16px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 50px; font-weight: 700;
+    color: #0d0d0d; line-height: 1.05; text-transform: uppercase;
+  }
+  .arr { color: #e8174a; font-family: 'Anton', sans-serif; font-size: 52px; flex-shrink: 0; }
+
+  .step-item {
+    display: flex; align-items: flex-start; gap: 24px;
+    font-family: 'Barlow Condensed', sans-serif;
+  }
+  .step-num {
+    font-family: 'Anton', sans-serif;
+    font-size: 80px; color: #e8174a; line-height: 1; flex-shrink: 0; width: 70px;
+  }
+  .step-text { font-size: 52px; font-weight: 800; color: #0d0d0d; line-height: 1.05; text-transform: uppercase; }
+  .step-sub { font-size: 36px; font-weight: 600; color: #666; text-transform: none; margin-top: 2px; display: block; }
+
+  .divider { width: 100%; height: 3px; background: rgba(0,0,0,0.12); margin: 10px 0; }
+
+  /* CTA */
+  .cta-url { font-family: 'Anton', sans-serif; font-size: 84px; color: #e8174a; line-height: 1; margin: 24px 0 16px; }
+  .cta-sub { font-family: 'Barlow Condensed', sans-serif; font-size: 52px; font-weight: 700; color: #0d0d0d; }
+</style>
+</head>
+<body>
+<div class="slides-wrapper">
+
+  <!-- SLIDE 1: COVER -->
+  <div>
+    <div class="slide-label">Slide 1 / 7 — Cover</div>
+    <div class="slide">
+      <div class="slide-inner">
+        <div>
+          <div class="badge"><span>GUIDE TO</span></div>
+          <div class="cover-row">
+            <div class="cover-title">KOREA FOR<br>INTER-<br>NATIONAL<br>STUDENTS 🇰🇷</div>
+            <div class="cover-arrow">→</div>
+          </div>
+        </div>
+        <div class="brand-wrap">
+          <span class="brand">korea.survival.kit</span>
+          <div class="brand-line"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 2: THINGS NOBODY TELLS YOU -->
+  <div>
+    <div class="slide-label">Slide 2 / 7 — 훅</div>
+    <div class="slide">
+      <div class="slide-inner">
+        <div>
+          <div class="badge"><span>REALITY CHECK</span></div>
+          <div class="slide-title">THINGS NOBODY<br>TELLS YOU 😶</div>
+          <ul class="bullet-list">
+            <li><span class="dot"></span>You need ARC card for almost everything</li>
+            <li><span class="dot"></span>Most banks don't speak English</li>
+            <li><span class="dot"></span>SIM cards at airport are overpriced</li>
+            <li><span class="dot"></span>Cash is still king in many places</li>
+            <li><span class="dot"></span>Google Maps misses a lot — use Naver</li>
+          </ul>
+        </div>
+        <div class="brand-wrap">
+          <span class="brand">korea.survival.kit</span>
+          <div class="brand-line"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 3: STEP 1 SIM -->
+  <div>
+    <div class="slide-label">Slide 3 / 7 — SIM Card</div>
+    <div class="slide">
+      <div class="slide-inner">
+        <div>
+          <div class="badge"><span>STEP 1</span></div>
+          <div class="slide-title">GET A SIM<br>CARD 📱</div>
+          <div style="display:flex;flex-direction:column;gap:24px;">
+            <div class="arrow-item"><span class="arr">→</span>Buy an eSIM BEFORE you land</div>
+            <div class="arrow-item"><span class="arr">→</span>We recommend Saily</div>
+            <div class="arrow-item"><span class="arr">→</span>Use code KSURVIVALKIT for discount</div>
+            <div class="divider"></div>
+            <p style="font-family:'Barlow Condensed',sans-serif;font-size:44px;font-weight:700;color:#666;text-transform:uppercase;">Airport SIMs cost 2–3× more 🚫</p>
+          </div>
+        </div>
+        <div class="brand-wrap">
+          <span class="brand">korea.survival.kit</span>
+          <div class="brand-line"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 4: STEP 2 ARC -->
+  <div>
+    <div class="slide-label">Slide 4 / 7 — ARC Card</div>
+    <div class="slide">
+      <div class="slide-inner">
+        <div>
+          <div class="badge"><span>STEP 2</span></div>
+          <div class="slide-title">GET YOUR<br>ARC CARD 🪪</div>
+          <div style="display:flex;flex-direction:column;gap:22px;">
+            <div class="arrow-item"><span class="arr">→</span>Register within 90 days of arrival</div>
+            <div class="arrow-item"><span class="arr">→</span>Go to your local Immigration Office</div>
+            <div class="divider"></div>
+            <p style="font-family:'Barlow Condensed',sans-serif;font-size:44px;font-weight:700;color:#0d0d0d;text-transform:uppercase;">You'll need:</p>
+            <ul class="bullet-list" style="gap:14px;">
+              <li><span class="dot"></span><span style="font-size:44px;">Passport</span></li>
+              <li><span class="dot"></span><span style="font-size:44px;">Enrollment certificate</span></li>
+              <li><span class="dot"></span><span style="font-size:44px;">Photo + ₩30,000</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="brand-wrap">
+          <span class="brand">korea.survival.kit</span>
+          <div class="brand-line"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 5: STEP 3 BANK -->
+  <div>
+    <div class="slide-label">Slide 5 / 7 — Bank Account</div>
+    <div class="slide">
+      <div class="slide-inner">
+        <div>
+          <div class="badge"><span>STEP 3</span></div>
+          <div class="slide-title">OPEN A BANK<br>ACCOUNT 🏦</div>
+          <div style="display:flex;flex-direction:column;gap:22px;">
+            <div class="arrow-item"><span class="arr">→</span>KEB Hana — best for foreigners</div>
+            <div class="arrow-item"><span class="arr">→</span>Shinhan or Woori also work</div>
+            <div class="divider"></div>
+            <p style="font-family:'Barlow Condensed',sans-serif;font-size:44px;font-weight:700;color:#0d0d0d;text-transform:uppercase;">No ARC yet? Bring your passport<br>+ enrollment letter and ask for<br><span style="color:#e8174a;">외국인 계좌</span></p>
+          </div>
+        </div>
+        <div class="brand-wrap">
+          <span class="brand">korea.survival.kit</span>
+          <div class="brand-line"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 6: STEP 4 TRANSPORT -->
+  <div>
+    <div class="slide-label">Slide 6 / 7 — Transport</div>
+    <div class="slide">
+      <div class="slide-inner">
+        <div>
+          <div class="badge"><span>STEP 4</span></div>
+          <div class="slide-title">GET AROUND<br>KOREA 🚇</div>
+          <div style="display:flex;flex-direction:column;gap:22px;">
+            <div class="arrow-item"><span class="arr">→</span>Buy a T-Money card at any CU / GS25</div>
+            <div class="arrow-item"><span class="arr">→</span>Works on subway, bus & taxis</div>
+            <div class="arrow-item"><span class="arr">→</span>Top up at any convenience store</div>
+            <div class="divider"></div>
+            <p style="font-family:'Barlow Condensed',sans-serif;font-size:44px;font-weight:700;color:#666;text-transform:uppercase;">Use Naver Maps — not Google 🗺️</p>
+          </div>
+        </div>
+        <div class="brand-wrap">
+          <span class="brand">korea.survival.kit</span>
+          <div class="brand-line"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 7: CTA -->
+  <div>
+    <div class="slide-label">Slide 7 / 7 — CTA</div>
+    <div class="slide">
+      <div class="slide-inner">
+        <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:28px;">
+          <div class="badge"><span>FULL GUIDE AT</span></div>
+          <div class="cta-url">ksurvivalkit<br>.com</div>
+          <div class="cta-sub">🔗 Link in bio</div>
+          <p style="font-family:'Barlow Condensed',sans-serif;font-size:42px;font-weight:600;color:#666;margin-top:8px;text-transform:uppercase;">SIM · ARC · Bank · Transport · Housing<br>In 5 languages 🇺🇸🇨🇳🇯🇵🇷🇺🇻🇳</p>
+          <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:8px;">
+            <div class="black-tag"><span>SIM CARD</span></div>
+            <div class="black-tag"><span>ARC CARD</span></div>
+            <div class="black-tag"><span>BANK</span></div>
+            <div class="black-tag"><span>T-MONEY</span></div>
+          </div>
+        </div>
+        <div class="brand-wrap">
+          <span class="brand">korea.survival.kit</span>
+          <div class="brand-line"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

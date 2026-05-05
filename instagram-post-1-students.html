@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1080px; overflow: hidden; background: #f0ece3; }
+
+  .canvas {
+    width: 1080px;
+    height: 1080px;
+    position: relative;
+    background-color: #f0ece3;
+    background-image:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E");
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 80px 80px 60px 80px;
+  }
+
+  /* Paper crease lines */
+  .canvas::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background:
+      linear-gradient(105deg, transparent 48%, rgba(0,0,0,0.03) 49%, rgba(0,0,0,0.03) 51%, transparent 52%),
+      linear-gradient(75deg, transparent 30%, rgba(0,0,0,0.02) 31%, rgba(0,0,0,0.02) 32%, transparent 33%),
+      linear-gradient(115deg, transparent 60%, rgba(0,0,0,0.025) 61%, rgba(0,0,0,0.025) 62%, transparent 63%);
+    pointer-events: none;
+  }
+
+  .top-section {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    background: #e8174a;
+    padding: 14px 28px;
+    transform: rotate(-1deg);
+    width: fit-content;
+  }
+
+  .badge-text {
+    font-family: 'Anton', sans-serif;
+    font-size: 44px;
+    color: #fff;
+    letter-spacing: 3px;
+    line-height: 1;
+  }
+
+  .title-block {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 24px;
+    margin-top: 8px;
+  }
+
+  .title {
+    font-family: 'Anton', sans-serif;
+    font-size: 110px;
+    line-height: 0.92;
+    color: #0d0d0d;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    flex: 1;
+  }
+
+  .arrow-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding-bottom: 10px;
+    padding-top: 60px;
+  }
+
+  .arrow {
+    font-size: 90px;
+    color: #e8174a;
+    line-height: 1;
+    font-family: 'Anton', sans-serif;
+  }
+
+  .flag {
+    font-size: 52px;
+    margin-top: 28px;
+    display: block;
+  }
+
+  .bottom-bar {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .brand {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: #0d0d0d;
+    letter-spacing: 1px;
+    text-transform: lowercase;
+  }
+
+  .brand-line {
+    width: 100%;
+    height: 5px;
+    background: #e8174a;
+    margin-top: 10px;
+  }
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="top-section">
+    <div class="badge">
+      <span class="badge-text">GUIDE TO</span>
+    </div>
+
+    <div class="title-block">
+      <div class="title">KOREA FOR<br>INTER-<br>NATIONAL<br>STUDENTS</div>
+      <div class="arrow-col">
+        <span class="arrow">→</span>
+        <span class="flag">🇰🇷</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom-bar">
+    <span class="brand">korea.survival.kit</span>
+    <div class="brand-line"></div>
+  </div>
+</div>
+</body>
+</html>

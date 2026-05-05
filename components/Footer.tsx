@@ -110,6 +110,19 @@ export default function Footer({ lang }: { lang: Lang }) {
             <p className="mt-2 leading-6 text-slate-400">
               {t.footer.description}
             </p>
+            <a
+              href="https://www.instagram.com/korea.survival.kit"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 inline-flex items-center gap-2 text-slate-400 transition-colors hover:text-rose-400"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <circle cx="12" cy="12" r="4"/>
+                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+              </svg>
+              <span className="text-sm font-medium">@korea.survival.kit</span>
+            </a>
           </div>
 
           {/* Links */}

@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #222; font-family: 'Anton', sans-serif; }
+
+  .controls {
+    position: fixed;
+    top: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    display: flex;
+    gap: 10px;
+  }
+  .controls button {
+    background: #e8174a;
+    color: white;
+    border: none;
+    padding: 8px 18px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: bold;
+  }
+  .slide-indicator {
+    color: white;
+    font-size: 14px;
+    font-family: sans-serif;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+  }
+
+  .slides-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding: 60px 0 60px;
+  }
+
+  .slide-label {
+    color: #aaa;
+    font-family: sans-serif;
+    font-size: 13px;
+    margin-bottom: 8px;
+    align-self: flex-start;
+    margin-left: calc(50% - 540px);
+  }
+
+  /* ===== SLIDE BASE ===== */
+  .slide {
+    width: 1080px;
+    height: 1080px;
+    position: relative;
+    background-color: #f0ebe0;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  /* Paper texture */
+  .slide::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.012) 2px, rgba(0,0,0,0.012) 3px),
+      repeating-linear-gradient(90deg, transparent, transparent 80px, rgba(0,0,0,0.008) 80px, rgba(0,0,0,0.008) 81px);
+    pointer-events: none;
+  }
+
+  /* Crease lines */
+  .slide::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(112deg, transparent 42%, rgba(0,0,0,0.025) 43%, rgba(0,0,0,0.025) 44%, transparent 45%),
+      linear-gradient(68deg, transparent 25%, rgba(0,0,0,0.018) 26%, rgba(0,0,0,0.018) 27%, transparent 28%),
+      linear-gradient(125deg, transparent 58%, rgba(0,0,0,0.022) 59%, rgba(0,0,0,0.022) 60%, transparent 61%),
+      linear-gradient(55deg, transparent 70%, rgba(0,0,0,0.015) 71%, rgba(0,0,0,0.015) 72%, transparent 73%);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .slide-inner {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 80px 80px 56px 80px;
+  }
+
+  /* RED BADGE */
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    background: #e8174a;
+    padding: 12px 26px;
+    transform: rotate(-1.2deg);
+    width: fit-content;
+    margin-bottom: 4px;
+  }
+  .badge span {
+    font-family: 'Anton', sans-serif;
+    font-size: 42px;
+    color: #fff;
+    letter-spacing: 3px;
+    line-height: 1;
+  }
+
+  /* MAIN TITLE */
+  .main-title {
+    font-family: 'Anton', sans-serif;
+    font-size: 108px;
+    line-height: 0.93;
+    color: #0d0d0d;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    flex: 1;
+    display: flex;
+    align-items: flex-end;
+  }
+
+  /* BOTTOM BRAND */
+  .brand-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .brand {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: #0d0d0d;
+    letter-spacing: 1px;
+    text-transform: lowercase;
+  }
+  .brand-line {
+    width: 920px;
+    height: 5px;
+    background: #e8174a;
+  }
+
+  /* SLIDE 1 — COVER */
+  .s1 .main-title { font-size: 104px; align-items: flex-start; margin-top: 36px; }
+  .s1 .title-row { display: flex; align-items: flex-start; justify-content: space-between; flex: 1; }
+  .s1 .arrow { font-size: 88px; color: #e8174a; line-height: 1; margin-top: 50px; flex-shrink: 0; }
+
+  /* SLIDE 2-6 content slides */
+  .content-slide .slide-inner {
+    padding: 72px 80px 56px 80px;
+  }
+  .slide-title {
+    font-family: 'Anton', sans-serif;
+    font-size: 74px;
+    line-height: 0.95;
+    color: #0d0d0d;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 32px;
+    margin-bottom: 48px;
+  }
+  .slide-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+  .item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  .item-icon {
+    font-size: 46px;
+    line-height: 1;
+    width: 60px;
+    flex-shrink: 0;
+    margin-top: 4px;
+  }
+  .item-text {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 52px;
+    font-weight: 700;
+    color: #0d0d0d;
+    line-height: 1.05;
+    text-transform: uppercase;
+  }
+  .item-text .sub {
+    font-size: 36px;
+    font-weight: 600;
+    color: #555;
+    text-transform: none;
+    display: block;
+    margin-top: 2px;
+  }
+
+  .bullet-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    flex: 1;
+  }
+  .bullet-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 50px;
+    font-weight: 700;
+    color: #0d0d0d;
+    line-height: 1.05;
+    text-transform: uppercase;
+  }
+  .bullet-list li .dot {
+    width: 16px;
+    height: 16px;
+    background: #e8174a;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 14px;
+  }
+  .bullet-list li .check { font-size: 40px; flex-shrink: 0; }
+
+  .divider {
+    width: 100%;
+    height: 3px;
+    background: #0d0d0d;
+    margin: 16px 0;
+    opacity: 0.15;
+  }
+
+  /* arrow highlight */
+  .arrow-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 50px;
+    font-weight: 700;
+    color: #0d0d0d;
+    line-height: 1.05;
+    text-transform: uppercase;
+  }
+  .arrow-item .arr { color: #e8174a; font-family: 'Anton', sans-serif; font-size: 50px; flex-shrink: 0; }
+
+  /* CTA slide */
+  .cta-url {
+    font-family: 'Anton', sans-serif;
+    font-size: 88px;
+    color: #e8174a;
+    letter-spacing: 1px;
+    line-height: 1;
+    margin-top: 32px;
+    margin-bottom: 32px;
+  }
+  .cta-link {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 52px;
+    font-weight: 700;
+    color: #0d0d0d;
+    letter-spacing: 1px;
+  }
+
+  /* tag */
+  .black-tag {
+    display: inline-flex;
+    background: #0d0d0d;
+    padding: 8px 22px;
+    width: fit-content;
+    margin-bottom: -10px;
+  }
+  .black-tag span {
+    font-family: 'Anton', sans-serif;
+    font-size: 32px;
+    color: #f0ebe0;
+    letter-spacing: 2px;
+  }
+
+  .x-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 50px;
+    font-weight: 700;
+    color: #999;
+    line-height: 1.05;
+    text-transform: uppercase;
+  }
+  .x-item .x { color: #ccc; font-size: 44px; flex-shrink: 0; }
+</style>
+</head>
+<body>
+
+<div class="slides-wrapper">
+
+  <!-- SLIDE 1: COVER -->
+  <div>
+    <div class="slide-label">Slide 1 / 7 — Cover</div>
+    <div class="slide s1">
+      <div class="slide-inner">
+        <div>
+          <div class="badge"><span>GUIDE TO</span></div>
+          <div class="title-row">
+            <div class="main-title">OPENING<br>A BANK<br>ACCOUNT<br>IN KOREA 🇰🇷</div>
+            <div class="arrow">→</div>
+          </div>
+        </div>
+        <div class="brand-wrap">
+          <span class="brand">korea.survival.kit</span>
+          <div class="brand-line"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 2: WHY CONFUSING -->
+  <div>
+    <div class="slide-label">Slide 2 / 7 — 문제 제기</div>
+    <div class="slide content-slide">
+      <div class="slide-inner">
+        <div>
+          <div class="badge"><span>THE PROBLEM</span></div>
+          <div class="slide-title">WHY IS IT SO<br>CONFUSING? 🤔</div>
+          <ul class="bullet-list">
+            <li><span class="dot"></span>Most banks require ARC card</li>
+            <li><span class="dot"></span>Staff don't speak English</li>
+            <li><span class="dot"></span>Each bank has different rules</li>
+            <li><span class="dot"></span>Online info is outdated</li>
+          </ul>
+        </div>
+        <div class="brand-wrap">
+          <span class="brand">korea.survival.kit</span>
+          <div class="brand-line"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 3: WHICH BANK -->
+  <div>
+    <div class="slide-label">Slide 3 / 7 — 어느 은행?</div>
+    <div class="slide content-slide">
+      <div class="slide-inner">
+        <div>
+          <div class="badge"><span>STEP 1</span></div>
+          <div class="slide-title">FOREIGNER-<br>FRIENDLY<br>BANKS</div>
+          <div style="display:flex;flex-direction:column;gap:22px;">
+            <div class="bullet-list" style="gap:18px;">
+              <li><span class="check">✅</span>KEB Hana Bank</li>
+              <li><span class="check">✅</span>Shinhan Bank</li>
+              <li><span class="check">✅</span>Woori Bank</li>
+              <li><span class="check">✅</span>IBK Bank</li>
+            </ul>
+            <div class="divider"></div>
+            <div class="x-item"><span class="x">❌</span>Avoid small local branches</div>
+          </div>
+        </div>
+        <div class="brand-wrap">
+          <span class="brand">korea.survival.kit</span>
+          <div class="brand-line"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 4: DOCUMENTS -->
+  <div>
+    <div class="slide-label">Slide 4 / 7 — 필요 서류</div>
+    <div class="slide content-slide">
+      <div class="slide-inner">
+        <div>
+          <div class="badge"><span>STEP 2</span></div>
+          <div class="slide-title">WHAT DO<br>YOU NEED?</div>
+          <div style="display:flex;flex-direction:column;gap:26px;">
+            <div class="item">
+              <span class="item-icon">📄</span>
+              <div class="item-text">Passport
+                <span class="sub">Always required</span>
+              </div>
+            </div>
+            <div class="item">
+              <span class="item-icon">🪪</span>
+              <div class="item-text">ARC Card
+                <span class="sub">If you have one</span>
+              </div>
+            </div>
+            <div class="item">
+              <span class="item-icon">📋</span>
+              <div class="item-text">Enrollment Letter
+                <span class="sub">Some banks ask, some don't</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="brand-wrap">
+          <span class="brand">korea.survival.kit</span>
+          <div class="brand-line"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 5: NO ARC -->
+  <div>
+    <div class="slide-label">Slide 5 / 7 — ARC 없어도 되나?</div>
+    <div class="slide content-slide">
+      <div class="slide-inner">
+        <div>
+          <div class="badge"><span>NO ARC?</span></div>
+          <div class="slide-title">NO ARC?<br>NO PROBLEM 🛂</div>
+          <div style="display:flex;flex-direction:column;gap:20px;">
+            <p style="font-family:'Barlow Condensed',sans-serif;font-size:50px;font-weight:700;color:#0d0d0d;line-height:1.1;text-transform:uppercase;">Some banks open accounts<br>with just your PASSPORT</p>
+            <div class="divider"></div>
+            <div style="display:flex;flex-direction:column;gap:18px;">
+              <div class="arrow-item"><span class="arr">→</span>Ask for "외국인 계좌"</div>
+              <div class="arrow-item"><span class="arr">→</span>Go to a MAIN branch</div>
+              <div class="arrow-item"><span class="arr">→</span>Weekdays only (close at 4PM)</div>
+            </div>
+          </div>
+        </div>
+        <div class="brand-wrap">
+          <span class="brand">korea.survival.kit</span>
+          <div class="brand-line"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 6: PRO TIPS -->
+  <div>
+    <div class="slide-label">Slide 6 / 7 — 꿀팁</div>
+    <div class="slide content-slide">
+      <div class="slide-inner">
+        <div>
+          <div class="badge"><span>PRO TIPS</span></div>
+          <div class="slide-title" style="font-size:66px;margin-bottom:36px;">INSIDER TIPS 💡</div>
+          <ul class="bullet-list" style="gap:20px;">
+            <li><span class="dot"></span><span style="font-size:44px;">Bring a translation app</span></li>
+            <li><span class="dot"></span><span style="font-size:44px;">Campus branches are more foreigner-friendly</span></li>
+            <li><span class="dot"></span><span style="font-size:44px;">KEB Hana has an English counter</span></li>
+            <li><span class="dot"></span><span style="font-size:44px;">Take a number ticket first</span></li>
+          </ul>
+        </div>
+        <div class="brand-wrap">
+          <span class="brand">korea.survival.kit</span>
+          <div class="brand-line"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 7: CTA -->
+  <div>
+    <div class="slide-label">Slide 7 / 7 — CTA</div>
+    <div class="slide content-slide">
+      <div class="slide-inner">
+        <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:32px;">
+          <div class="badge"><span>FULL GUIDE AT</span></div>
+          <div class="cta-url">ksurvivalkit<br>.com</div>
+          <div class="cta-link">🔗 Link in bio</div>
+          <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:16px;">
+            <div class="black-tag"><span>SIM CARD</span></div>
+            <div class="black-tag"><span>ARC CARD</span></div>
+            <div class="black-tag"><span>HOUSING</span></div>
+            <div class="black-tag"><span>TRANSPORT</span></div>
+          </div>
+        </div>
+        <div class="brand-wrap">
+          <span class="brand">korea.survival.kit</span>
+          <div class="brand-line"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
