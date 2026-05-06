@@ -13,8 +13,9 @@ const KAKAO_APP_KEY = '085f096caf889be28ed7560edf5a00a9';
 type L = 'en' | 'zh' | 'ru' | 'ja' | 'vi';
 
 type Strings = {
-  categories: { bank: string; pharmacy: string; supermarket: string; convenience: string; hospital: string; police: string };
+  categories: { bank: string; pharmacy: string; supermarket: string; convenience: string; hospital: string; police: string; restroom: string };
   convenienceTip: string;
+  restroomTip: string;
   locating: string;
   live: string;
   cached: string;
@@ -30,8 +31,9 @@ type Strings = {
 
 const STRINGS: Record<L, Strings> = {
   en: {
-    categories: { bank: 'Bank', pharmacy: 'Pharmacy', supermarket: 'Supermarket', convenience: 'Convenience Store', hospital: 'Hospital', police: 'Police' },
+    categories: { bank: 'Bank', pharmacy: 'Pharmacy', supermarket: 'Supermarket', convenience: 'Convenience Store', hospital: 'Hospital', police: 'Police', restroom: 'Restroom' },
     convenienceTip: 'Convenience stores (GS25, CU, 7-Eleven, etc.) sell designated trash bags (종량제) and T-money cards.',
+    restroomTip: 'Public restrooms in Korea are free and generally clean. Most subway stations and parks have one nearby.',
     locating: 'Getting location…',
     live: 'Live location',
     cached: 'Last location',
@@ -45,8 +47,9 @@ const STRINGS: Record<L, Strings> = {
     directions: 'Directions',
   },
   zh: {
-    categories: { bank: '银行', pharmacy: '药店', supermarket: '大型超市', convenience: '便利店', hospital: '医院', police: '警察局' },
+    categories: { bank: '银行', pharmacy: '药店', supermarket: '大型超市', convenience: '便利店', hospital: '医院', police: '警察局', restroom: '公共厕所' },
     convenienceTip: '便利店（GS25、CU、7-Eleven等）可购买指定垃圾袋（종량제）和T-money交通卡。',
+    restroomTip: '韩国公共厕所免费且干净。地铁站和公园附近通常都有。',
     locating: '定位中…',
     live: '当前位置',
     cached: '上次位置',
@@ -60,8 +63,9 @@ const STRINGS: Record<L, Strings> = {
     directions: '导航',
   },
   ru: {
-    categories: { bank: 'Банк', pharmacy: 'Аптека', supermarket: 'Супермаркет', convenience: 'Магазин', hospital: 'Больница', police: 'Полиция' },
+    categories: { bank: 'Банк', pharmacy: 'Аптека', supermarket: 'Супермаркет', convenience: 'Магазин', hospital: 'Больница', police: 'Полиция', restroom: 'Туалет' },
     convenienceTip: 'В магазинах (GS25, CU, 7-Eleven и др.) продаются мусорные пакеты (종량제) и карты T-money.',
+    restroomTip: 'Общественные туалеты в Корее бесплатны и обычно чистые. Они есть на большинстве станций метро и в парках.',
     locating: 'Определение…',
     live: 'Текущее место',
     cached: 'Последнее место',
@@ -75,8 +79,9 @@ const STRINGS: Record<L, Strings> = {
     directions: 'Маршрут',
   },
   ja: {
-    categories: { bank: '銀行', pharmacy: '薬局', supermarket: 'スーパー', convenience: 'コンビニ', hospital: '病院', police: '警察署' },
+    categories: { bank: '銀行', pharmacy: '薬局', supermarket: 'スーパー', convenience: 'コンビニ', hospital: '病院', police: '警察署', restroom: 'トイレ' },
     convenienceTip: 'コンビニ（GS25・CU・7-Eleven等）では指定ゴミ袋（종량제）とT-moneyカードを購入できます。',
+    restroomTip: '韓国の公衆トイレは無料で清潔です。ほとんどの地下鉄駅や公園の近くにあります。',
     locating: '位置確認中…',
     live: '現在地',
     cached: '前回の位置',
@@ -90,8 +95,9 @@ const STRINGS: Record<L, Strings> = {
     directions: 'ルート',
   },
   vi: {
-    categories: { bank: 'Ngân hàng', pharmacy: 'Nhà thuốc', supermarket: 'Siêu thị', convenience: 'Cửa hàng tiện lợi', hospital: 'Bệnh viện', police: 'Cảnh sát' },
+    categories: { bank: 'Ngân hàng', pharmacy: 'Nhà thuốc', supermarket: 'Siêu thị', convenience: 'Cửa hàng tiện lợi', hospital: 'Bệnh viện', police: 'Cảnh sát', restroom: 'Nhà vệ sinh' },
     convenienceTip: 'Cửa hàng tiện lợi (GS25, CU, 7-Eleven,...) bán túi rác theo quy định (종량제) và thẻ T-money.',
+    restroomTip: 'Nhà vệ sinh công cộng ở Hàn Quốc miễn phí và sạch sẽ. Hầu hết các ga tàu điện ngầm và công viên đều có.',
     locating: 'Đang xác định vị trí…',
     live: 'Vị trí trực tiếp',
     cached: 'Vị trí lần trước',
@@ -126,6 +132,7 @@ function getCategories(s: Strings): Category[] {
     { key: 'police', label: s.categories.police, icon: '🚔' },
     { key: 'supermarket', label: s.categories.supermarket, icon: '🛒' },
     { key: 'convenience', label: s.categories.convenience, icon: '🏪', tip: s.convenienceTip },
+    { key: 'restroom', label: s.categories.restroom, icon: '🚻', tip: s.restroomTip },
   ];
 }
 
@@ -188,39 +195,41 @@ export default function NearbyPlacesClient({
       markersRef.current = [];
 
       const ps = new window.kakao.maps.services.Places();
-      const categoryCode = KAKAO_CATEGORY[categoryKey] ?? 'BK9';
       const location = new window.kakao.maps.LatLng(pos.lat, pos.lng);
 
-      ps.categorySearch(
-        categoryCode,
-        (data: any[], status: string) => {
-          if (status !== window.kakao.maps.services.Status.OK) {
-            setPlaces([]);
-            setLoading(false);
-            return;
-          }
-          const results: Place[] = data.map((item: any) => ({
-            id: item.id,
-            name: item.place_name,
-            address: item.road_address_name || item.address_name,
-            lat: parseFloat(item.y),
-            lng: parseFloat(item.x),
-            distance: parseInt(item.distance, 10),
-          }));
-          setPlaces(results);
-          if (mapRef.current) {
-            results.forEach((place) => {
-              const markerPos = new window.kakao.maps.LatLng(place.lat, place.lng);
-              const marker = new window.kakao.maps.Marker({ position: markerPos, map: mapRef.current });
-              const infowindow = new window.kakao.maps.InfoWindow({ content: `<div style="padding:5px;font-size:12px">${place.name}</div>` });
-              window.kakao.maps.event.addListener(marker, 'click', () => infowindow.open(mapRef.current, marker));
-              markersRef.current.push(marker);
-            });
-          }
+      const handleResults = (data: any[], status: string) => {
+        if (status !== window.kakao.maps.services.Status.OK) {
+          setPlaces([]);
           setLoading(false);
-        },
-        { location, radius: 1000, sort: window.kakao.maps.services.SortBy.DISTANCE }
-      );
+          return;
+        }
+        const results: Place[] = data.map((item: any) => ({
+          id: item.id,
+          name: item.place_name,
+          address: item.road_address_name || item.address_name,
+          lat: parseFloat(item.y),
+          lng: parseFloat(item.x),
+          distance: parseInt(item.distance, 10),
+        }));
+        setPlaces(results);
+        if (mapRef.current) {
+          results.forEach((place) => {
+            const markerPos = new window.kakao.maps.LatLng(place.lat, place.lng);
+            const marker = new window.kakao.maps.Marker({ position: markerPos, map: mapRef.current });
+            const infowindow = new window.kakao.maps.InfoWindow({ content: `<div style="padding:5px;font-size:12px">${place.name}</div>` });
+            window.kakao.maps.event.addListener(marker, 'click', () => infowindow.open(mapRef.current, marker));
+            markersRef.current.push(marker);
+          });
+        }
+        setLoading(false);
+      };
+
+      if (categoryKey === 'restroom') {
+        ps.keywordSearch('공중화장실', handleResults, { location, radius: 1000, sort: window.kakao.maps.services.SortBy.DISTANCE });
+      } else {
+        const categoryCode = KAKAO_CATEGORY[categoryKey] ?? 'BK9';
+        ps.categorySearch(categoryCode, handleResults, { location, radius: 1000, sort: window.kakao.maps.services.SortBy.DISTANCE });
+      }
     },
     [lang] // eslint-disable-line react-hooks/exhaustive-deps
   );
