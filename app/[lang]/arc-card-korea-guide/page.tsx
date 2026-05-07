@@ -336,6 +336,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         ru: 'https://ksurvivalkit.com/ru/arc-card-korea-guide',
         ja: 'https://ksurvivalkit.com/ja/arc-card-korea-guide',
         vi: 'https://ksurvivalkit.com/vi/arc-card-korea-guide',
+        'x-default': 'https://ksurvivalkit.com/en/arc-card-korea-guide',
       },
     },
     openGraph: {

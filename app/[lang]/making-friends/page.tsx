@@ -32,6 +32,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         ru: 'https://ksurvivalkit.com/ru/making-friends',
         ja: 'https://ksurvivalkit.com/ja/making-friends',
         vi: 'https://ksurvivalkit.com/vi/making-friends',
+        'x-default': 'https://ksurvivalkit.com/en/making-friends',
       },
     },
   };

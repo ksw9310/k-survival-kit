@@ -33,6 +33,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         ru: 'https://ksurvivalkit.com/ru/health',
         ja: 'https://ksurvivalkit.com/ja/health',
         vi: 'https://ksurvivalkit.com/vi/health',
+        'x-default': 'https://ksurvivalkit.com/en/health',
       },
     },
     openGraph: {

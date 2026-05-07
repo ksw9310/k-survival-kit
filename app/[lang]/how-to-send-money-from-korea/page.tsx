@@ -565,6 +565,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         ru: 'https://ksurvivalkit.com/ru/how-to-send-money-from-korea',
         ja: 'https://ksurvivalkit.com/ja/how-to-send-money-from-korea',
         vi: 'https://ksurvivalkit.com/vi/how-to-send-money-from-korea',
+        'x-default': 'https://ksurvivalkit.com/en/how-to-send-money-from-korea',
       },
     },
     openGraph: {

@@ -32,6 +32,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         ru: 'https://ksurvivalkit.com/ru/emergency-contacts',
         ja: 'https://ksurvivalkit.com/ja/emergency-contacts',
         vi: 'https://ksurvivalkit.com/vi/emergency-contacts',
+        'x-default': 'https://ksurvivalkit.com/en/emergency-contacts',
       },
     },
   };

@@ -520,6 +520,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         ru: 'https://ksurvivalkit.com/ru/best-bank-account-for-foreigners-korea',
         ja: 'https://ksurvivalkit.com/ja/best-bank-account-for-foreigners-korea',
         vi: 'https://ksurvivalkit.com/vi/best-bank-account-for-foreigners-korea',
+        'x-default': 'https://ksurvivalkit.com/en/best-bank-account-for-foreigners-korea',
       },
     },
     openGraph: {

@@ -33,6 +33,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         ru: 'https://ksurvivalkit.com/ru/transport',
         ja: 'https://ksurvivalkit.com/ja/transport',
         vi: 'https://ksurvivalkit.com/vi/transport',
+        'x-default': 'https://ksurvivalkit.com/en/transport',
       },
     },
   };

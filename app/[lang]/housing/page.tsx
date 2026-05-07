@@ -32,6 +32,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         ru: 'https://ksurvivalkit.com/ru/housing',
         ja: 'https://ksurvivalkit.com/ja/housing',
         vi: 'https://ksurvivalkit.com/vi/housing',
+        'x-default': 'https://ksurvivalkit.com/en/housing',
       },
     },
     openGraph: {

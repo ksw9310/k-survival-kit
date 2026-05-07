@@ -40,6 +40,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         ru: 'https://ksurvivalkit.com/ru/nearby',
         ja: 'https://ksurvivalkit.com/ja/nearby',
         vi: 'https://ksurvivalkit.com/vi/nearby',
+        'x-default': 'https://ksurvivalkit.com/en/nearby',
       },
     },
   };
