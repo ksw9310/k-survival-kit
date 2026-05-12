@@ -216,6 +216,25 @@ const allRelated: Record<string, RelatedPost> = {
       vi: 'Cách rẻ nhất để chuyển tiền quốc tế từ Hàn Quốc — so sánh Wise và ngân hàng Hàn Quốc.',
     },
   },
+  'part-time-jobs-korea': {
+    href: '/part-time-jobs-korea',
+    icon: '💼',
+    eyebrow: { en: 'Work', zh: '工作', ru: 'Работа', ja: '仕事', vi: 'Công việc' },
+    title: {
+      en: 'Part-Time Jobs in Korea',
+      zh: '韩国兼职工作',
+      ru: 'Подработка в Корее',
+      ja: 'アルバイト in 韓国',
+      vi: 'Việc làm thêm ở Hàn Quốc',
+    },
+    description: {
+      en: 'Can international students work in Korea? Visa rules, work permits, job types and where to find them.',
+      zh: '留学生可以在韩国打工吗？签证规定、工作许可、岗位类型及求职渠道。',
+      ru: 'Могут ли иностранные студенты работать в Корее? Визовые правила, разрешения и где искать работу.',
+      ja: '留学生は韓国でアルバイトできる？ビザルール・就労許可・求人の探し方。',
+      vi: 'Du học sinh có được làm thêm ở Hàn Quốc không? Quy định visa, giấy phép và cách tìm việc.',
+    },
+  },
 };
 
 const relatedMap: Record<string, string[]> = {
@@ -231,6 +250,7 @@ const relatedMap: Record<string, string[]> = {
   'korea-delivery-apps-guide': ['daily-life', 'how-to-get-sim-card-in-korea', 'best-bank-account-for-foreigners-korea'],
   'korea-rent-deposit-system': ['housing', 'visa', 'getting-started'],
   'how-to-send-money-from-korea': ['best-bank-account-for-foreigners-korea', 'arc-card-korea-guide', 'getting-started'],
+  'part-time-jobs-korea': ['visa', 'arc-card-korea-guide', 'best-bank-account-for-foreigners-korea'],
 };
 
 function loc<T>(obj: Record<L, T>, lang: string): T {

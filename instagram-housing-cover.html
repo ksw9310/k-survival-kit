@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a1a; display: flex; justify-content: center; padding: 40px 0; }
+
+  .slide {
+    width: 1080px;
+    height: 1080px;
+    position: relative;
+    background-color: #f0ebe0;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .slide::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(112deg, transparent 42%, rgba(0,0,0,0.025) 43%, rgba(0,0,0,0.025) 44%, transparent 45%),
+      linear-gradient(68deg, transparent 25%, rgba(0,0,0,0.018) 26%, rgba(0,0,0,0.018) 27%, transparent 28%),
+      linear-gradient(125deg, transparent 58%, rgba(0,0,0,0.022) 59%, rgba(0,0,0,0.022) 60%, transparent 61%),
+      repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,0,0,0.009) 3px, rgba(0,0,0,0.009) 4px);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .slide-inner {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 80px 80px 56px 80px;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    background: #e8174a;
+    padding: 12px 26px;
+    transform: rotate(-1.2deg);
+    width: fit-content;
+  }
+  .badge span {
+    font-family: 'Anton', sans-serif;
+    font-size: 42px;
+    color: #fff;
+    letter-spacing: 3px;
+    line-height: 1;
+  }
+
+  .cover-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  .cover-title {
+    font-family: 'Anton', sans-serif;
+    font-size: 148px;
+    line-height: 0.90;
+    color: #0d0d0d;
+    text-transform: uppercase;
+    margin-top: 36px;
+  }
+
+  .cover-arrow {
+    font-family: 'Anton', sans-serif;
+    font-size: 110px;
+    color: #e8174a;
+    margin-top: 60px;
+    flex-shrink: 0;
+  }
+
+  .brand-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .brand {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: #0d0d0d;
+    letter-spacing: 1px;
+    text-transform: lowercase;
+  }
+  .brand-line {
+    width: 920px;
+    height: 5px;
+    background: #e8174a;
+  }
+</style>
+</head>
+<body>
+  <div class="slide">
+    <div class="slide-inner">
+      <div>
+        <div class="badge"><span>GUIDE TO</span></div>
+        <div class="cover-row">
+          <div class="cover-title">HOUSING<br>IN<br>KOREA 🏠</div>
+          <div class="cover-arrow">→</div>
+        </div>
+      </div>
+      <div class="brand-wrap">
+        <span class="brand">korea.survival.kit</span>
+        <div class="brand-line"></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

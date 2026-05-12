@@ -23,6 +23,7 @@ const EXTRA_LABELS: Record<
     terms: string;
     makingFriends: string;
     simCard: string;
+    partTimeJobs: string;
   }
 > = {
   en: {
@@ -34,6 +35,7 @@ const EXTRA_LABELS: Record<
     terms: 'Terms of Use',
     makingFriends: 'Making Friends',
     simCard: 'SIM Card Guide',
+    partTimeJobs: 'Part-Time Jobs',
   },
   zh: {
     nearby: '查找周边',
@@ -44,6 +46,7 @@ const EXTRA_LABELS: Record<
     terms: '使用条款',
     makingFriends: '交朋友',
     simCard: 'SIM卡指南',
+    partTimeJobs: '兼职工作',
   },
   ru: {
     nearby: 'Рядом со мной',
@@ -54,6 +57,7 @@ const EXTRA_LABELS: Record<
     terms: 'Условия',
     makingFriends: 'Знакомства',
     simCard: 'Гид по SIM-карте',
+    partTimeJobs: 'Подработка',
   },
   ja: {
     nearby: '近くを探す',
@@ -64,6 +68,7 @@ const EXTRA_LABELS: Record<
     terms: '利用規約',
     makingFriends: '友達を作ろう',
     simCard: 'SIMカードガイド',
+    partTimeJobs: 'アルバイト',
   },
   vi: {
     nearby: 'Tìm gần đây',
@@ -74,6 +79,7 @@ const EXTRA_LABELS: Record<
     terms: 'Điều khoản sử dụng',
     makingFriends: 'Kết bạn',
     simCard: 'Hướng dẫn SIM',
+    partTimeJobs: 'Làm thêm',
   },
 };
 
@@ -95,6 +101,7 @@ export default function Footer({ lang }: { lang: Lang }) {
     { href: `/${lang}/emergency-contacts`, label: ex.emergencyContacts },
     { href: `/${lang}/making-friends`, label: ex.makingFriends },
     { href: `/${lang}/how-to-get-sim-card-in-korea`, label: ex.simCard },
+    { href: `/${lang}/part-time-jobs-korea`, label: ex.partTimeJobs },
   ];
 
   return (
