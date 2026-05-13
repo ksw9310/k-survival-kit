@@ -586,6 +586,36 @@ const CONTENT: Record<L, PageContent> = {
   },
 };
 
+// ── Useful Links section (multilingual labels, links are language-agnostic) ──
+const LINKS_TITLE: Record<L, string> = {
+  en: 'Useful Links & Resources',
+  zh: '实用链接与资源',
+  ru: 'Полезные ссылки и ресурсы',
+  ja: '役立つリンク・リソース',
+  vi: 'Liên kết hữu ích',
+};
+const LINKS_DESC: Record<L, string> = {
+  en: 'Official sites and platforms mentioned in this guide.',
+  zh: '本指南中提到的官方网站和平台。',
+  ru: 'Официальные сайты и платформы, упомянутые в этом гайде.',
+  ja: 'このガイドで紹介した公式サイトとプラットフォームです。',
+  vi: 'Các trang web và nền tảng chính thức được đề cập trong hướng dẫn này.',
+};
+const TUTORING_LABEL: Record<L, string> = {
+  en: 'Teach English Online',
+  zh: '线上英语家教',
+  ru: 'Обучение английскому онлайн',
+  ja: 'オンライン英語指導',
+  vi: 'Dạy tiếng Anh trực tuyến',
+};
+const TUTORING_DESC: Record<L, string> = {
+  en: 'Register as a tutor and earn ₩25,000–₩50,000/hr. No Korean needed.',
+  zh: '注册成为家教，时薪₩25,000–₩50,000，无需韩语。',
+  ru: 'Зарегистрируйтесь как репетитор и зарабатывайте ₩25 000–₩50 000/ч. Корейский не нужен.',
+  ja: '家庭教師として登録し、時給₩25,000〜₩50,000を稼げます。韓国語不要。',
+  vi: 'Đăng ký làm gia sư và kiếm ₩25.000–₩50.000/giờ. Không cần tiếng Hàn.',
+};
+
 type Props = { params: Promise<{ lang: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -749,6 +779,75 @@ export default async function PartTimeJobsKoreaPage({ params }: Props) {
             <ul className="list-disc space-y-2 pl-6 text-slate-700">
               {c.s5Items.map((item, i) => <li key={i} className="leading-7">{item}</li>)}
             </ul>
+          </section>
+
+          {/* Useful Links */}
+          <section className="space-y-4">
+            <h2 className="text-2xl font-bold text-slate-900">{LINKS_TITLE[l]}</h2>
+            <p className="leading-7 text-slate-700">{LINKS_DESC[l]}</p>
+            <div className="grid gap-3 sm:grid-cols-2">
+
+              {/* HiKorea — work permit application */}
+              <a
+                href="https://www.hikorea.go.kr"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex flex-col rounded-xl border border-slate-200 bg-white p-4 transition-colors hover:border-rose-300 hover:bg-rose-50"
+              >
+                <p className="font-bold text-slate-800">🏛️ HiKorea — hikorea.go.kr</p>
+                <p className="mt-1 text-sm leading-6 text-slate-500">Apply for part-time work permit online (시간제취업허가)</p>
+                <span className="mt-2 text-xs font-semibold uppercase tracking-wide text-rose-500">Official · Free</span>
+              </a>
+
+              {/* Albamon */}
+              <a
+                href="https://www.albamon.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex flex-col rounded-xl border border-slate-200 bg-white p-4 transition-colors hover:border-rose-300 hover:bg-rose-50"
+              >
+                <p className="font-bold text-slate-800">💼 알바몬 (Albamon)</p>
+                <p className="mt-1 text-sm leading-6 text-slate-500">Korea's largest part-time job board</p>
+                <span className="mt-2 text-xs font-semibold uppercase tracking-wide text-rose-500">Job Board · Free</span>
+              </a>
+
+              {/* Albacheon */}
+              <a
+                href="https://www.alba.co.kr"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex flex-col rounded-xl border border-slate-200 bg-white p-4 transition-colors hover:border-rose-300 hover:bg-rose-50"
+              >
+                <p className="font-bold text-slate-800">🔍 알바천국 (Albacheon)</p>
+                <p className="mt-1 text-sm leading-6 text-slate-500">Find part-time jobs near your campus</p>
+                <span className="mt-2 text-xs font-semibold uppercase tracking-wide text-rose-500">Job Board · Free</span>
+              </a>
+
+              {/* Preply — affiliate */}
+              <a
+                href="https://preply.sjv.io/R0bYXa"
+                target="_blank"
+                rel="noopener noreferrer sponsored"
+                className="flex flex-col rounded-xl border border-slate-200 bg-white p-4 transition-colors hover:border-rose-300 hover:bg-rose-50"
+              >
+                <p className="font-bold text-slate-800">🎓 Preply — {TUTORING_LABEL[l]}</p>
+                <p className="mt-1 text-sm leading-6 text-slate-500">{TUTORING_DESC[l]}</p>
+                <span className="mt-2 text-xs font-semibold uppercase tracking-wide text-rose-500">English Tutoring</span>
+              </a>
+
+              {/* iTalki — affiliate */}
+              <a
+                href="https://www.italki.com/affshare?ref=af31844697"
+                target="_blank"
+                rel="noopener noreferrer sponsored"
+                className="flex flex-col rounded-xl border border-slate-200 bg-white p-4 transition-colors hover:border-rose-300 hover:bg-rose-50"
+              >
+                <p className="font-bold text-slate-800">💬 iTalki — {TUTORING_LABEL[l]}</p>
+                <p className="mt-1 text-sm leading-6 text-slate-500">{TUTORING_DESC[l]}</p>
+                <span className="mt-2 text-xs font-semibold uppercase tracking-wide text-rose-500">English Tutoring</span>
+              </a>
+
+            </div>
           </section>
 
           {/* What you need */}
