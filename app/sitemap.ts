@@ -26,6 +26,7 @@ const blogRoutes = [
   '/korea-delivery-apps-guide',
   '/korea-rent-deposit-system',
   '/how-to-send-money-from-korea',
+  '/korea-health-insurance-guide',
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

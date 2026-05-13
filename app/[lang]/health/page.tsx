@@ -65,6 +65,36 @@ export default async function HealthPage({ params }: Props) {
       />
       <PageDisclaimer type="health" />
       <SectionGrid items={content.cards} />
+
+      {/* NHIS deep-dive link */}
+      <section className="bg-white px-6 py-8">
+        <div className="mx-auto max-w-4xl">
+          <a
+            href={`/${lang}/korea-health-insurance-guide`}
+            className="flex items-center justify-between rounded-2xl border border-slate-200 bg-slate-50 px-6 py-5 transition hover:border-slate-400 hover:shadow-sm"
+          >
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-wide text-slate-400">NHIS Guide</p>
+              <p className="mt-1 font-semibold text-slate-900">
+                {lang === 'zh' ? '国民健康保险（NHIS）完整指南 →' :
+                 lang === 'ru' ? 'Полное руководство по NHIS →' :
+                 lang === 'ja' ? '国民健康保険（NHIS）完全ガイド →' :
+                 lang === 'vi' ? 'Hướng dẫn đầy đủ về NHIS →' :
+                 'Full NHIS Health Insurance Guide →'}
+              </p>
+              <p className="mt-1 text-sm text-slate-600">
+                {lang === 'zh' ? '月费₩79,320 · 6个月后自动加入 · 未缴影响签证' :
+                 lang === 'ru' ? '₩79,320/мес · Авто-включение после 6 мес · Долг блокирует визу' :
+                 lang === 'ja' ? '月額₩79,320 · 6ヶ月後に自動加入 · 未払いはビザに影響' :
+                 lang === 'vi' ? '₩79,320/tháng · Tự động đăng ký sau 6 tháng · Nợ phí ảnh hưởng visa' :
+                 '₩79,320/month · Auto-enrolled after 6 months · Unpaid fees affect visa renewal'}
+              </p>
+            </div>
+            <span className="ml-4 text-2xl text-slate-400">→</span>
+          </a>
+        </div>
+      </section>
+
       <NearbyStrip
         lang={lang}
         titleKey="healthcare"
