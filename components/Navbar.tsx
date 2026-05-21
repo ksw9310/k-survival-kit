@@ -4,6 +4,7 @@ import type { Lang } from '@/lib/i18n';
 import LanguageSwitcher from './LanguageSwitcher';
 import NavDropdown from './NavDropdown';
 import MobileMenu from './MobileMenu';
+import SearchButton from './SearchButton';
 
 type Item = { href: string; label: string };
 type Group = { label: string; items: Item[] };
@@ -168,6 +169,8 @@ export default function Navbar({ lang }: { lang: Lang }) {
         </div>
 
         <div className="flex items-center gap-2">
+          {/* Search button — all screen sizes */}
+          <SearchButton lang={lang} />
           {/* Language switcher — desktop only */}
           <div className="hidden md:block">
             <LanguageSwitcher currentLang={lang} />
