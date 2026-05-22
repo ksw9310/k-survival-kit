@@ -7,18 +7,20 @@ type Props = {
   params: Promise<{ lang: string }>;
 };
 
-export async function generateMetadata(): Promise<Metadata> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { lang } = await params;
   return {
     title: 'About | K-Survival Kit',
     description:
       'K-Survival Kit was created by SW Kang to help international students navigate life in Korea more easily. Learn the story behind the site.',
     alternates: {
-      canonical: 'https://ksurvivalkit.com/en/about',
+      canonical: `https://ksurvivalkit.com/${lang}/about`,
       languages: {
         en: 'https://ksurvivalkit.com/en/about',
         zh: 'https://ksurvivalkit.com/zh/about',
         ru: 'https://ksurvivalkit.com/ru/about',
         ja: 'https://ksurvivalkit.com/ja/about',
+        vi: 'https://ksurvivalkit.com/vi/about',
       },
     },
   };
