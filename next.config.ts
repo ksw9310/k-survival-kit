@@ -23,6 +23,7 @@ const PAGE_SLUGS = [
   'part-time-jobs-korea',
   'about',
   'terms',
+  'community',
 ].join('|');
 
 const nextConfig: NextConfig = {

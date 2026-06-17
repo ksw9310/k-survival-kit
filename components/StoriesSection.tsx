@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import type { Lang } from '@/lib/i18n';
 import type { Story } from '@/lib/supabase';
 
@@ -48,6 +49,7 @@ const T: Record<Lang, {
   emptyMsg: string;
   loadingMsg: string;
   selectCountry: string;
+  seeAll: string;
 }> = {
   en: {
     title: 'Real Stories from Korea',
@@ -63,6 +65,7 @@ const T: Record<Lang, {
     emptyMsg: 'Be the first to share your Korea story!',
     loadingMsg: 'Loading stories…',
     selectCountry: 'Select your country',
+    seeAll: 'See all stories →',
   },
   zh: {
     title: '在韩留学生的真实故事',
@@ -78,6 +81,7 @@ const T: Record<Lang, {
     emptyMsg: '成为第一个分享韩国故事的人！',
     loadingMsg: '加载中…',
     selectCountry: '选择您的国家',
+    seeAll: '查看所有故事 →',
   },
   ru: {
     title: 'Реальные истории из Кореи',
@@ -93,6 +97,7 @@ const T: Record<Lang, {
     emptyMsg: 'Станьте первым, кто поделится историей о Корее!',
     loadingMsg: 'Загрузка…',
     selectCountry: 'Выберите страну',
+    seeAll: 'Смотреть все истории →',
   },
   ja: {
     title: '韓国のリアルな体験談',
@@ -108,6 +113,7 @@ const T: Record<Lang, {
     emptyMsg: '最初に韓国の体験談をシェアしてみましょう！',
     loadingMsg: '読み込み中…',
     selectCountry: '国を選択',
+    seeAll: 'すべての体験談を見る →',
   },
   vi: {
     title: 'Câu chuyện thật từ Hàn Quốc',
@@ -123,6 +129,7 @@ const T: Record<Lang, {
     emptyMsg: 'Hãy là người đầu tiên chia sẻ câu chuyện tại Hàn Quốc!',
     loadingMsg: 'Đang tải…',
     selectCountry: 'Chọn quốc gia của bạn',
+    seeAll: 'Xem tất cả câu chuyện →',
   },
 };
 
@@ -245,7 +252,7 @@ function StoryForm({ lang, onSuccess }: { lang: Lang; onSuccess: () => void }) {
 }
 
 // ── 메인 컴포넌트 ──────────────────────────────────────────
-export default function StoriesSection({ lang }: { lang: Lang }) {
+export default function StoriesSection({ lang, preview = false }: { lang: Lang; preview?: boolean }) {
   const t = T[lang];
   const [stories, setStories] = useState<Story[]>([]);
   const [loading, setLoading] = useState(true);
@@ -267,6 +274,8 @@ export default function StoriesSection({ lang }: { lang: Lang }) {
     fetchStories();
   }, []);
 
+  const displayedStories = preview ? stories.slice(0, 3) : stories;
+
   return (
     <section className="bg-slate-50 px-6 py-16">
       <div className="mx-auto max-w-6xl">
@@ -281,7 +290,7 @@ export default function StoriesSection({ lang }: { lang: Lang }) {
             </h2>
             <p className="mt-2 text-sm text-slate-500">{t.subtitle}</p>
           </div>
-          {!showForm && (
+          {!preview && !showForm && (
             <button
               onClick={() => setShowForm(true)}
               className="shrink-0 rounded-xl border border-rose-200 bg-white px-5 py-2.5 text-sm font-semibold text-rose-500 transition-colors hover:bg-rose-50"
@@ -291,8 +300,8 @@ export default function StoriesSection({ lang }: { lang: Lang }) {
           )}
         </div>
 
-        {/* 폼 */}
-        {showForm && (
+        {/* 폼 (커뮤니티 전체 페이지에서만) */}
+        {!preview && showForm && (
           <div className="mb-10">
             <StoryForm
               lang={lang}
@@ -310,7 +319,7 @@ export default function StoriesSection({ lang }: { lang: Lang }) {
         ) : stories.length === 0 ? (
           <div className="rounded-2xl border border-dashed border-slate-200 py-16 text-center">
             <p className="text-slate-400">{t.emptyMsg}</p>
-            {!showForm && (
+            {!preview && !showForm && (
               <button
                 onClick={() => setShowForm(true)}
                 className="mt-4 rounded-xl bg-rose-500 px-6 py-2.5 text-sm font-semibold text-white hover:bg-rose-600 transition-colors"
@@ -320,11 +329,25 @@ export default function StoriesSection({ lang }: { lang: Lang }) {
             )}
           </div>
         ) : (
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {stories.map((story) => (
-              <StoryCard key={story.id} story={story} />
-            ))}
-          </div>
+          <>
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {displayedStories.map((story) => (
+                <StoryCard key={story.id} story={story} />
+              ))}
+            </div>
+
+            {/* 미리보기 모드: "모두 보기" 버튼 */}
+            {preview && (
+              <div className="mt-10 text-center">
+                <Link
+                  href={`/${lang}/community`}
+                  className="inline-block rounded-xl border border-rose-200 bg-white px-8 py-3 text-sm font-semibold text-rose-500 transition-colors hover:bg-rose-50"
+                >
+                  {t.seeAll}
+                </Link>
+              </div>
+            )}
+          </>
         )}
       </div>
     </section>

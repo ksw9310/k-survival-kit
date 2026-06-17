@@ -68,7 +68,7 @@ export default async function HomePage({ params }: Props) {
       <CategoryLinks lang={lang as Lang} />
       <LatestGuides lang={lang} />
       <CurrencyCalculator lang={lang as Lang} />
-      <StoriesSection lang={lang as Lang} />
+      <StoriesSection lang={lang as Lang} preview={true} />
     </main>
   );
 }
