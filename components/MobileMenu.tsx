@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation';
 import { locales, type Lang } from '@/lib/i18n';
 
 type Item = { href: string; label: string };
-type Group = { label: string; items: Item[] };
+type Group = { label: string; items: Item[]; href?: string };
 
 type Props = {
   groups: Group[];
@@ -59,22 +59,35 @@ export default function MobileMenu({ groups, currentLang }: Props) {
           <div className="relative bg-white border-b border-slate-200 shadow-xl overflow-y-auto max-h-[calc(100vh-57px)]">
             <div className="px-4 py-4 space-y-1">
 
-              {/* 3 groups */}
+              {/* 그룹 목록 */}
               {groups.map((group, i) => (
                 <div key={group.label} className={i > 0 ? 'border-t border-slate-100 pt-4 mt-2' : ''}>
-                  <p className="px-4 pb-2 text-xs font-bold uppercase tracking-widest text-slate-400">
-                    {group.label}
-                  </p>
-                  {group.items.map((link) => (
+                  {group.href ? (
+                    /* 직접 링크 (Community 등) */
                     <Link
-                      key={link.href}
-                      href={link.href}
+                      href={group.href}
                       onClick={() => setOpen(false)}
-                      className="flex items-center rounded-xl px-4 py-3 text-sm font-medium text-slate-700 transition-colors hover:bg-rose-50 hover:text-rose-600"
+                      className="flex items-center rounded-xl px-4 py-3 text-sm font-bold text-rose-500 transition-colors hover:bg-rose-50"
                     >
-                      {link.label}
+                      {group.label} →
                     </Link>
-                  ))}
+                  ) : (
+                    <>
+                      <p className="px-4 pb-2 text-xs font-bold uppercase tracking-widest text-slate-400">
+                        {group.label}
+                      </p>
+                      {group.items.map((link) => (
+                        <Link
+                          key={link.href}
+                          href={link.href}
+                          onClick={() => setOpen(false)}
+                          className="flex items-center rounded-xl px-4 py-3 text-sm font-medium text-slate-700 transition-colors hover:bg-rose-50 hover:text-rose-600"
+                        >
+                          {link.label}
+                        </Link>
+                      ))}
+                    </>
+                  )}
                 </div>
               ))}
 
