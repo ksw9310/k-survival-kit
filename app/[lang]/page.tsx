@@ -5,6 +5,7 @@ import QuickStart from '@/components/QuickStart';
 import CategoryLinks from '@/components/CategoryLinks';
 import LatestGuides from '@/components/LatestGuides';
 import CurrencyCalculator from '@/components/CurrencyCalculator';
+import StoriesSection from '@/components/StoriesSection';
 import { getDictionary } from '@/data';
 import { isValidLocale, type Lang } from '@/lib/i18n';
 
@@ -67,6 +68,7 @@ export default async function HomePage({ params }: Props) {
       <CategoryLinks lang={lang as Lang} />
       <LatestGuides lang={lang} />
       <CurrencyCalculator lang={lang as Lang} />
+      <StoriesSection lang={lang as Lang} />
     </main>
   );
 }
